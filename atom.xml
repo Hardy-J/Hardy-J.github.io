@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hardy-j.github.io/"/>
-  <updated>2020-03-16T09:39:52.501Z</updated>
+  <updated>2020-03-22T05:58:34.154Z</updated>
   <id>https://hardy-j.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mpvue</title>
+    <link href="https://hardy-j.github.io/2020/mpvue/"/>
+    <id>https://hardy-j.github.io/2020/mpvue/</id>
+    <published>2020-03-22T03:56:01.000Z</published>
+    <updated>2020-03-22T05:58:34.154Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;了解一下mpvue&quot;&gt;&lt;a href=&quot;#了解一下mpvue&quot; class=&quot;headerlink&quot; title=&quot;了解一下mpvue&quot;&gt;&lt;/a&gt;了解一下&lt;a href=&quot;http://mpvue.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;mpvue&lt;/a&gt;&lt;/h1&gt;&lt;p&gt; 一个使用 &lt;a href=&quot;https://vuejs.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vue.js&lt;/a&gt; 开发小程序的前端框架。框架基于 &lt;code&gt;Vue.js&lt;/code&gt; 核心，&lt;code&gt;mpvue&lt;/code&gt; 修改了 &lt;code&gt;Vue.js&lt;/code&gt; 的 runtime 和 compiler 实现，使其可以运行在小程序环境中，从而为小程序开发引入了整套 &lt;code&gt;Vue.js&lt;/code&gt; 开发体验。 &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="学习" scheme="https://Hardy-J.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="mpvue" scheme="https://Hardy-J.github.io/tags/mpvue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blog</title>
+    <link href="https://hardy-j.github.io/2020/Blog/"/>
+    <id>https://hardy-j.github.io/2020/Blog/</id>
+    <published>2020-03-14T06:24:23.000Z</published>
+    <updated>2020-03-22T06:01:10.815Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;人生最难得的三个字&quot;&gt;&lt;a href=&quot;#人生最难得的三个字&quot; class=&quot;headerlink&quot; title=&quot;人生最难得的三个字&quot;&gt;&lt;/a&gt;人生最难得的三个字&lt;/h1&gt;&lt;p&gt;人生不可能永远是坦途，复杂让我们烦恼忧愁，浮躁让我们不堪一击，邋遢让我们表里不一。 &lt;/p&gt;
+&lt;p&gt;简是幸福，静是根本，净是福气。世事变幻，人生最难得的就是这三个字。&lt;/p&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/tags/article/"/>
+    
+  </entry>
   
   <entry>
     <title>关于</title>
@@ -39,34 +85,6 @@
     
     
       <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Blog</title>
-    <link href="https://hardy-j.github.io/2020/Blog/"/>
-    <id>https://hardy-j.github.io/2020/Blog/</id>
-    <published>2020-03-07T06:24:23.000Z</published>
-    <updated>2020-03-16T10:08:29.424Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;人生最难得的三个字&quot;&gt;&lt;a href=&quot;#人生最难得的三个字&quot; class=&quot;headerlink&quot; title=&quot;人生最难得的三个字&quot;&gt;&lt;/a&gt;人生最难得的三个字&lt;/h1&gt;&lt;p&gt;人生不可能永远是坦途，复杂让我们烦恼忧愁，浮躁让我们不堪一击，邋遢让我们表里不一。 &lt;/p&gt;
-&lt;p&gt;简是幸福，静是根本，净是福气。世事变幻，人生最难得的就是这三个字。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1&quot;&gt;&lt;/a&gt;1&lt;/h2&gt;&lt;h3 align=&quot;center&quot;&gt;一个安静且优雅的 Hexo 主题&lt;/h3&gt;
-
-&lt;p&gt;前段时间，朋友方菲突然发了一条朋友圈：“有点想辞职了，迷茫。”&lt;/p&gt;
-&lt;p&gt;她对我说，觉得处理人际关系比工作还要累，成天心力交瘁。公司里人际关系盘根错节，身边的人看起来一团和气，但是没有几个人对自己敞开心扉、推心置腹。大家都戴着厚厚的面具，喜怒不形于色。&lt;/p&gt;
-&lt;p&gt;为了不得罪别人，她每天都活得小心翼翼。她苦笑着问我：“因为人际关系而辞职，你会不会觉得我特别怂？”&lt;/p&gt;
-&lt;p&gt;我想了想，发给了她这样一段话：“做一个简单的人，不与复杂的人和事纠缠，才能吃得香、睡得好，过得轻松而快乐。”&lt;/p&gt;
-&lt;p&gt;一个人最难得的品质是简单。大道至简，少就是多。&lt;strong&gt;学会做一个简单的人，是一个人一生的必修课。幸福的人生，从来都是简单的。&lt;/strong&gt;  &lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="article" scheme="https://Hardy-J.github.io/tags/article/"/>
     
   </entry>
   

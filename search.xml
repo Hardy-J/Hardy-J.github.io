@@ -1,6 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>mpvue</title>
+    <url>/2020/mpvue/</url>
+    <content><![CDATA[<h1 id="了解一下mpvue"><a href="#了解一下mpvue" class="headerlink" title="了解一下mpvue"></a>了解一下<a href="http://mpvue.com/" target="_blank" rel="noopener">mpvue</a></h1><p> 一个使用 <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.js</a> 开发小程序的前端框架。框架基于 <code>Vue.js</code> 核心，<code>mpvue</code> 修改了 <code>Vue.js</code> 的 runtime 和 compiler 实现，使其可以运行在小程序环境中，从而为小程序开发引入了整套 <code>Vue.js</code> 开发体验。 </p>
+<a id="more"></a>
+<h2 id="1-用Vue写小程序：机理"><a href="#1-用Vue写小程序：机理" class="headerlink" title="1.用Vue写小程序：机理"></a>1.用Vue写小程序：机理</h2><h5 id="webpack和相关的loader将vue的程序变为wxml、wxss、js、json。"><a href="#webpack和相关的loader将vue的程序变为wxml、wxss、js、json。" class="headerlink" title="webpack和相关的loader将vue的程序变为wxml、wxss、js、json。"></a>webpack和相关的loader将vue的程序变为wxml、wxss、js、json。</h5><p> 比如，写的： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;Hello&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>编译后</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;view&gt;Hello&lt;&#x2F;view&gt;</span><br></pre></td></tr></table></figure>
+
+<p>再比如，</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div @click&#x3D;&quot;add(5)&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>编译后</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;view data-n&#x3D;&quot;5&quot; bindtap&#x3D;&quot;add&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-快速上手-搭建"><a href="#2-快速上手-搭建" class="headerlink" title="2.快速上手(搭建)"></a>2.快速上手(搭建)</h2><p>环境： <a href="https://nodejs.org/" target="_blank" rel="noopener">nodejs</a>       <a href="https://cli.vuejs.org/zh/" target="_blank" rel="noopener">vue-cli</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">创建一个基于 mpvue-quickstart 模板的新项目</span><br><span class="line">$ vue init mpvue/mpvue-quickstart my-project</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以下是配置项 # 新手一路回车选择默认就可以了</span></span><br><span class="line">? Project name my-project</span><br><span class="line">? wxmp appid touristappid	<span class="comment"># 默认游客id</span></span><br><span class="line">? Project description A Mpvue project</span><br><span class="line">? Author </span><br><span class="line">? Vue build runtime</span><br><span class="line">? Use Vuex? Yes</span><br><span class="line">? Use ESLint to lint your code? Yes</span><br><span class="line">? 小程序测试，敬请关注最新微信开发者工具的“测试报告”功能</span><br><span class="line"></span><br><span class="line">   vue-cli · Generated <span class="string">"my-project"</span>.</span><br><span class="line"></span><br><span class="line">   To get started:</span><br><span class="line"></span><br><span class="line">     <span class="built_in">cd</span> my-project</span><br><span class="line">     npm install</span><br><span class="line">     npm run dev</span><br><span class="line"></span><br><span class="line">   Documentation can be found at http://mpvue.com</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">安装依赖</span><br><span class="line">$ cd my-project</span><br><span class="line">$ npm install</span><br><span class="line">$ npm run dev</span><br></pre></td></tr></table></figure>
+
+<p> 运行成功的回显之后，可以看到本地多了个 <code>dist</code> 目录，这个目录里就是生成的小程序相关代码。 </p>
+<h2 id="3-快速上手-开发"><a href="#3-快速上手-开发" class="headerlink" title="3.快速上手(开发)"></a>3.快速上手(开发)</h2><p>选择 <code>小程序项目</code> 并依次填好需要的信息：</p>
+<ul>
+<li>项目目录：就是刚刚创建的项目目录（非 dist 目录）</li>
+<li>AppID：没有的话可以点选体验“小程序”，只影响是否可以真机调试。</li>
+<li>项目名称。</li>
+</ul>
+<p>如图：</p>
+<img src="https://pic.downk.cc/item/5e76f2659d7d586a54920c69.png" style="zoom:50%;" />
+
+<p> 接下来就可以用编辑器（或者IDE）打开 <code>my-project</code> 中的 <code>src</code> 目录下的代码编写试试 </p>
+<h2 id="4-特殊限制"><a href="#4-特殊限制" class="headerlink" title="4.特殊限制"></a>4.特殊限制</h2><h4 id="内置组件"><a href="#内置组件" class="headerlink" title="内置组件"></a><strong>内置组件</strong></h4><p>slider、map、camera √</p>
+<p>vuex √</p>
+<p>组件 √</p>
+<p>vue生命周期 ×</p>
+<p>小程序生命周期 √</p>
+<p>v-if、v-for √</p>
+<p>以上这些好用的功能，在mpvue中，记得都是通通不能用的哦！！！</p>
+<p>在模板中，用于数据绑定的双括号语法中的表达式功能存在诸多限制。</p>
+<p>我们只能在双括号中使用一些简单的运算符运算（+ - * % ?: ! == === &gt; &lt; [] .）。</p>
+<p>​    但是也得找些可用的替代方案呐，大伙先考虑使用计算属性(computed)来做吧。</p>
+<p>在模板中，动态插入HTML的<code>v-html</code>指令不可用</p>
+<p>​    这条很好理解，小程序的界面并不是基于浏览器的BOM/DOM的，所以不能动态的在界面模板里直接插入HTML    片段来显示。</p>
+<p>​    题外话，如果有在小程序里插入html片段的需求怎么办？可以用``组件或者`<a href="https://github.com/icindy/wxParse" target="_blank" rel="noopener">wxParse</a>来实现。</p>
+<h4 id="methods下的函数"><a href="#methods下的函数" class="headerlink" title="methods下的函数"></a><strong>methods下的函数</strong></h4><p> 在模板中，除事件监听外，其余地方都不能调用methods下的函数 </p>
+<p>在Vue中，模板里调用methods部分定义的函数是非常常见的，比如下面这段代码所示，</p>
+<p><em>在v-if指令中调用函数getErrorNum()：</em></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div v-if&#x3D;&quot;getErrorNum() &gt; 0  &amp;&amp; code &#x3D;&#x3D; 10001&quot; class&#x3D;&quot;error&quot;&gt;&#123;&#123; errorMsg &#125;&#125;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>可是，在mpvue里就是不可以用！因为在小程序原生模板wxml里就不支持这种函数调用，导致mpvue没有很好的方式转译过去（虽然小程序有wxs，但是感觉翻译过去mpvue要做的工作会比较复杂）。</p>
+<p>所以，可用的替代方案可能还是计算属性了。</p>
+<h4 id="style或class属性"><a href="#style或class属性" class="headerlink" title="style或class属性"></a>style或class属性</h4><p> 在模板中，不支持直接绑定一个对象到<code>style</code>或<code>class</code>属性上 </p>
+<p> 在Vue中我们可以为HTML元素的<code>class</code>或<code>style</code>绑定一个对象，并按照对象内的属性值来决定是否添加对应的属性名到HTML元素的样式名。示例如下： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div :class&#x3D;&quot;classObject&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      classObject: &#123;</span><br><span class="line">        active: true,</span><br><span class="line">        &#39;text-danger&#39;: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 上面这段代码的运行后生成的HTML将是： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;active&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 但是在mpvue下面这个特性也不能用，按官方说法是由于涉及到一些性能相关的原因。那如果要动态改变组件的<code>class</code>该怎么写呢？官方给出的方式是这样的： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div :class&#x3D;&quot;&#123; active: classObject.active, &#39;text-danger&#39;: classObject[&#39;text-danger&#39;]&#125;&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其实改动不大，稍微多打了一些字而已，相当于在模板的<code>class</code>里再定义一个对象罢了。但是据文档中说这样会提升性能。好吧，为了性能，这点麻烦还是能忍受的。但是它又说了：从性能考虑，建议不要过度依赖此……看来即使这样，也还是有性能问题。</p>
+<p>看来最好一点的方案，还是得使用计算属性，直接生成一串样式的字符串，绑定到<code>class</code>或<code>style</code>上：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div :class&#x3D;&quot;classStr&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      classObject: &#123;</span><br><span class="line">        active: true,</span><br><span class="line">        &#39;text-danger&#39;: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    classStr() &#123;</span><br><span class="line">      let arr &#x3D; []</span><br><span class="line">      for (let p in this.classObject) &#123;</span><br><span class="line">        if (this.classObject[p]) &#123;</span><br><span class="line">          arr.push(p)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return arr.join(&#39; &#39;) </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h4><p> 在模板中，嵌套使用<code>v-for</code>时，必须指定索引<code>index</code> </p>
+<p> 通常，我们在Vue模板中嵌套循环渲染数组的时候，一般是这个样子的： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;ul v-for&#x3D;&quot;category in categories&quot;&gt;</span><br><span class="line">    &lt;li v-for&#x3D;&quot;product in category.products&quot;&gt;&#123;&#123;product.name&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 但在mpvue中使用这种嵌套结构的<code>v-for</code>时，则必须每层的<code>v-for</code>上都给出索引，且索引需取不同名字： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;ul v-for&#x3D;&quot;(category, index) in categories&quot;&gt;</span><br><span class="line">    &lt;li v-for&#x3D;&quot;(product, productIndex) in category.products&quot;&gt;&#123;&#123;product.name&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h4><p>在mpvue中，一般可以使用Web的DOM事件名来绑定事件，mpvue会将Web事件名映射成对应的小程序事件名，对应列表如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 左侧为WEB事件 : 右侧为对应的小程序事件</span><br><span class="line">&#123;</span><br><span class="line">    click: &#39;tap&#39;,</span><br><span class="line">    touchstart: &#39;touchstart&#39;,</span><br><span class="line">    touchmove: &#39;touchmove&#39;,</span><br><span class="line">    touchcancel: &#39;touchcancel&#39;,</span><br><span class="line">    touchend: &#39;touchend&#39;,</span><br><span class="line">    tap: &#39;tap&#39;,</span><br><span class="line">    longtap: &#39;longtap&#39;,</span><br><span class="line">    input: &#39;input&#39;,</span><br><span class="line">    change: &#39;change&#39;,</span><br><span class="line">    submit: &#39;submit&#39;,</span><br><span class="line">    blur: &#39;blur&#39;,</span><br><span class="line">    focus: &#39;focus&#39;,</span><br><span class="line">    reset: &#39;reset&#39;,</span><br><span class="line">    confirm: &#39;confirm&#39;,</span><br><span class="line">    columnchange: &#39;columnchange&#39;,</span><br><span class="line">    linechange: &#39;linechange&#39;,</span><br><span class="line">    error: &#39;error&#39;,</span><br><span class="line">    scrolltoupper: &#39;scrolltoupper&#39;,</span><br><span class="line">    scrolltolower: &#39;scrolltolower&#39;,</span><br><span class="line">    scroll: &#39;scroll&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了上面的之外，Web表单组件<code>和</code>的change事件会被转为blur事件。</p>
+<p>然后，像<code>keydown</code>、<code>keypress</code>之类的键盘事件也没有了，因为小程序没有键盘，所以不需要这些事件。</p>
+<p>还有，Vue里面绑定事件的时候，可以指定事件修饰符，但是在mpvue里，官方给出了一些注意信息：</p>
+<blockquote>
+<ul>
+<li>.stop 的使用会阻止冒泡，但是同时绑定了一个非冒泡事件，会导致该元素上的 catchEventName 失效！【这个亲测了一下，感觉是最新版本里修复了还是怎么的，没有文档里说的这个问题了】</li>
+<li>.prevent 可以直接干掉，因为小程序里没有什么默认事件，比如submit并不会跳转页面【也就是不需要支持】</li>
+<li>.capture 支持 1.0.9 【也就是在 mpvue 1.0.9及以后版本支持】</li>
+<li>.self 没有可以判断的标识 【也就是不支持】</li>
+<li>.once 也不能做，因为小程序没有 removeEventListener, 虽然可以直接在 handleProxy 中处理，但非常的不优雅，违背了原意，暂不考虑【也就是不支持】</li>
+</ul>
+</blockquote>
+<h4 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h4><p>对于表单，请直接使用小程序原生的表单组件</p>
+<p>表单组件又多又复杂，框架可能Hold不住。所以在实际开发中，推荐直接使用小程序的表单组件标签来写，而不是使用Web的表单组件标签来写。当然了，在mpvue中使用了小程序的组件标签，数据绑定功能还是完全可以用的。给个示例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;picker @change&#x3D;&quot;handlePickerChange&quot; :value&#x3D;&quot;selectedIndex&quot; :range&#x3D;&quot;messages&quot;&gt;</span><br><span class="line">      &lt;view class&#x3D;&quot;picker&quot;&gt;当前消息：&#123;&#123; messages[selectedIndex] &#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;&#x2F;picker&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      selectedIndex: 0,</span><br><span class="line">      messages: [&#39;Hello&#39;, &#39;World&#39;, &#39;Haha&#39;]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handlePickerChange (e) &#123;</span><br><span class="line">      console.log(e)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="路由功能"><a href="#路由功能" class="headerlink" title="路由功能"></a>路由功能</h4><p> 在Vue开发Web应用的时候，通常使用<code>vue-router</code>来进行页面路由。但是在mpvue小程序开发中，不能用这种方式，请使用``标签和小程序原生API <code>wx.navigateTo</code>等来做路由功能。 </p>
+<h4 id="请求数据"><a href="#请求数据" class="headerlink" title="请求数据"></a>请求数据</h4><p> 请求后端数据，我们通常在Web开发中使用<code>axios</code>等ajax库来实现，但是在小程序开发中也是不能用的，也请使用小程序的原生API <code>wx.request</code>等来进行。 </p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>学习</tag>
+        <tag>mpvue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blog</title>
+    <url>/2020/Blog/</url>
+    <content><![CDATA[<h1 id="人生最难得的三个字"><a href="#人生最难得的三个字" class="headerlink" title="人生最难得的三个字"></a>人生最难得的三个字</h1><p>人生不可能永远是坦途，复杂让我们烦恼忧愁，浮躁让我们不堪一击，邋遢让我们表里不一。 </p>
+<p>简是幸福，静是根本，净是福气。世事变幻，人生最难得的就是这三个字。</p>
+<hr>
+<a id="more"></a>
+
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><!-- <h3 align="center">一个安静且优雅的 Hexo 主题</h3> -->
+
+<p>前段时间，朋友方菲突然发了一条朋友圈：“有点想辞职了，迷茫。”</p>
+<p>她对我说，觉得处理人际关系比工作还要累，成天心力交瘁。公司里人际关系盘根错节，身边的人看起来一团和气，但是没有几个人对自己敞开心扉、推心置腹。大家都戴着厚厚的面具，喜怒不形于色。</p>
+<p>为了不得罪别人，她每天都活得小心翼翼。她苦笑着问我：“因为人际关系而辞职，你会不会觉得我特别怂？”</p>
+<p>我想了想，发给了她这样一段话：“做一个简单的人，不与复杂的人和事纠缠，才能吃得香、睡得好，过得轻松而快乐。”</p>
+<p>一个人最难得的品质是简单。大道至简，少就是多。<strong>学会做一个简单的人，是一个人一生的必修课。幸福的人生，从来都是简单的。</strong>  </p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>浮躁、盲目、茫然，是不少人都有过的状态。其实，这都是因为心中缺了一个“静”字。</p>
+<p>看过这样一个故事 。从前有个国王丢了一块非常贵重的表，四处寻找也没能找到。于是，他发出悬赏令：谁要能找到那块表，就将王宫里最美丽的红宝石赏赐给他。</p>
+<p>消息一出，很多人前去王宫里寻表。一时间，王宫里人来人往，好不热闹。但是七天过去了，谁也没能找到国王的表。</p>
+<p>就在这时，一个小男孩站了出来，对国王说：“我能找到您的表。”国王半信半疑，男孩继续说道：“现在，请您遣散所有人。”国王照做了。不一会儿，国王的表就找到了。</p>
+<p>国王欣喜不已，问小男孩：“你是如何找到我的表的？”小男孩回答：“我就安静地坐着，听到滴答滴答的声音，表就找到了。”</p>
+<p>生活中遇到问题时，我们很容易烦躁惊慌、不知所措，乱了阵脚，也失了方寸，最后竹篮打水一场空。<strong>其实，遇事一味烦躁惊慌无济于事，唯有静下心来、凝神细思，方能寻觅到解决之道。</strong></p>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>前段时间，好友跑来和我倾诉：她和合租的室友闹翻了，正在为重新找房子而发愁。</p>
+<p>我见过她室友，高挑、漂亮。可好友说她的生活其实一团糟：“厨房就像垃圾场，客厅里永远都是一股烟味，沙发上全是她的脏衣服……”</p>
+<p>有人说：“美必须干干净净、清清白白，在形象上如此，在内心更是如此。”我喜欢装束整洁、仪容干净的人，但是相较于浮于表面的整洁干净，我更喜欢一个人心灵的干净。</p>
+<p>干净，是一种生活态度。</p>
+<p>我的另一位朋友，父亲早逝，母亲长年卧病在床。为了赚到足够的钱为母亲治病，他一个人打两份工，每天都在公司里忙到很晚才能回家。但他只要一回到家中，就立马动手洗刷收捡、打扫卫生。</p>
+<p>母亲不忍心看他这样辛苦劳累，就说，“儿子，你不用每天都打扫一遍的，也没人来我们家。”朋友微微一笑：“妈，您不用担心的，儿子不辛苦。每次我收拾完以后，看到家里干干净净的，我就觉得很舒服。”</p>
+<p>的确，容身之所洁净清爽，也能使自己的心情得到舒缓。</p>
+<p><strong>简，是幸福的真谛；静，是立身的根本；净，是家庭的福气。人生做到简、静、净，而后幸福、立身、家和，如此，足矣。</strong></p>
+]]></content>
+      <tags>
+        <tag>article</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于</title>
     <url>/2020/Docs/</url>
     <content><![CDATA[<h1 align="center">说明</h1>
@@ -59,40 +200,6 @@
       </categories>
       <tags>
         <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Blog</title>
-    <url>/2020/Blog/</url>
-    <content><![CDATA[<h1 id="人生最难得的三个字"><a href="#人生最难得的三个字" class="headerlink" title="人生最难得的三个字"></a>人生最难得的三个字</h1><p>人生不可能永远是坦途，复杂让我们烦恼忧愁，浮躁让我们不堪一击，邋遢让我们表里不一。 </p>
-<p>简是幸福，静是根本，净是福气。世事变幻，人生最难得的就是这三个字。</p>
-<hr>
-<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h3 align="center">一个安静且优雅的 Hexo 主题</h3>
-
-<p>前段时间，朋友方菲突然发了一条朋友圈：“有点想辞职了，迷茫。”</p>
-<p>她对我说，觉得处理人际关系比工作还要累，成天心力交瘁。公司里人际关系盘根错节，身边的人看起来一团和气，但是没有几个人对自己敞开心扉、推心置腹。大家都戴着厚厚的面具，喜怒不形于色。</p>
-<p>为了不得罪别人，她每天都活得小心翼翼。她苦笑着问我：“因为人际关系而辞职，你会不会觉得我特别怂？”</p>
-<p>我想了想，发给了她这样一段话：“做一个简单的人，不与复杂的人和事纠缠，才能吃得香、睡得好，过得轻松而快乐。”</p>
-<p>一个人最难得的品质是简单。大道至简，少就是多。<strong>学会做一个简单的人，是一个人一生的必修课。幸福的人生，从来都是简单的。</strong>  </p>
-<a id="more"></a>
-
-<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>浮躁、盲目、茫然，是不少人都有过的状态。其实，这都是因为心中缺了一个“静”字。</p>
-<p>看过这样一个故事 。从前有个国王丢了一块非常贵重的表，四处寻找也没能找到。于是，他发出悬赏令：谁要能找到那块表，就将王宫里最美丽的红宝石赏赐给他。</p>
-<p>消息一出，很多人前去王宫里寻表。一时间，王宫里人来人往，好不热闹。但是七天过去了，谁也没能找到国王的表。</p>
-<p>就在这时，一个小男孩站了出来，对国王说：“我能找到您的表。”国王半信半疑，男孩继续说道：“现在，请您遣散所有人。”国王照做了。不一会儿，国王的表就找到了。</p>
-<p>国王欣喜不已，问小男孩：“你是如何找到我的表的？”小男孩回答：“我就安静地坐着，听到滴答滴答的声音，表就找到了。”</p>
-<p>生活中遇到问题时，我们很容易烦躁惊慌、不知所措，乱了阵脚，也失了方寸，最后竹篮打水一场空。<strong>其实，遇事一味烦躁惊慌无济于事，唯有静下心来、凝神细思，方能寻觅到解决之道。</strong></p>
-<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>前段时间，好友跑来和我倾诉：她和合租的室友闹翻了，正在为重新找房子而发愁。</p>
-<p>我见过她室友，高挑、漂亮。可好友说她的生活其实一团糟：“厨房就像垃圾场，客厅里永远都是一股烟味，沙发上全是她的脏衣服……”</p>
-<p>有人说：“美必须干干净净、清清白白，在形象上如此，在内心更是如此。”我喜欢装束整洁、仪容干净的人，但是相较于浮于表面的整洁干净，我更喜欢一个人心灵的干净。</p>
-<p>干净，是一种生活态度。</p>
-<p>我的另一位朋友，父亲早逝，母亲长年卧病在床。为了赚到足够的钱为母亲治病，他一个人打两份工，每天都在公司里忙到很晚才能回家。但他只要一回到家中，就立马动手洗刷收捡、打扫卫生。</p>
-<p>母亲不忍心看他这样辛苦劳累，就说，“儿子，你不用每天都打扫一遍的，也没人来我们家。”朋友微微一笑：“妈，您不用担心的，儿子不辛苦。每次我收拾完以后，看到家里干干净净的，我就觉得很舒服。”</p>
-<p>的确，容身之所洁净清爽，也能使自己的心情得到舒缓。</p>
-<p><strong>简，是幸福的真谛；静，是立身的根本；净，是家庭的福气。人生做到简、静、净，而后幸福、立身、家和，如此，足矣。</strong></p>
-]]></content>
-      <tags>
-        <tag>article</tag>
       </tags>
   </entry>
 </search>
