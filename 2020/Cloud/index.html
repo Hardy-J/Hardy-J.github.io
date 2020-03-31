@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    About me |  Hui&#39;Blog
+    云开发部署静态网站 |  Hui&#39;Blog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -37,7 +37,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="page-" class="article article-type-page" itemscope
+  <article id="post-Cloud" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -45,7 +45,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  About me
+  云开发部署静态网站
 </h1>
  
 
@@ -53,6 +53,47 @@
     
 
     
+    <div class="article-meta">
+      <a href="/2020/Cloud/" class="article-date">
+  <time datetime="2020-03-07T06:24:23.000Z" itemprop="datePublished">2020-03-07</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">3分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
 
     
 
@@ -62,7 +103,69 @@
       
 
       
-      <p>称呼：阿辉<br>爱好：玩</p>
+      <p> 之前有运用 Hexo 建立静态博客系统 ，  除了在 Github Pages 部署以外，现在尝试了一个新的选择，那就是使用云开发静态网站功能来部署！ </p>
+<a id="more"></a>
+
+<h2 id="云开发简介"><a href="#云开发简介" class="headerlink" title="云开发简介"></a>云开发简介</h2><p> <strong>云开发（CloudBase）</strong>  是腾讯云提供的一款云端一体化的产品方案 ，采用 serverless 架构，免环境搭建等运维事务 ， 同时云开发提供的静态托管、命令行工具（CLI）、Flutter SDK 等能力极大的降低了应用开发的门槛。使用云开发可以快速构建完整的小程序/小游戏、H5、Web、移动 App 等应用。  </p>
+<p>其主要特点：</p>
+<ol>
+<li>高效安全： Serverless 前后端一体化开发模式、免运维；通过安全认证，稳定可靠有保障 </li>
+<li>节约成本： 资源伸缩，弹性扩缩容，灵活计费，极大节约资源成本 </li>
+<li>丰富能力： 连接微信 150+ 的云调用开放能力，腾讯云技术能力，以及数家 SaaS 厂商能力，开箱即用 </li>
+<li>多端支持： 不仅支持小程序，也提供了丰富的 SDK，包括小程序、Web、移动端支持；各类应用可快速接入 </li>
+</ol>
+<p>云开发静态网站托管支持通过云开发SDK调用服务端资源如：云函数、云存储、云数据库等，从而将静态网站扩展为全栈网站 。</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h4 id="系统依赖"><a href="#系统依赖" class="headerlink" title="系统依赖"></a><strong>系统依赖</strong></h4><p>在进行后续的内容前，请先确保你的电脑中安装了 Node.js 运行环境。如果没有安装，可以访问 nodejs.org  下载安装。</p>
+<h4 id="安装云开发-cli-工具"><a href="#安装云开发-cli-工具" class="headerlink" title="安装云开发 cli 工具"></a>安装云开发 cli 工具</h4><p>命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g @cloudbase&#x2F;cli</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建一个云开发环境"><a href="#创建一个云开发环境" class="headerlink" title="创建一个云开发环境"></a>创建一个云开发环境</h4><p>打开<a href="https://cloud.tencent.com/" target="_blank" rel="noopener">云开发官网</a>在产品中找到云开发</p>
+<p><img src="https://pic.downk.cc/item/5e8321d6504f4bcb0428dc38.png" alt=""></p>
+<p> 进入到云开发的管理控制台，点击新建环境，新建一个环境来进行部署 </p>
+<p><img src="https://pic.downk.cc/item/5e832299504f4bcb04296b07.png" alt=""></p>
+<p> 新建一个环境，环境名称可自主定义，并选择按量计费，开通环境 （可不用选取开启免费资源）</p>
+<p><img src="https://pic.downk.cc/item/5e832329504f4bcb0429e9fa.png" alt=""></p>
+<p> 创建后，等初始化完成（大概三分钟）后，刷新页面，点击环境，进入到环境的管理页面。点击左侧菜单栏中的<strong>「网站托管」</strong> </p>
+<p><img src="https://pic.downk.cc/item/5e8324ce504f4bcb042b4748.png" alt=""></p>
+<p> 并在静态网站页面开通功能 </p>
+<p><img src="https://pic.downk.cc/item/5e83250d504f4bcb042b74e0.png" alt=""></p>
+<p>等待初始化（大约需要3分钟），当你看到这样的界面时，就说明已经开通好了。 </p>
+<p><img src="https://pic.downk.cc/item/5e8325a1504f4bcb042be84b.png" alt=""></p>
+<h4 id="初始化云开发-Cli"><a href="#初始化云开发-Cli" class="headerlink" title="初始化云开发 Cli"></a><strong>初始化云开发 Cli</strong></h4><p> 完成了云开发环境的配置后， 我们需要初始化一下云开发 cli ，从而实现借助 cli 来上传页面（当然， 也可以通过网页端直接上传，但如果你博客的文章比较多，还是使用 Cli 上传更加方便） </p>
+<p> 命令行输入 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcb login</span><br></pre></td></tr></table></figure>
+
+<p>命令行会提醒你需要在网页中授权</p>
+<p> 然后再弹出的页面确认授权 </p>
+<p><img src="https://pic.downk.cc/item/5e832652504f4bcb042c76d1.png" alt=""></p>
+<p> 确认授权后，你会看到控制台输出相应的命令 </p>
+<p> 这样，你的云开发 cli 就初始化好了。接下来，就可以进入到最后一个环节，上传部署 Hexo 了。 </p>
+<h4 id="将Hexo构建好的文件上传"><a href="#将Hexo构建好的文件上传" class="headerlink" title="将Hexo构建好的文件上传"></a>将Hexo构建好的文件上传</h4><p> 回到你的 Hexo 目录中，进入（使用 Hexo g） 生成的 Public 文件夹， 执行如下命令来进行部署（需要将 EnvID 替换为前面你记下的环境ID） </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcb hosting:deploy .&#x2F; -e EnvID</span><br></pre></td></tr></table></figure>
+
+<p> 稍等片刻，部署完成，接下来就可以预览了。 </p>
+<h4 id="浏览"><a href="#浏览" class="headerlink" title="浏览"></a>浏览</h4><p> 回到网站托管页面，点击设置，进入设置页面，可以找到默认的的域名，点击域名，就可以看到你刚刚部署的环境啦。 </p>
+<p><img src="https://pic.downk.cc/item/5e83286b504f4bcb042e425d.png" alt=""></p>
+<p> 比如，我的部署以后是这样的 </p>
+<p><img src="https://pic.downk.cc/item/5e8328e5504f4bcb042e9810.png" alt=""></p>
+<h4 id="注"><a href="#注" class="headerlink" title="注"></a>注</h4><p>在创建云环境时，所使用的按量计费，是有一个免费额度的，目前官方的免费额度如下：</p>
+<ul>
+<li><p>存储下载操作次数：150万/月； </p>
+</li>
+<li><p>CDN流量：5GB/月； </p>
+</li>
+<li><p>静态托管流量 5GB/月； </p>
+</li>
+<li><p>云数据库和云函数也有一定额度免费 </p>
+</li>
+</ul>
+<h4 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h4><p>还有很多想法可以探索：</p>
+<ol>
+<li>自定义域名</li>
+<li>实现自动化部署</li>
+<li>尝试部署其他博客框架</li>
+<li>more…</li>
+</ol>
 
       
       <!-- reward -->
@@ -132,13 +235,15 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hardy-j.github.io/2020/about/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hardy-j.github.io/2020/Cloud/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E5%BC%80%E5%8F%91/" rel="tag">云开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li></ul>
+
 
     </footer>
 
@@ -146,6 +251,25 @@
 
   
   
+  <nav class="article-nav">
+    
+      <a href="/2020/Blog/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Blog
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/Docs/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">关于</div>
+      </a>
+    
+  </nav>
+
 
   
 
@@ -203,6 +327,8 @@
 
   
 
+  
+  
   
 
 </article>
@@ -363,6 +489,24 @@
 </script>
 
 
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 
 

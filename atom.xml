@@ -63,11 +63,36 @@
   </entry>
   
   <entry>
+    <title>云开发部署静态网站</title>
+    <link href="https://hardy-j.github.io/2020/Cloud/"/>
+    <id>https://hardy-j.github.io/2020/Cloud/</id>
+    <published>2020-03-07T06:24:23.000Z</published>
+    <updated>2020-03-31T11:50:28.413Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 之前有运用 Hexo 建立静态博客系统 ，  除了在 Github Pages 部署以外，现在尝试了一个新的选择，那就是使用云开发静态网站功能来部署！ &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="云开发" scheme="https://Hardy-J.github.io/tags/%E4%BA%91%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="部署" scheme="https://Hardy-J.github.io/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于</title>
     <link href="https://hardy-j.github.io/2020/Docs/"/>
     <id>https://hardy-j.github.io/2020/Docs/</id>
-    <published>2020-03-07T06:24:23.000Z</published>
-    <updated>2020-03-16T09:39:52.501Z</updated>
+    <published>2020-02-29T06:24:23.000Z</published>
+    <updated>2020-03-31T11:43:26.227Z</updated>
     
     <summary type="html">
     
