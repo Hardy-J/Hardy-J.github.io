@@ -1,9 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>云开发部署静态网站</title>
+    <url>/2020/Cloud/</url>
+    <content><![CDATA[<p> 之前有运用 Hexo 建立静态博客系统 ，  除了在 Github Pages 部署以外，现在尝试了一个新的选择，那就是使用云开发静态网站功能来部署！ </p>
+<a id="more"></a>
+
+<h2 id="云开发简介"><a href="#云开发简介" class="headerlink" title="云开发简介"></a>云开发简介</h2><p> <strong>云开发（CloudBase）</strong>  是腾讯云提供的一款云端一体化的产品方案 ，采用 serverless 架构，免环境搭建等运维事务 ， 同时云开发提供的静态托管、命令行工具（CLI）、Flutter SDK 等能力极大的降低了应用开发的门槛。使用云开发可以快速构建完整的小程序/小游戏、H5、Web、移动 App 等应用。  </p>
+<p>其主要特点：</p>
+<ol>
+<li>高效安全： Serverless 前后端一体化开发模式、免运维；通过安全认证，稳定可靠有保障 </li>
+<li>节约成本： 资源伸缩，弹性扩缩容，灵活计费，极大节约资源成本 </li>
+<li>丰富能力： 连接微信 150+ 的云调用开放能力，腾讯云技术能力，以及数家 SaaS 厂商能力，开箱即用 </li>
+<li>多端支持： 不仅支持小程序，也提供了丰富的 SDK，包括小程序、Web、移动端支持；各类应用可快速接入 </li>
+</ol>
+<p>云开发静态网站托管支持通过云开发SDK调用服务端资源如：云函数、云存储、云数据库等，从而将静态网站扩展为全栈网站 。</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h4 id="系统依赖"><a href="#系统依赖" class="headerlink" title="系统依赖"></a><strong>系统依赖</strong></h4><p>在进行后续的内容前，请先确保你的电脑中安装了 Node.js 运行环境。如果没有安装，可以访问 nodejs.org  下载安装。</p>
+<h4 id="安装云开发-cli-工具"><a href="#安装云开发-cli-工具" class="headerlink" title="安装云开发 cli 工具"></a>安装云开发 cli 工具</h4><p>命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -g @cloudbase&#x2F;cli</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建一个云开发环境"><a href="#创建一个云开发环境" class="headerlink" title="创建一个云开发环境"></a>创建一个云开发环境</h4><p>打开<a href="https://cloud.tencent.com/" target="_blank" rel="noopener">云开发官网</a>在产品中找到云开发</p>
+<p><img src="https://pic.downk.cc/item/5e8321d6504f4bcb0428dc38.png" alt=""></p>
+<p> 进入到云开发的管理控制台，点击新建环境，新建一个环境来进行部署 </p>
+<p><img src="https://pic.downk.cc/item/5e832299504f4bcb04296b07.png" alt=""></p>
+<p> 新建一个环境，环境名称可自主定义，并选择按量计费，开通环境 （可不用选取开启免费资源）</p>
+<p><img src="https://pic.downk.cc/item/5e832329504f4bcb0429e9fa.png" alt=""></p>
+<p> 创建后，等初始化完成（大概三分钟）后，刷新页面，点击环境，进入到环境的管理页面。点击左侧菜单栏中的<strong>「网站托管」</strong> </p>
+<p><img src="https://pic.downk.cc/item/5e8324ce504f4bcb042b4748.png" alt=""></p>
+<p> 并在静态网站页面开通功能 </p>
+<p><img src="https://pic.downk.cc/item/5e83250d504f4bcb042b74e0.png" alt=""></p>
+<p>等待初始化（大约需要3分钟），当你看到这样的界面时，就说明已经开通好了。 </p>
+<p><img src="https://pic.downk.cc/item/5e8325a1504f4bcb042be84b.png" alt=""></p>
+<h4 id="初始化云开发-Cli"><a href="#初始化云开发-Cli" class="headerlink" title="初始化云开发 Cli"></a><strong>初始化云开发 Cli</strong></h4><p> 完成了云开发环境的配置后， 我们需要初始化一下云开发 cli ，从而实现借助 cli 来上传页面（当然， 也可以通过网页端直接上传，但如果你博客的文章比较多，还是使用 Cli 上传更加方便） </p>
+<p> 命令行输入 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tcb login</span><br></pre></td></tr></table></figure>
+
+<p>命令行会提醒你需要在网页中授权</p>
+<p> 然后再弹出的页面确认授权 </p>
+<p><img src="https://pic.downk.cc/item/5e832652504f4bcb042c76d1.png" alt=""></p>
+<p> 确认授权后，你会看到控制台输出相应的命令 </p>
+<p> 这样，你的云开发 cli 就初始化好了。接下来，就可以进入到最后一个环节，上传部署 Hexo 了。 </p>
+<h4 id="将Hexo构建好的文件上传"><a href="#将Hexo构建好的文件上传" class="headerlink" title="将Hexo构建好的文件上传"></a>将Hexo构建好的文件上传</h4><p> 回到你的 Hexo 目录中，进入（使用 Hexo g） 生成的 Public 文件夹， 执行如下命令来进行部署（需要将 EnvID 替换为前面你记下的环境ID） </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tcb hosting:deploy .&#x2F; -e EnvID</span><br></pre></td></tr></table></figure>
+
+<p> 稍等片刻，部署完成，接下来就可以预览了。 </p>
+<h4 id="浏览"><a href="#浏览" class="headerlink" title="浏览"></a>浏览</h4><p> 回到网站托管页面，点击设置，进入设置页面，可以找到默认的的域名，点击域名，就可以看到你刚刚部署的环境啦。 </p>
+<p><img src="https://pic.downk.cc/item/5e83286b504f4bcb042e425d.png" alt=""></p>
+<p> 比如，我的部署以后是这样的 </p>
+<p><img src="https://pic.downk.cc/item/5e8328e5504f4bcb042e9810.png" alt=""></p>
+<h4 id="注"><a href="#注" class="headerlink" title="注"></a>注</h4><p>在创建云环境时，所使用的按量计费，是有一个免费额度的，目前官方的免费额度如下：</p>
+<ul>
+<li><p>存储下载操作次数：150万/月； </p>
+</li>
+<li><p>CDN流量：5GB/月； </p>
+</li>
+<li><p>静态托管流量 5GB/月； </p>
+</li>
+<li><p>云数据库和云函数也有一定额度免费 </p>
+</li>
+</ul>
+<h4 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h4><p>还有很多想法可以探索：</p>
+<ol>
+<li>自定义域名</li>
+<li>实现自动化部署</li>
+<li>尝试部署其他博客框架</li>
+<li>more…</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>云开发</tag>
+        <tag>部署</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mpvue</title>
-    <url>/2020/mpvue/</url>
-    <content><![CDATA[<h1 id="了解一下mpvue"><a href="#了解一下mpvue" class="headerlink" title="了解一下mpvue"></a>了解一下<a href="http://mpvue.com/" target="_blank" rel="noopener">mpvue</a></h1><p> 一个使用 <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.js</a> 开发小程序的前端框架。框架基于 <code>Vue.js</code> 核心，<code>mpvue</code> 修改了 <code>Vue.js</code> 的 runtime 和 compiler 实现，使其可以运行在小程序环境中，从而为小程序开发引入了整套 <code>Vue.js</code> 开发体验。 </p>
+    <url>/2019/mpvue/</url>
+    <content><![CDATA[<h1 id="mpvue"><a href="#mpvue" class="headerlink" title="mpvue"></a><a href="http://mpvue.com/" target="_blank" rel="noopener">mpvue</a></h1><p> 一个使用 <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.js</a> 开发小程序的前端框架。框架基于 <code>Vue.js</code> 核心，<code>mpvue</code> 修改了 <code>Vue.js</code> 的 runtime 和 compiler 实现，使其可以运行在小程序环境中，从而为小程序开发引入了整套 <code>Vue.js</code> 开发体验。 </p>
 <a id="more"></a>
 <h2 id="1-用Vue写小程序：机理"><a href="#1-用Vue写小程序：机理" class="headerlink" title="1.用Vue写小程序：机理"></a>1.用Vue写小程序：机理</h2><h5 id="webpack和相关的loader将vue的程序变为wxml、wxss、js、json。"><a href="#webpack和相关的loader将vue的程序变为wxml、wxss、js、json。" class="headerlink" title="webpack和相关的loader将vue的程序变为wxml、wxss、js、json。"></a>webpack和相关的loader将vue的程序变为wxml、wxss、js、json。</h5><p> 比如，写的： </p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;Hello&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
@@ -108,104 +184,159 @@
       </tags>
   </entry>
   <entry>
-    <title>Blog</title>
-    <url>/2020/Blog/</url>
-    <content><![CDATA[<h1 id="人生最难得的三个字"><a href="#人生最难得的三个字" class="headerlink" title="人生最难得的三个字"></a>人生最难得的三个字</h1><p>人生不可能永远是坦途，复杂让我们烦恼忧愁，浮躁让我们不堪一击，邋遢让我们表里不一。 </p>
-<p>简是幸福，静是根本，净是福气。世事变幻，人生最难得的就是这三个字。</p>
-<hr>
+    <title>小程序</title>
+    <url>/2019/miniapp/</url>
+    <content><![CDATA[<p>小程序知识的一些总结</p>
 <a id="more"></a>
 
-<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><!-- <h3 align="center">一个安静且优雅的 Hexo 主题</h3> -->
+<h2 id="浏览器，服务器，小程序之间模块组成"><a href="#浏览器，服务器，小程序之间模块组成" class="headerlink" title="浏览器，服务器，小程序之间模块组成"></a>浏览器，服务器，小程序之间模块组成</h2><h3 id="1-浏览器"><a href="#1-浏览器" class="headerlink" title="1. 浏览器"></a>1. 浏览器</h3><p>​      <strong>核心（ESMAScript）</strong>：规定了JS的语法、类型、语句、关键字、保留字、操作符、对象 </p>
+<pre><code>**文档对象模型（DOM）**：是用于HTML的应用接口（API），将整个页面映射为一个多层节点结构。 
 
-<p>前段时间，朋友方菲突然发了一条朋友圈：“有点想辞职了，迷茫。”</p>
-<p>她对我说，觉得处理人际关系比工作还要累，成天心力交瘁。公司里人际关系盘根错节，身边的人看起来一团和气，但是没有几个人对自己敞开心扉、推心置腹。大家都戴着厚厚的面具，喜怒不形于色。</p>
-<p>为了不得罪别人，她每天都活得小心翼翼。她苦笑着问我：“因为人际关系而辞职，你会不会觉得我特别怂？”</p>
-<p>我想了想，发给了她这样一段话：“做一个简单的人，不与复杂的人和事纠缠，才能吃得香、睡得好，过得轻松而快乐。”</p>
-<p>一个人最难得的品质是简单。大道至简，少就是多。<strong>学会做一个简单的人，是一个人一生的必修课。幸福的人生，从来都是简单的。</strong>  </p>
-<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>浮躁、盲目、茫然，是不少人都有过的状态。其实，这都是因为心中缺了一个“静”字。</p>
-<p>看过这样一个故事 。从前有个国王丢了一块非常贵重的表，四处寻找也没能找到。于是，他发出悬赏令：谁要能找到那块表，就将王宫里最美丽的红宝石赏赐给他。</p>
-<p>消息一出，很多人前去王宫里寻表。一时间，王宫里人来人往，好不热闹。但是七天过去了，谁也没能找到国王的表。</p>
-<p>就在这时，一个小男孩站了出来，对国王说：“我能找到您的表。”国王半信半疑，男孩继续说道：“现在，请您遣散所有人。”国王照做了。不一会儿，国王的表就找到了。</p>
-<p>国王欣喜不已，问小男孩：“你是如何找到我的表的？”小男孩回答：“我就安静地坐着，听到滴答滴答的声音，表就找到了。”</p>
-<p>生活中遇到问题时，我们很容易烦躁惊慌、不知所措，乱了阵脚，也失了方寸，最后竹篮打水一场空。<strong>其实，遇事一味烦躁惊慌无济于事，唯有静下心来、凝神细思，方能寻觅到解决之道。</strong></p>
-<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>前段时间，好友跑来和我倾诉：她和合租的室友闹翻了，正在为重新找房子而发愁。</p>
-<p>我见过她室友，高挑、漂亮。可好友说她的生活其实一团糟：“厨房就像垃圾场，客厅里永远都是一股烟味，沙发上全是她的脏衣服……”</p>
-<p>有人说：“美必须干干净净、清清白白，在形象上如此，在内心更是如此。”我喜欢装束整洁、仪容干净的人，但是相较于浮于表面的整洁干净，我更喜欢一个人心灵的干净。</p>
-<p>干净，是一种生活态度。</p>
-<p>我的另一位朋友，父亲早逝，母亲长年卧病在床。为了赚到足够的钱为母亲治病，他一个人打两份工，每天都在公司里忙到很晚才能回家。但他只要一回到家中，就立马动手洗刷收捡、打扫卫生。</p>
-<p>母亲不忍心看他这样辛苦劳累，就说，“儿子，你不用每天都打扫一遍的，也没人来我们家。”朋友微微一笑：“妈，您不用担心的，儿子不辛苦。每次我收拾完以后，看到家里干干净净的，我就觉得很舒服。”</p>
-<p>的确，容身之所洁净清爽，也能使自己的心情得到舒缓。</p>
-<p><strong>简，是幸福的真谛；静，是立身的根本；净，是家庭的福气。人生做到简、静、净，而后幸福、立身、家和，如此，足矣。</strong></p>
-]]></content>
-      <tags>
-        <tag>article</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>云开发部署静态网站</title>
-    <url>/2020/Cloud/</url>
-    <content><![CDATA[<p> 之前有运用 Hexo 建立静态博客系统 ，  除了在 Github Pages 部署以外，现在尝试了一个新的选择，那就是使用云开发静态网站功能来部署！ </p>
-<a id="more"></a>
+**浏览器对象模型（BOM）**：与DOM不同，无标准，只是JS一部分，用来对浏览器进行访问和操作。 </code></pre><h3 id="2-服务器"><a href="#2-服务器" class="headerlink" title="2. 服务器"></a>2. 服务器</h3><p><strong>ES</strong>，<strong>native</strong>, <strong>npm</strong></p>
+<h3 id="3-小程序"><a href="#3-小程序" class="headerlink" title="3. 小程序"></a>3. 小程序</h3><p><strong>ES</strong>， <strong>小程序框架</strong>， <strong>专用API</strong></p>
+<h2 id="小程序运行环境"><a href="#小程序运行环境" class="headerlink" title="小程序运行环境"></a>小程序运行环境</h2><h3 id="1-开发环境"><a href="#1-开发环境" class="headerlink" title="1. 开发环境"></a>1. 开发环境</h3><p>IDE——<a href="https://nwjs.org.cn/" target="_blank" rel="noopener">nwjs</a></p>
+<h3 id="2-生产环境"><a href="#2-生产环境" class="headerlink" title="2. 生产环境"></a>2. 生产环境</h3><p> android——X5内核<br> ios——JSC内核<br> PS：平台不同，环境不同，兼容性也会有差异。因此，尽量多做真机测试。 </p>
+<h2 id="基本构成"><a href="#基本构成" class="headerlink" title="基本构成"></a>基本构成</h2><img src="https://pic.downk.cc/item/5ea4541bc2a9a83be510a0d3.png" style="zoom: 33%;" />
 
-<h2 id="云开发简介"><a href="#云开发简介" class="headerlink" title="云开发简介"></a>云开发简介</h2><p> <strong>云开发（CloudBase）</strong>  是腾讯云提供的一款云端一体化的产品方案 ，采用 serverless 架构，免环境搭建等运维事务 ， 同时云开发提供的静态托管、命令行工具（CLI）、Flutter SDK 等能力极大的降低了应用开发的门槛。使用云开发可以快速构建完整的小程序/小游戏、H5、Web、移动 App 等应用。  </p>
-<p>其主要特点：</p>
+<h3 id="（1）结构"><a href="#（1）结构" class="headerlink" title="（1）结构"></a><strong>（1）结构</strong></h3><p>​    <strong>WXML</strong>：描述页面的内容</p>
+<img src="https://pic.downk.cc/item/5ea45606c2a9a83be512db93.png" style="zoom: 50%;" />
+
+<p><strong>WXML文件导入</strong></p>
+<p> <strong>（1）</strong>import<br>        只导入目标文件中的模板，而间接的模板不会导入<br><strong>（2）</strong>include<br>        导入目标文件中，除了模板的全部内容，间接的模板也会导入 </p>
+<p><strong>WXML特性：</strong></p>
 <ol>
-<li>高效安全： Serverless 前后端一体化开发模式、免运维；通过安全认证，稳定可靠有保障 </li>
-<li>节约成本： 资源伸缩，弹性扩缩容，灵活计费，极大节约资源成本 </li>
-<li>丰富能力： 连接微信 150+ 的云调用开放能力，腾讯云技术能力，以及数家 SaaS 厂商能力，开箱即用 </li>
-<li>多端支持： 不仅支持小程序，也提供了丰富的 SDK，包括小程序、Web、移动端支持；各类应用可快速接入 </li>
+<li><p>数据绑定</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="number">1</span>)文本内容绑定</span><br><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">    &lt;text&gt;&#123;&#123;message&#125;&#125;&lt;<span class="regexp">/text&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>view&gt;</span><br><span class="line"><span class="comment">//index.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        message:<span class="string">'Hello, world'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">(<span class="number">2</span>)属性绑定</span><br><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">    &lt;text data-name=<span class="string">"&#123;&#123;theName&#125;&#125;"</span>&gt;&lt;<span class="regexp">/text&gt;</span></span><br><span class="line"><span class="regexp">&lt;!--运算符绑定--&gt;</span></span><br><span class="line"><span class="regexp">	&lt;text hidden="&#123;&#123;falg ? true : false&#125;&#125;"&gt;Hi&lt;/</span>view&gt;</span><br><span class="line">&lt;<span class="regexp">/view&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/index.js</span></span><br><span class="line"><span class="regexp">Page(&#123;</span></span><br><span class="line"><span class="regexp">    data:&#123;</span></span><br><span class="line"><span class="regexp">        theName:"Jack"</span></span><br><span class="line"><span class="regexp">        flag:false</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pic.downk.cc/item/5ea6fad9c2a9a83be5dfb7aa.png" alt=""></p>
+</li>
+<li><p>列表渲染</p>
+<h5 id="列表渲染时，没有设置key的话，会有警告。若是静态列表，无需强求，但强迫症例外。"><a href="#列表渲染时，没有设置key的话，会有警告。若是静态列表，无需强求，但强迫症例外。" class="headerlink" title="列表渲染时，没有设置key的话，会有警告。若是静态列表，无需强求，但强迫症例外。"></a>列表渲染时，没有设置key的话，会有警告。若是静态列表，无需强求，但强迫症例外。</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">	&lt;block wx:for&#x3D;&quot;&#123;&#123;items&#125;&#125;&quot; wx:for-item&#x3D;&quot;item&quot; wx:key&#x3D;&quot;index&quot;&gt;</span><br><span class="line">		&lt;view&gt;&#123;&#123;index&#125;&#125;:&#123;&#123;item.name&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">	&lt;&#x2F;block&gt;</span><br><span class="line">&lt;&#x2F;view&gt;</span><br><span class="line">&#x2F;&#x2F;index.js</span><br><span class="line">Page(&#123;</span><br><span class="line">	data: &#123;</span><br><span class="line">		items: [</span><br><span class="line">			&#123; name: &#39;商品A&#39;&#125;，</span><br><span class="line">			&#123; name: &#39;商品B&#39;&#125;，</span><br><span class="line">			&#123; name: &#39;商品C&#39;&#125;，</span><br><span class="line">			&#123; name: &#39;商品D&#39;&#125;，</span><br><span class="line">			&#123; name: &#39;商品E&#39;&#125;，</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">（1）单个渲染</span><br><span class="line">直接在标签内部写</span><br><span class="line">（2）多个</span><br><span class="line">用block包裹，在block写</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>条件渲染</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;view&gt;今天吃什么？&lt;&#x2F;view&gt;</span><br><span class="line">&lt;view wx:if&#x3D;&quot;&#123;&#123;condition &#x3D;&#x3D;&#x3D; 1&#125;&#125;&quot;&gt;饺子&lt;&#x2F;view&gt;</span><br><span class="line">&lt;view wx:if&#x3D;&quot;&#123;&#123;condition &#x3D;&#x3D;&#x3D; 2&#125;&#125;&quot;&gt;米饭&lt;&#x2F;view&gt;</span><br><span class="line">&lt;view wx:else&gt;面食&lt;&#x2F;view&gt;</span><br><span class="line">&#x2F;&#x2F;index.js</span><br><span class="line">Page(&#123;</span><br><span class="line">	data: &#123;</span><br><span class="line">		condition: Math.floor(Math.random()*3+1)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">（1）单个渲染</span><br><span class="line">直接在标签内部写</span><br><span class="line">（2）多个</span><br><span class="line">用block包裹，在block写</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模板引用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;template name&#x3D;&quot;tempItem&quot;&gt;</span><br><span class="line">	&lt;view&gt;</span><br><span class="line">		&lt;view&gt;收件人：&#123;&#123;name&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">		&lt;view&gt;手机：&#123;&#123;phone&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">		&lt;view&gt;地址：&#123;&#123;address&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">	&lt;&#x2F;view&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;template is&#x3D;&quot;tempItem&quot; data&#x3D;&quot;&#123;&#123;...item&#125;&#125;&quot;&gt;&lt;&#x2F;template&gt;</span><br><span class="line">&#x2F;&#x2F;index.js</span><br><span class="line">Page(&#123;</span><br><span class="line">	data:&#123;</span><br><span class="line">		item:&#123;</span><br><span class="line">			name:&quot;张三&quot;，</span><br><span class="line">			phone：“18866666666”，</span><br><span class="line">			address:&quot;中国&quot;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;文件引用</span><br><span class="line">(1)import</span><br><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;import src&#x3D;&quot;a.wxml&quot;&gt;&lt;&#x2F;import&gt;</span><br><span class="line">&lt;template is&#x3D;&quot;a&quot;&gt;&lt;&#x2F;template&gt;</span><br><span class="line">&lt;!--a.wxml--&gt;</span><br><span class="line">&lt;view&gt;Hello,world&lt;&#x2F;view&gt;</span><br><span class="line">&lt;template name&#x3D;&quot;a&quot;&gt;Hello,world&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">(2)include</span><br><span class="line"> &lt;!--index.wxml--&gt;</span><br><span class="line"> &lt;include src&#x3D;&quot;a.wxml&quot; &#x2F;&gt;</span><br><span class="line"> &lt;template is&#x3D;&quot;a&quot;&gt;&lt;&#x2F;template&gt;</span><br><span class="line"> &lt;!--a.wxml--&gt;</span><br><span class="line"> &lt;template name&#x3D;&quot;a&quot;&gt;</span><br><span class="line"> 	&lt;view&gt;</span><br><span class="line"> 		This is a.wxml</span><br><span class="line"> 	&lt;&#x2F;view&gt;</span><br><span class="line"> &lt;&#x2F;template&gt;</span><br><span class="line"> &lt;view&gt;Hello,world&lt;&#x2F;view&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
-<p>云开发静态网站托管支持通过云开发SDK调用服务端资源如：云函数、云存储、云数据库等，从而将静态网站扩展为全栈网站 。</p>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h4 id="系统依赖"><a href="#系统依赖" class="headerlink" title="系统依赖"></a><strong>系统依赖</strong></h4><p>在进行后续的内容前，请先确保你的电脑中安装了 Node.js 运行环境。如果没有安装，可以访问 nodejs.org  下载安装。</p>
-<h4 id="安装云开发-cli-工具"><a href="#安装云开发-cli-工具" class="headerlink" title="安装云开发 cli 工具"></a>安装云开发 cli 工具</h4><p>命令行输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -g @cloudbase&#x2F;cli</span><br></pre></td></tr></table></figure>
+<h3 id="（2）样式"><a href="#（2）样式" class="headerlink" title="（2）样式"></a><strong>（2）样式</strong></h3><p>​    <strong>WXSS</strong>：描述页面的样式</p>
+<p>​    WXSS支持响应式像素：rpx</p>
+<p>​    外联样式导入：@import</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;view class&#x3D;&quot;container&quot;&gt;Hello&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;** index.wxss **&#x2F;</span><br><span class="line">@import &#39;.&#x2F;assets.wxss&#39;;</span><br><span class="line">.container &#123;</span><br><span class="line">	color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> &#x2F;** assets.wxss **&#x2F;</span><br><span class="line"> .container &#123;</span><br><span class="line"> 	border: 1px solid #000;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="创建一个云开发环境"><a href="#创建一个云开发环境" class="headerlink" title="创建一个云开发环境"></a>创建一个云开发环境</h4><p>打开<a href="https://cloud.tencent.com/" target="_blank" rel="noopener">云开发官网</a>在产品中找到云开发</p>
-<p><img src="https://pic.downk.cc/item/5e8321d6504f4bcb0428dc38.png" alt=""></p>
-<p> 进入到云开发的管理控制台，点击新建环境，新建一个环境来进行部署 </p>
-<p><img src="https://pic.downk.cc/item/5e832299504f4bcb04296b07.png" alt=""></p>
-<p> 新建一个环境，环境名称可自主定义，并选择按量计费，开通环境 （可不用选取开启免费资源）</p>
-<p><img src="https://pic.downk.cc/item/5e832329504f4bcb0429e9fa.png" alt=""></p>
-<p> 创建后，等初始化完成（大概三分钟）后，刷新页面，点击环境，进入到环境的管理页面。点击左侧菜单栏中的<strong>「网站托管」</strong> </p>
-<p><img src="https://pic.downk.cc/item/5e8324ce504f4bcb042b4748.png" alt=""></p>
-<p> 并在静态网站页面开通功能 </p>
-<p><img src="https://pic.downk.cc/item/5e83250d504f4bcb042b74e0.png" alt=""></p>
-<p>等待初始化（大约需要3分钟），当你看到这样的界面时，就说明已经开通好了。 </p>
-<p><img src="https://pic.downk.cc/item/5e8325a1504f4bcb042be84b.png" alt=""></p>
-<h4 id="初始化云开发-Cli"><a href="#初始化云开发-Cli" class="headerlink" title="初始化云开发 Cli"></a><strong>初始化云开发 Cli</strong></h4><p> 完成了云开发环境的配置后， 我们需要初始化一下云开发 cli ，从而实现借助 cli 来上传页面（当然， 也可以通过网页端直接上传，但如果你博客的文章比较多，还是使用 Cli 上传更加方便） </p>
-<p> 命令行输入 </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tcb login</span><br></pre></td></tr></table></figure>
+<p>​    内联样式导入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;view style&#x3D;&quot;width:500rpx; height:30px; background-color:&#123;&#123;colorValue&#125;&#125;;&quot;&gt;Hello&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;index.js</span><br><span class="line">Page(&#123;</span><br><span class="line">	data:&#123;</span><br><span class="line">		colorValue: &#39;red&#39;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>命令行会提醒你需要在网页中授权</p>
-<p> 然后再弹出的页面确认授权 </p>
-<p><img src="https://pic.downk.cc/item/5e832652504f4bcb042c76d1.png" alt=""></p>
-<p> 确认授权后，你会看到控制台输出相应的命令 </p>
-<p> 这样，你的云开发 cli 就初始化好了。接下来，就可以进入到最后一个环节，上传部署 Hexo 了。 </p>
-<h4 id="将Hexo构建好的文件上传"><a href="#将Hexo构建好的文件上传" class="headerlink" title="将Hexo构建好的文件上传"></a>将Hexo构建好的文件上传</h4><p> 回到你的 Hexo 目录中，进入（使用 Hexo g） 生成的 Public 文件夹， 执行如下命令来进行部署（需要将 EnvID 替换为前面你记下的环境ID） </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tcb hosting:deploy .&#x2F; -e EnvID</span><br></pre></td></tr></table></figure>
+<img src="https://pic.downk.cc/item/5ea7076cc2a9a83be5ed0855.png" style="zoom: 80%;" />
 
-<p> 稍等片刻，部署完成，接下来就可以预览了。 </p>
-<h4 id="浏览"><a href="#浏览" class="headerlink" title="浏览"></a>浏览</h4><p> 回到网站托管页面，点击设置，进入设置页面，可以找到默认的的域名，点击域名，就可以看到你刚刚部署的环境啦。 </p>
-<p><img src="https://pic.downk.cc/item/5e83286b504f4bcb042e425d.png" alt=""></p>
-<p> 比如，我的部署以后是这样的 </p>
-<p><img src="https://pic.downk.cc/item/5e8328e5504f4bcb042e9810.png" alt=""></p>
-<h4 id="注"><a href="#注" class="headerlink" title="注"></a>注</h4><p>在创建云环境时，所使用的按量计费，是有一个免费额度的，目前官方的免费额度如下：</p>
-<ul>
-<li><p>存储下载操作次数：150万/月； </p>
-</li>
-<li><p>CDN流量：5GB/月； </p>
-</li>
-<li><p>静态托管流量 5GB/月； </p>
-</li>
-<li><p>云数据库和云函数也有一定额度免费 </p>
-</li>
-</ul>
-<h4 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h4><p>还有很多想法可以探索：</p>
+<img src="https://pic.downk.cc/item/5ea70846c2a9a83be5edf84a.png" style="zoom:50%;" />
+
+<h3 id="（3）数据逻辑"><a href="#（3）数据逻辑" class="headerlink" title="（3）数据逻辑"></a><strong>（3）数据逻辑</strong></h3><p>​    <strong>WXS</strong>：对WXML能力增强的一种脚本语言</p>
+<p>​    wxs其实就是对JS上成做了一些封装和限制</p>
+<p>​    注：在wxs代码块中，/*为结束注释，后面的代码不会执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; （1）可通过标签声明</span><br><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;wxs module&#x3D;&quot;m1&quot;&gt;</span><br><span class="line">	module.exports &#x3D; &#123;</span><br><span class="line">		message: &#39;Hello,world!&#39;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;&#x2F;wxs&gt;</span><br><span class="line"></span><br><span class="line">&lt;view&gt; &#123;&#123;m1.message&#125;&#125; &lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;（2）通过文件声明</span><br><span class="line">&#x2F;&#x2F; 在标签内加入module&#x3D;&quot;xxx&quot;，xxx为组件对象，而代码块暴露出来的变量，将作为该对象的属性或方法。</span><br><span class="line">&#x2F;&#x2F; 除了module.exports外，不要用其他ES6语法</span><br><span class="line"></span><br><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;wxs src&#x3D;&quot;.&#x2F;m2.wxs&quot; module&#x3D;&quot;m2&quot;&gt;&lt;&#x2F;wxs&gt;</span><br><span class="line">&lt;view&gt;&#123;&#123;m2.message&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">&#x2F;&#x2F; m2.wxs</span><br><span class="line">module.exports &#x3D; require(&#39;.&#x2F;m1.wxs&#39;)</span><br><span class="line">&#x2F;&#x2F; m1.wxs </span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">	message: &quot;hello world!&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="https://pic.downk.cc/item/5ea7f7c7c2a9a83be5d34ded.png" style="zoom: 50%;" />
+
+<img src="https://pic.downk.cc/item/5ea7f87fc2a9a83be5d4204e.png" style="zoom: 67%;" />
+
+<img src="https://pic.downk.cc/item/5ea7f95dc2a9a83be5d54634.png" style="zoom:67%;" />
+
+<p>​    <strong>JS</strong> ：处理页面的交互逻辑以及数据通信</p>
+<p><strong>存储数据</strong>：</p>
+<p>视图层：dataset, 自定义属性</p>
+<p>逻辑层：data对象</p>
+<h3 id="（4）其他构成"><a href="#（4）其他构成" class="headerlink" title="（4）其他构成"></a>（4）其他构成</h3><p> <strong>project.config.json</strong> ： 保存环境配置，防止换电脑跑不了项目。 </p>
+<p> <strong>其他json</strong> ： 保存页面配置，而app.json负责整个小程序的配置（操盘手）。 </p>
+<p> <strong>utils文件夹</strong> ： 存放共用工具类，如常用的函数。 </p>
+<h2 id="小程序框架——MINA框架"><a href="#小程序框架——MINA框架" class="headerlink" title="小程序框架——MINA框架"></a>小程序框架——MINA框架</h2><p><img src="https://pic.downk.cc/item/5ea7fc96c2a9a83be5d92724.jpg" alt=""></p>
+<p> <strong>特点</strong><br>（1）双线程<br>（2）WXML、WXSS、WXS都在ui线程中运行<br>（3）逻辑层通过page.setData(obj)方法，向视图层传递需要更新的数据 </p>
+<h2 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h2><h3 id="冷启动"><a href="#冷启动" class="headerlink" title="冷启动"></a><strong>冷启动</strong></h3><p> 第一次启动、5分钟后再启动、两次警告后再启动（被微信销毁了） </p>
+<h3 id="热启动"><a href="#热启动" class="headerlink" title="热启动"></a><strong>热启动</strong></h3><p> 5分钟内启动 </p>
+<p>若启动时，小程序有新版本，会异步加载内容，默认下次启动时替换为新版本，但是可以使用某api功能，达到立即替换为新版本。 </p>
+<h2 id="资源加载流程"><a href="#资源加载流程" class="headerlink" title="资源加载流程"></a>资源加载流程</h2><p><img src="https://pic.downk.cc/item/5ea7fdb8c2a9a83be5da580f.jpg" alt=""></p>
+<p> <strong>特点</strong><br>（1）本地缓存<br>（2）CDN内容分发网络<br>（3）ajax </p>
+<h2 id="生命周期事件——程序应用生命周期、页面生命周期"><a href="#生命周期事件——程序应用生命周期、页面生命周期" class="headerlink" title="生命周期事件——程序应用生命周期、页面生命周期"></a>生命周期事件——程序应用生命周期、页面生命周期</h2><p><strong>程序应用生命周期</strong><br> （1）onLaunch：初始化完成<br> （2）onHide：收起小程序到后台<br> （3）onShow：展开小程序到前台（热启动）<br> （4）onError：程序出错</p>
+<blockquote>
+<p>globalData——全局数据</p>
+</blockquote>
+<p><strong>页面生命周期</strong><br> （1）onLoad：页面冷启动后，初次加载（只有一次）<br> （2）onShow：每次切换页面，在之后的页面中触发<br> （3）onReady：页面被首次切换到（每个页面只有一次）<br> （4）onHide：每次切换页面，在之前的页面中触发<br> （5）onUnload：关闭当前页</p>
+<blockquote>
+<p>data——页面数据</p>
+</blockquote>
+<p><img src="https://pic.downk.cc/item/5ea7fecfc2a9a83be5dba093.jpg" alt=""></p>
+<h2 id="页面路由"><a href="#页面路由" class="headerlink" title="页面路由"></a>页面路由</h2><p><strong>概念</strong><br> 以栈的形式，管理页面的历史记录。</p>
+<p><strong>路由方式</strong></p>
 <ol>
-<li>自定义域名</li>
-<li>实现自动化部署</li>
-<li>尝试部署其他博客框架</li>
-<li>more…</li>
+<li>初始化：新页面入栈</li>
+<li>打开新页面： 新页面入栈</li>
+<li>页面重定向： 当前页面出栈，新页面入栈</li>
+<li>页面返回：页面不断出栈，直到目标返回页，新页面入栈</li>
+<li>Tab切换：页面全部出栈，只留下新的Tab页面</li>
+<li>重加载：页面全部出栈，只留下新的页面</li>
+</ol>
+<img src="https://pic.downk.cc/item/5ea80794c2a9a83be5e5ec01.png" style="zoom: 67%;" />
+
+<p><strong>注意点</strong><br> （1）重定向：前一个页面出栈。<br> （2）tab切换、重新加载：之前所有页面出栈。<br> （3）进栈onLoad，出栈onUnload。<br> （4）栈存放页面数量，不能超过5个。</p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><ul>
+<li>事件是视图层到逻辑层的通讯方式</li>
+<li>事件可以将用户的行为反馈到逻辑层处理</li>
+<li>事件可以绑定在组件上，触发事件后，就会执行逻辑层中对应的事件处理函数</li>
+<li>事件对象可以携带额外信息</li>
+</ul>
+<p><img src="https://pic.downk.cc/item/5ea921e8c2a9a83be50349b4.png" alt=""></p>
+<p>详细可参考<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html" target="_blank" rel="noopener">官方文档</a></p>
+<h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><ol>
+<li><p>冒泡流（子到父）</p>
+<p>bind(xxx)——冒泡</p>
+<p>catch(xxx)——不冒泡</p>
+</li>
+<li><p>捕获流（父到子）</p>
+<p>capture-bind:xxx——捕获，再冒泡</p>
+<p>capture-catch:xxx——捕获到位后，停在该位置，不冒泡</p>
+</li>
+</ol>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><ul>
+<li>组件是视图层的基本组成单元</li>
+<li>组件自带一些功能与微信风格的样式</li>
+<li>一个组件通常包括：开始标签和结束标签</li>
+<li>属性用来修饰这个组件，内容在两个标签之内</li>
+</ul>
+<img src="https://pic.downk.cc/item/5ea92c4fc2a9a83be50dfdca.png" style="zoom: 67%;" />
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="（1）this问题"><a href="#（1）this问题" class="headerlink" title="（1）this问题"></a>（1）this问题</h3><p>注意回调时，this指向会产生变化。</p>
+<p> <strong>解决措施</strong><br>（1）私有变量保存this。<br>（2）ES6语法。 </p>
+<h3 id="（2）模板管理"><a href="#（2）模板管理" class="headerlink" title="（2）模板管理"></a>（2）模板管理</h3><p> 在pages文件夹下，新开一个template文件夹，存放不同类型的模板，便于管理。 </p>
+<h3 id="（3）页面带参跳转"><a href="#（3）页面带参跳转" class="headerlink" title="（3）页面带参跳转"></a>（3）页面带参跳转</h3><pre><code>**（1）旧页面**
+   在url中，拼接字符串。
+**（2）新页面**
+   onLoad()会接收一个装载参数的对象。 </code></pre><h3 id="（4）性能优化"><a href="#（4）性能优化" class="headerlink" title="（4）性能优化"></a>（4）性能优化</h3><p>​        <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/performance/tips.html" target="_blank" rel="noopener">参考文档</a></p>
+<h3 id="（5）自动预览"><a href="#（5）自动预览" class="headerlink" title="（5）自动预览"></a>（5）自动预览</h3><p>​     开发者工具中，具备自动预览功能，让手机与电脑实时通讯，不必每次调试都要扫码，不过一定要先保存，再     进行编译预览。 </p>
+<h3 id="（6）真机调试"><a href="#（6）真机调试" class="headerlink" title="（6）真机调试"></a>（6）真机调试</h3><pre><code>（1）与预览相比，真机调试提供详细的监控信息。
+（2）某些设备不支持部分API，因此真机调试更可靠。 </code></pre><h2 id="开发问题"><a href="#开发问题" class="headerlink" title="开发问题"></a>开发问题</h2><h5 id="1、wx-getSystemInfo-要从onReady-阶段开始，才能正常运行。"><a href="#1、wx-getSystemInfo-要从onReady-阶段开始，才能正常运行。" class="headerlink" title="1、wx.getSystemInfo()要从onReady()阶段开始，才能正常运行。"></a>1、wx.getSystemInfo()要从onReady()阶段开始，才能正常运行。</h5><h5 id="2、canvas系列"><a href="#2、canvas系列" class="headerlink" title="2、canvas系列"></a>2、canvas系列</h5><p>（1）ctx.drawImage()图片路径必须是本地的，因此先要用wx.downloadFile()将图片下载到本地，再进行绘制。<br> （2）wx.canvasToTempFilePath()必须作为ctx.draw()的回调，才能正常导出画布截图路径；而且为了防止产出图片变形（还没完全生成），应该为该方法加上大于300ms的延迟。因此，基本格式为ctx.draw()——&gt;wx.canvasToTempFilePath()——&gt;setTimeout()。<br> （3）画布尺寸单位为px，想要响应式，必须先获取屏幕像素，通过rpx转换公式运算，获得单个rpx相应的值，此时插入因数就相当于使用rpx单位。<br> （4）隐藏画布的最佳方法：用绝对定位甩出屏幕。</p>
+<blockquote>
+<p>1、外层零宽高overflow: hidden藏不住画布中的图片<br> 2、手法必须是藏，不能是消，若不让画布渲染，则无法对画布截图</p>
+</blockquote>
+<h5 id="3、广告"><a href="#3、广告" class="headerlink" title="3、广告"></a>3、广告</h5><p><strong>（1）注意官方规定的广告安放位置规则</strong><br> <strong>（2）广告元素不能绑定事件等骚操作</strong><br> <strong>（3）上线后，广告需要审核，可能一段时间显示不了广告</strong></p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h5 id="1、获取当前页url"><a href="#1、获取当前页url" class="headerlink" title="1、获取当前页url"></a>1、获取当前页url</h5><p> 使用getCurrentPages可以获取当前加载中所有的页面对象的一个数组，数组最后一个就是当前页面。 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var pages &#x3D; getCurrentPages() &#x2F;&#x2F;获取加载的页面</span><br><span class="line"> </span><br><span class="line">var currentPage &#x3D; pages[pages.length-1] &#x2F;&#x2F;获取当前页面的对象</span><br><span class="line"> </span><br><span class="line">var url &#x3D; currentPage.route &#x2F;&#x2F;当前页面url</span><br><span class="line"> </span><br><span class="line">var options &#x3D; currentPage.options &#x2F;&#x2F;如果要获取url中所带的参数可以查看options</span><br><span class="line">可以写成工具函数放到utils中：</span><br><span class="line"></span><br><span class="line">&#x2F;*获取当前页url*&#x2F;</span><br><span class="line">function getCurrentPageUrl()&#123;</span><br><span class="line">var pages &#x3D; getCurrentPages() &#x2F;&#x2F;获取加载的页面</span><br><span class="line">var currentPage &#x3D; pages[pages.length-1] &#x2F;&#x2F;获取当前页面的对象</span><br><span class="line">var url &#x3D; currentPage.route &#x2F;&#x2F;当前页面url</span><br><span class="line">return url</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">&#x2F;*获取当前页带参数的url*&#x2F;</span><br><span class="line">function getCurrentPageUrlWithArgs()&#123;</span><br><span class="line">var pages &#x3D; getCurrentPages() &#x2F;&#x2F;获取加载的页面</span><br><span class="line">var currentPage &#x3D; pages[pages.length-1] &#x2F;&#x2F;获取当前页面的对象</span><br><span class="line">var url &#x3D; currentPage.route &#x2F;&#x2F;当前页面url</span><br><span class="line">var options &#x3D; currentPage.options &#x2F;&#x2F;如果要获取url中所带的参数可以查看options</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F;拼接url的参数</span><br><span class="line">var urlWithArgs &#x3D; url + &#39;?&#39;</span><br><span class="line">for(var key in options)&#123;</span><br><span class="line">var value &#x3D; options[key]</span><br><span class="line">urlWithArgs +&#x3D; key + &#39;&#x3D;&#39; + value + &#39;&amp;&#39;</span><br><span class="line">&#125;</span><br><span class="line">urlWithArgs &#x3D; urlWithArgs.substring(0, urlWithArgs.length-1)</span><br><span class="line"> </span><br><span class="line">return urlWithArgs</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">getCurrentPageUrl: getCurrentPageUrl,</span><br><span class="line">getCurrentPageUrlWithArgs: getCurrentPageUrlWithArgs</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、小程序跳转到其他小程序"><a href="#2、小程序跳转到其他小程序" class="headerlink" title="2、小程序跳转到其他小程序"></a>2、小程序跳转到其他小程序</h5><p> 在app.json文件中新增配置项：如下，<strong>navigateToMiniProgramAppIdList</strong> 就是新增的配置项目 </p>
+<p>注：配置项目数量不能超过10条</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; app.json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;cloud&quot;: true,</span><br><span class="line">  &quot;pages&quot;: [</span><br><span class="line">    &quot;pages&#x2F;index&#x2F;index&quot;,</span><br><span class="line">  ],</span><br><span class="line">  &quot;window&quot;: &#123;</span><br><span class="line">    &quot;backgroundColor&quot;: &quot;#F6F6F6&quot;,</span><br><span class="line">    &quot;backgroundTextStyle&quot;: &quot;light&quot;,</span><br><span class="line">    &quot;navigationBarBackgroundColor&quot;: &quot;#F6F6F6&quot;,</span><br><span class="line">    &quot;navigationBarTitleText&quot;: &quot;QuickStart&quot;,</span><br><span class="line">    &quot;navigationBarTextStyle&quot;: &quot;black&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;navigateToMiniProgramAppIdList&quot;: [</span><br><span class="line">    &quot;wx3efb95b9c5579418&quot;,</span><br><span class="line">    &quot;wxc1039e003593f9b4&quot;,</span><br><span class="line">    &quot;wxc75cac912af33647&quot;,</span><br><span class="line">    &quot;wx88bbae21474301ed&quot;,</span><br><span class="line">    &quot;wxd101b6b8f64db085&quot;,</span><br><span class="line">    &quot;wxd7c5b7d77ff1b238&quot;,</span><br><span class="line">    &quot;wxefe8997276c7a7d4&quot;,</span><br><span class="line">    &quot;wxbdfee33ea394a980&quot;,</span><br><span class="line">    &quot;wx8b3a98563fc40251&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、小程序注册登录，获取用户信息"><a href="#3、小程序注册登录，获取用户信息" class="headerlink" title="3、小程序注册登录，获取用户信息"></a>3、小程序注册登录，获取用户信息</h5><p> 可参考文章：<a href="https://developers.weixin.qq.com/doc/search.html?query=%E8%8E%B7%E5%8F%96%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF&doc_type=miniprogram&jumpbackUrl=%2Fdoc%2F" target="_blank" rel="noopener">官方文档</a>    <a href="https://zhuanlan.zhihu.com/p/106267803?isappinstalled=0" target="_blank" rel="noopener">知乎分享文章</a></p>
+<h5 id="4、小程序域名配置（wx-request所用域名）"><a href="#4、小程序域名配置（wx-request所用域名）" class="headerlink" title="4、小程序域名配置（wx.request所用域名）"></a>4、小程序域名配置（wx.request所用域名）</h5><p>可参考文章：<a href="https://cloud.tencent.com/developer/article/1483573" target="_blank" rel="noopener">腾讯云分享文章</a>  <a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html" target="_blank" rel="noopener">官方文档</a></p>
+<p>微信小程序域名只支持https请求，在刚刚开始搭建https服务时，可能会出现此错误:   不在以下合法域名列表中，请参考文档</p>
+<ol>
+<li><p>首先需要在后台管理中添加请求的合法域名：</p>
+</li>
+<li><p>在app.js中配置好请求域名</p>
+</li>
+<li><p>在微信开发者工具-设置-项目设置中刷新一下域名信息，再对项目进行重新编译问题应该就能解决了。</p>
+</li>
 </ol>
 ]]></content>
       <categories>
@@ -213,13 +344,888 @@
       </categories>
       <tags>
         <tag>技术</tag>
-        <tag>云开发</tag>
-        <tag>部署</tag>
+        <tag>学习</tag>
+        <tag>小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深入CocosCreator</title>
+    <url>/2019/Cocos2/</url>
+    <content><![CDATA[<p> 前文再续，书接上一回。 这几天一直在通过视频，文档，深入的了解CocosCreator，并对一些知识点做了一下总结笔记</p>
+<a id="more"></a>
+
+<h2 id="资源小知识点"><a href="#资源小知识点" class="headerlink" title="资源小知识点"></a>资源小知识点</h2><h3 id="1-跨项目导入导出资源"><a href="#1-跨项目导入导出资源" class="headerlink" title="1.跨项目导入导出资源"></a>1.跨项目导入导出资源</h3><p>操作流程：</p>
+<p> （1）导出：文件 =&gt; 资源导出，选择 .fire场景文件，输出assets目录的 .zip压缩包。<br> （2）导入：文件 =&gt; 资源导入，选择压缩包源路径、解压路径，输出assets目录内容。</p>
+<h3 id="2-图像资源自动剪裁"><a href="#2-图像资源自动剪裁" class="headerlink" title="2.图像资源自动剪裁"></a>2.图像资源自动剪裁</h3><p>​    基于size mode，尽量去除spriteFrame无像素的部分，减小图片尺寸。</p>
+<hr>
+<h2 id="场景小知识点"><a href="#场景小知识点" class="headerlink" title="场景小知识点"></a>场景小知识点</h2><h3 id="1-场景中的元素"><a href="#1-场景中的元素" class="headerlink" title="1.场景中的元素"></a><strong>1.场景中的元素</strong></h3><p>​    即是节点，可内嵌组件</p>
+<h3 id="2-坐标系"><a href="#2-坐标系" class="headerlink" title="2.坐标系"></a><strong>2.坐标系</strong></h3><table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">坐标轴方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">cocos坐标系（世界、本地坐标系）</td>
+<td align="center">x右、y上、z外</td>
+</tr>
+<tr>
+<td align="center">设备屏幕坐标系</td>
+<td align="center">x右、y下</td>
+</tr>
+</tbody></table>
+<h3 id="3-锚点"><a href="#3-锚点" class="headerlink" title="3.锚点"></a>3.锚点</h3><p><strong>作用：</strong>用于变换、子节点定位基准。</p>
+<hr>
+<h2 id="子系统重点"><a href="#子系统重点" class="headerlink" title="子系统重点"></a>子系统重点</h2><h3 id="1、渲染系统"><a href="#1、渲染系统" class="headerlink" title="1、渲染系统"></a>1、渲染系统</h3><p>​    对摄像机、渲染组件的了解。</p>
+<h3 id="2、UI系统"><a href="#2、UI系统" class="headerlink" title="2、UI系统"></a>2、UI系统</h3><p>​    对widget、layout等UI组件的了解。</p>
+<h3 id="3、动画系统"><a href="#3、动画系统" class="headerlink" title="3、动画系统"></a>3、动画系统</h3><p><strong>（1）创建动画的基本流程</strong><br> <strong>（2）时间曲线（双击动画线，进入编辑窗口）</strong><br> <strong>（3）事件管理（双击游标、加减按钮控制参数个数）</strong><br> <strong>（4）脚本控制</strong></p>
+<h3 id="4、物理系统"><a href="#4、物理系统" class="headerlink" title="4、物理系统"></a>4、物理系统</h3><p><strong>碰撞组件（普通碰撞）</strong><br> （1）editing——是否为编辑模式<br> （2）regenerate points——计算图形边界，自定生成控制点，数值为控制点的生成密度 / 准确度<br> （3）ctrl + 点击——删除控制点<br> （4）组件类型：矩形、圆形、多边形<br> （5）设置碰撞组（项目 =&gt; 项目设置 =&gt; 分组设置）：<br> 制定分组 =&gt; 匹配分组 =&gt; 碰撞组件所在节点上，设置所属分组<br> （6）脚本控制</p>
+<p><strong>Box2D物理引擎（高级碰撞）</strong></p>
+<h3 id="5、音频系统"><a href="#5、音频系统" class="headerlink" title="5、音频系统"></a>5、音频系统</h3><p><strong>（1）audioSource组件</strong><br> <strong>（2）脚本控制</strong></p>
+<hr>
+<h2 id="脚本开发"><a href="#脚本开发" class="headerlink" title="脚本开发"></a>脚本开发</h2><h3 id="1、使用-cc-Class-声明类型"><a href="#1、使用-cc-Class-声明类型" class="headerlink" title="1、使用 cc.Class 声明类型"></a>1、使用 cc.Class 声明类型</h3><p><strong>（1）定义 CCClass</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Sprite = cc.Class(&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）实例化</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Sprite();</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）判断类型</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">cc.<span class="built_in">log</span>(obj instanceof Sprite);       <span class="comment">//使用原生JS的instanceof</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（4）构造函数（ctor）</strong></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Sprite = cc.Class(&#123;</span><br><span class="line">    <span class="comment">//使用ctor声明构造函数</span></span><br><span class="line">    ctor: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        cc.log(<span class="keyword">this</span> <span class="keyword">instanceof</span> Sprite);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（5）实例方法</strong></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Sprite = cc.Class(&#123;</span><br><span class="line">    <span class="comment">// 声明一个名叫 "print" 的实例方法</span></span><br><span class="line">    print: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（6）继承（extends）</strong></p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="keyword">var</span> Shape = cc.Class();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="keyword">var</span> Rect = cc.Class(&#123;</span><br><span class="line">    <span class="comment">//使用 extends 实现继承</span></span><br><span class="line">    <span class="keyword">extends</span>: Shape</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（7）父构造函数</strong></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Shape = cc.Class(&#123;</span><br><span class="line">    ctor: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        cc.log(<span class="string">"Shape"</span>);    <span class="comment">// 实例化时，父构造函数会自动调用，</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Rect = cc.Class(&#123;</span><br><span class="line">    extends: Shape</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Square = cc.Class(&#123;</span><br><span class="line">    extends: Rect,</span><br><span class="line">    ctor: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        cc.log(<span class="string">"Square"</span>);   <span class="comment">// 再调用子构造函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> square = <span class="keyword">new</span> Square();</span><br></pre></td></tr></table></figure>
+
+<p><strong>（8）完整声明属性</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;简单类型声明</span><br><span class="line">properties: &#123;</span><br><span class="line">    score: &#123;</span><br><span class="line">        &#x2F;&#x2F;这几个参数分别指定了 score 的默认值为 0，在 属性检查器 里，其属性名将显示为：“Score (player)”，并且当鼠标移到参数上时，显示对应的 Tooltip。</span><br><span class="line">        default: 0,</span><br><span class="line">        displayName: &quot;Score (player)&quot;,</span><br><span class="line">        tooltip: &quot;The score of player&quot;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;数组声明</span><br><span class="line">properties: &#123;</span><br><span class="line">    names: &#123;</span><br><span class="line">        default: [],</span><br><span class="line">        type: [cc.String]   &#x2F;&#x2F; 用 type 指定数组的每个元素都是字符串类型</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    enemies: &#123;</span><br><span class="line">        default: [],</span><br><span class="line">        type: [cc.Node]     &#x2F;&#x2F; type 同样写成数组，提高代码可读性</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;get&#x2F;set 声明</span><br><span class="line">properties: &#123;</span><br><span class="line">    width: &#123;</span><br><span class="line">        get: function () &#123;</span><br><span class="line">            return this._width;</span><br><span class="line">        &#125;,</span><br><span class="line">        set: function (value) &#123;</span><br><span class="line">            this._width &#x3D; value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>properties常用参数</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">default</td>
+<td align="left">默认值</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left">限定属性的数据类型</td>
+</tr>
+<tr>
+<td align="left">visible</td>
+<td align="left">若为false，则不在属性检查器面板中显示该属性</td>
+</tr>
+<tr>
+<td align="left">serializable</td>
+<td align="left">若为false，则不序列化（保存）该属性</td>
+</tr>
+<tr>
+<td align="left">displayName</td>
+<td align="left">在属性检查器面板中，显示成指定名字</td>
+</tr>
+<tr>
+<td align="left">tooltip</td>
+<td align="left">在属性检查器面板中，添加属性的Tooltip</td>
+</tr>
+</tbody></table>
+<h3 id="2、访问节点和组件"><a href="#2、访问节点和组件" class="headerlink" title="2、访问节点和组件"></a>2、访问节点和组件</h3><p><strong>（1）获得组件所在的节点</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.node</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）获得其它组件</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.getComponent(组件名)</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）获得其它节点及其组件</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; Player.js</span><br><span class="line">cc.Class(&#123;</span><br><span class="line">    extends: cc.Component,</span><br><span class="line">    properties: &#123;</span><br><span class="line">        player: &#123;</span><br><span class="line">            default: null,</span><br><span class="line">            type: cc.Node</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;如果你将属性的 type 声明为 Player 组件，当你拖动节点 &quot;Player Node&quot; 到 属性检查器，player 属性就会被设置为这个节点里面的 Player 组件</span><br><span class="line">&#x2F;&#x2F; Cannon.js</span><br><span class="line">var Player &#x3D; require(&quot;Player&quot;);</span><br><span class="line">cc.Class(&#123;</span><br><span class="line">    extends: cc.Component,</span><br><span class="line">    properties: &#123;</span><br><span class="line">        &#x2F;&#x2F; 声明 player 属性，这次直接是组件类型</span><br><span class="line">        player: &#123;</span><br><span class="line">            default: null,</span><br><span class="line">            type: Player</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查找子节点</span><br><span class="line">&#x2F;&#x2F;返回子节点数组</span><br><span class="line">this.node.children</span><br><span class="line">&#x2F;&#x2F;返回对应的子节点</span><br><span class="line">this.node.getChildByName(子节点名);</span><br><span class="line">&#x2F;&#x2F;查找后代节点</span><br><span class="line">cc.find(子节点&#x2F;...&#x2F;后代节点, this.node);</span><br><span class="line">&#x2F;&#x2F;全局查找节点</span><br><span class="line">cc.find(场景&#x2F;节点&#x2F;节点&#x2F;...);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（4）访问已有变量里的值（通过模块访问）</strong></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">//专门开设一个中介模块，导出接口；在其他模块进行节点、组件、属性的操作</span></span><br><span class="line"><span class="comment">// Global.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    backNode: <span class="literal">null</span>,</span><br><span class="line">    backLabel: <span class="literal">null</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Back.js</span></span><br><span class="line"><span class="keyword">var</span> Global = <span class="built_in">require</span>(<span class="string">"Global"</span>);</span><br><span class="line">cc.Class(&#123;</span><br><span class="line">    extends: cc.Component,</span><br><span class="line">    onLoad: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        Global.backNode = <span class="keyword">this</span>.node;</span><br><span class="line">        Global.backLabel = <span class="keyword">this</span>.getComponent(cc.Label);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// AnyScript.js</span></span><br><span class="line"><span class="keyword">var</span> Global = <span class="built_in">require</span>(<span class="string">"Global"</span>);</span><br><span class="line">cc.Class(&#123;</span><br><span class="line">    extends: cc.Component,</span><br><span class="line">    start: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> text = <span class="string">"Back"</span>;</span><br><span class="line">        Global.backLabel.string = text;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、常用节点和组件接口"><a href="#3、常用节点和组件接口" class="headerlink" title="3、常用节点和组件接口"></a>3、常用节点和组件接口</h3><p><strong>（1）节点状态和层级操作</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">//激活/关闭节点</span></span><br><span class="line"><span class="keyword">this</span>.node.active = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">this</span>.node.active = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//更改节点的父节点</span></span><br><span class="line"><span class="keyword">this</span>.node.parent = parentNode;</span><br><span class="line"></span><br><span class="line"><span class="comment">//索引节点的子节点</span></span><br><span class="line"><span class="comment">//返回子节点数组</span></span><br><span class="line"><span class="keyword">this</span>.node.children</span><br><span class="line"><span class="comment">//返回子节点数量</span></span><br><span class="line"><span class="keyword">this</span>.node.childrenCount</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）更改节点的变换（位置、旋转、缩放、尺寸）</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">//更改节点位置</span></span><br><span class="line"><span class="comment">//分别对 x 轴和 y 轴坐标赋值</span></span><br><span class="line"><span class="keyword">this</span>.node.x = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">this</span>.node.y = <span class="number">50</span>;</span><br><span class="line"><span class="comment">//使用setPosition方法</span></span><br><span class="line"><span class="keyword">this</span>.node.setPosition(<span class="number">100</span>, <span class="number">50</span>);</span><br><span class="line"><span class="keyword">this</span>.node.setPosition(cc.v2(<span class="number">100</span>, <span class="number">50</span>));</span><br><span class="line"><span class="comment">//设置position变量</span></span><br><span class="line"><span class="keyword">this</span>.node.position = cc.v2(<span class="number">100</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//更改节点旋转</span></span><br><span class="line"><span class="keyword">this</span>.node.rotation = <span class="number">90</span>;</span><br><span class="line"><span class="keyword">this</span>.node.setRotation(<span class="number">90</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//更改节点缩放</span></span><br><span class="line"><span class="keyword">this</span>.node.scaleX = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">this</span>.node.scaleY = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">this</span>.node.setScale(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">this</span>.node.setScale(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//更改节点尺寸</span></span><br><span class="line"><span class="keyword">this</span>.node.setContentSize(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"><span class="keyword">this</span>.node.setContentSize(cc.size(<span class="number">100</span>, <span class="number">100</span>));</span><br><span class="line"><span class="keyword">this</span>.node.width = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">this</span>.node.height = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//更改节点锚点位置</span></span><br><span class="line"><span class="keyword">this</span>.node.anchorX = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">this</span>.node.anchorY = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">this</span>.node.setAnchorPoint(<span class="number">1</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）颜色和不透明度</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//设置颜色</span></span><br><span class="line">mySprite.node.color = cc.Color.RED;</span><br><span class="line"><span class="comment">//设置不透明度</span></span><br><span class="line">mySprite.node.opacity = <span class="number">128</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>（4）常用组件接口</strong><br> cc.Component 是所有组件的基类，任何组件都包括如下的常见接口：</p>
+<table>
+<thead>
+<tr>
+<th align="left">接口</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">this.node</td>
+<td align="left">该组件所属的节点实例</td>
+</tr>
+<tr>
+<td align="left">this.enabled</td>
+<td align="left">是否每帧执行该组件的 update 方法，同时也用来控制渲染组件是否显示</td>
+</tr>
+<tr>
+<td align="left">update(dt)</td>
+<td align="left">作为组件的成员方法，在组件的 enabled 属性为 true 时，其中的代码会每帧执行</td>
+</tr>
+<tr>
+<td align="left">onLoad()</td>
+<td align="left">组件所在节点进行初始化时（节点添加到节点树时）执行</td>
+</tr>
+<tr>
+<td align="left">start()</td>
+<td align="left">会在该组件第一次 update 之前执行，通常用于需要在所有组件的 onLoad 初始化完毕后执行的逻辑</td>
+</tr>
+</tbody></table>
+<h3 id="4、生命周期"><a href="#4、生命周期" class="headerlink" title="4、生命周期"></a>4、生命周期</h3><table>
+<thead>
+<tr>
+<th align="left">函数名</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">onLoad</td>
+<td align="left">在节点首次激活时触发，或者所在节点被激活的情况下触发</td>
+</tr>
+<tr>
+<td align="left">start</td>
+<td align="left">在组件首次激活前</td>
+</tr>
+<tr>
+<td align="left">update</td>
+<td align="left">动画更新前</td>
+</tr>
+<tr>
+<td align="left">lateUpdate</td>
+<td align="left">动画更新后</td>
+</tr>
+<tr>
+<td align="left">onEnable</td>
+<td align="left">当组件的 enabled 属性从 false 变为 true 时，或者所在节点的 active 属性从 false 变为 true 时（倘若节点首次被创建且 enabled 为 true，则会在 onLoad 之后，start 之前被调用）</td>
+</tr>
+<tr>
+<td align="left">onDisable</td>
+<td align="left">当组件的 enabled 属性从 true 变为 false 时，或者所在节点的 active 属性从 true 变为 false 时</td>
+</tr>
+<tr>
+<td align="left">onDestroy</td>
+<td align="left">当组件或者所在节点调用了 destroy()时</td>
+</tr>
+</tbody></table>
+<p><img src="https:////upload-images.jianshu.io/upload_images/11524092-7cf5b31340378b04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/440/format/webp" alt="img"></p>
+<h3 id="5、创建和销毁节点"><a href="#5、创建和销毁节点" class="headerlink" title="5、创建和销毁节点"></a>5、创建和销毁节点</h3><p><strong>（1）创建新节点</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cc.Class(&#123;</span><br><span class="line">  extends: cc.Component,</span><br><span class="line">  properties: &#123;</span><br><span class="line">    sprite: &#123;</span><br><span class="line">      default: null,</span><br><span class="line">      type: cc.SpriteFrame,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  start: function () &#123;</span><br><span class="line">    &#x2F;&#x2F;动态创建节点，并将它加入到场景中</span><br><span class="line">    var node &#x3D; new cc.Node(&#39;Sprite&#39;);</span><br><span class="line">    var sp &#x3D; node.addComponent(cc.Sprite);</span><br><span class="line">    sp.spriteFrame &#x3D; this.sprite;</span><br><span class="line">    node.parent &#x3D; this.node;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）克隆已有节点</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;</span><br><span class="line">cc.Class(&#123;</span><br><span class="line">  extends: cc.Component,</span><br><span class="line">  properties: &#123;</span><br><span class="line">    target: &#123;</span><br><span class="line">      default: null,</span><br><span class="line">      type: cc.Node,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  start: function () &#123;</span><br><span class="line">    &#x2F;&#x2F;克隆场景中的已有节点</span><br><span class="line">    var scene &#x3D; cc.director.getScene();</span><br><span class="line">    var node &#x3D; cc.instantiate(this.target);</span><br><span class="line">    node.parent &#x3D; scene;</span><br><span class="line">    node.setPosition(0, 0);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）创建预制节点</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;</span><br><span class="line">cc.Class(&#123;</span><br><span class="line">  extends: cc.Component,</span><br><span class="line">  properties: &#123;</span><br><span class="line">    target: &#123;</span><br><span class="line">      default: null,</span><br><span class="line">      type: cc.Prefab,    &#x2F;&#x2F;预制</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  start: function () &#123;</span><br><span class="line">    var scene &#x3D; cc.director.getScene();</span><br><span class="line">    var node &#x3D; cc.instantiate(this.target);</span><br><span class="line">    node.parent &#x3D; scene;</span><br><span class="line">    node.setPosition(0, 0);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（4）销毁节点</strong></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line">cc.Class(&#123;</span><br><span class="line">  extends: cc.Component,</span><br><span class="line">  properties: &#123;</span><br><span class="line">    target: cc.Node,</span><br><span class="line">  &#125;,</span><br><span class="line">  start: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 5 秒后销毁目标节点</span></span><br><span class="line">    <span class="comment">//销毁节点并不会立刻被移除，而是在当前帧逻辑更新结束后，统一执行</span></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.target.destroy();</span><br><span class="line">    &#125;.bind(<span class="keyword">this</span>), <span class="number">5000</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  update: <span class="function"><span class="keyword">function</span> (<span class="params">dt</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//判断当前节点是否已经被销毁</span></span><br><span class="line">    <span class="keyword">if</span> (cc.isValid(<span class="keyword">this</span>.target)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.target.rotation += dt * <span class="number">10.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>PS：不要使用removeFromParent去销毁节点。<br> 原因：调用一个节点的 removeFromParent 后，它不一定就能完全从内存中释放，因为有可能由于一些逻辑上的问题，导致程序中仍然引用到了这个对象。</p>
+</blockquote>
+<h3 id="6、加载和切换场景"><a href="#6、加载和切换场景" class="headerlink" title="6、加载和切换场景"></a>6、加载和切换场景</h3><p><strong>（1）加载和切换</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//从当前场景，切换到MyScene场景</span></span><br><span class="line">cc.director.loadScene(<span class="string">"MyScene"</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）通过常驻节点，进行场景资源管理和参数传递</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//常驻节点：不随场景切换，而自动销毁，为所有场景提供持久性信息</span></span><br><span class="line"><span class="comment">//设置常驻节点</span></span><br><span class="line">cc.game.addPersistRootNode(myNode);</span><br><span class="line"><span class="comment">//取消常驻节点，还原为一般场景节点</span></span><br><span class="line">cc.game.removePersistRootNode(myNode);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）场景加载回调</strong></p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">//fn：加载MyScene场景时触发</span></span><br><span class="line">cc.director.loadScene(<span class="string">"MyScene"</span>, <span class="function"><span class="keyword">fn</span>);</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（4）预加载场景</strong></p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">//后台预加载场景</span></span><br><span class="line">cc.director.preloadScene(<span class="string">"MyScene"</span>, <span class="function"><span class="keyword">fn</span>);</span></span><br><span class="line"><span class="function">//有需要时，手动加载该场景</span></span><br><span class="line"><span class="function"><span class="title">cc</span>.<span class="title">director</span>.<span class="title">loadScene</span></span>(<span class="string">"MyScene"</span>, <span class="function"><span class="keyword">fn</span>);</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7、获取和加载资源"><a href="#7、获取和加载资源" class="headerlink" title="7、获取和加载资源"></a>7、获取和加载资源</h3><p><strong>（1）资源属性的声明</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; NewScript.js</span><br><span class="line">cc.Class(&#123;</span><br><span class="line">    extends: cc.Component,</span><br><span class="line">    properties: &#123;</span><br><span class="line">        &#x2F;&#x2F;所有继承自 cc.Asset 的类型都统称资源，如 cc.Texture2D, cc.SpriteFrame, cc.AnimationClip, cc.Prefab 等</span><br><span class="line">        texture: &#123;</span><br><span class="line">            default: null,</span><br><span class="line">            type: cc.Texture2D</span><br><span class="line">        &#125;,</span><br><span class="line">        spriteFrame: &#123;</span><br><span class="line">            default: null,</span><br><span class="line">            type: cc.SpriteFrame</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）静态加载（在属性检查器里设置资源）</strong></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// NewScript.js</span></span><br><span class="line">onLoad: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//拖拽资源管理器的资源，到属性检查器的脚本组件中，即可在脚本里拿到设置好的资源</span></span><br><span class="line">    <span class="keyword">var</span> spriteFrame = <span class="keyword">this</span>.spriteFrame;</span><br><span class="line">    <span class="keyword">var</span> texture = <span class="keyword">this</span>.texture;</span><br><span class="line">    spriteFrame.setTexture(texture);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）动态加载</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//动态加载的资源，需要存放于assets的子目录resources中</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//加载单个资源</span></span><br><span class="line"><span class="comment">//cc.loader.loadRes(resources的相对路径, 类型(可选), 回调函数)</span></span><br><span class="line"><span class="comment">//加载Prefab资源</span></span><br><span class="line">cc.loader.loadRes(<span class="string">"test assets/prefab"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, prefab)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newNode = cc.instantiate(prefab);</span><br><span class="line">    cc.director.getScene().addChild(newNode);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//加载SpriteFrame</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">self</span> = this;</span><br><span class="line">cc.loader.loadRes(<span class="string">"test assets/image"</span>, cc.SpriteFrame, <span class="function"><span class="keyword">function</span> <span class="params">(err, spriteFrame)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">self</span>.node.getComponent(cc.Sprite).spriteFrame = spriteFrame;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//批量加载资源</span></span><br><span class="line"><span class="comment">//cc.loader.loadResDir(resources的相对路径, 类型(可选), 回调函数)</span></span><br><span class="line"><span class="comment">//加载test assets目录下所有资源</span></span><br><span class="line">cc.loader.loadResDir(<span class="string">"test assets"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, assets)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//加载test assets目录下所有SpriteFrame，并且获取它们的路径</span></span><br><span class="line">cc.loader.loadResDir(<span class="string">"test assets"</span>, cc.SpriteFrame, <span class="function"><span class="keyword">function</span> <span class="params">(err, assets, urls)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//资源浅释放</span></span><br><span class="line"><span class="comment">//cc.loader.releaseRes(resources的相对路径, 类型(可选))</span></span><br><span class="line">cc.loader.releaseRes(<span class="string">"test assets/image"</span>, cc.SpriteFrame);</span><br><span class="line">cc.loader.releaseRes(<span class="string">"test assets/anim"</span>);</span><br><span class="line"><span class="comment">//cc.loader.releaseAsset(组件名)</span></span><br><span class="line">cc.loader.releaseAsset(spriteFrame);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 资源深释放，释放一个资源以及所有它依赖的资源</span></span><br><span class="line"><span class="keyword">var</span> deps = cc.loader.getDependsRecursively(<span class="string">'prefabs/sample'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（4）加载远程资源和设备资源</strong></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">//加载远程资源</span></span><br><span class="line"><span class="comment">//远程 url 带图片后缀名</span></span><br><span class="line"><span class="keyword">var</span> remoteUrl = <span class="string">"http://unknown.org/someres.png"</span>;</span><br><span class="line">cc.loader.load(remoteUrl, <span class="function"><span class="keyword">function</span> (<span class="params">err, texture</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//远程 url 不带图片后缀名，此时必须指定远程图片文件的类型</span></span><br><span class="line">remoteUrl = <span class="string">"http://unknown.org/emoji?id=124982374"</span>;</span><br><span class="line">cc.loader.load(&#123;<span class="attr">url</span>: remoteUrl, <span class="attr">type</span>: <span class="string">'png'</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//加载设备资源</span></span><br><span class="line"><span class="comment">//用绝对路径加载设备存储内的资源，比如相册</span></span><br><span class="line"><span class="keyword">var</span> absolutePath = <span class="string">"/dara/data/some/path/to/image.png"</span></span><br><span class="line">cc.loader.load(absolutePath, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>加载限制：<br> 1、原生平台远程加载不支持图片文件以外类型的资源。<br> 2、这种加载方式只支持图片、声音、文本等原生资源类型，不支持SpriteFrame、SpriteAtlas、Tilemap等资源的直接加载和解析。（需要后续版本中的AssetBundle支持）<br> 3、Web端的远程加载受到浏览器的CORS跨域策略限制，如果对方服务器禁止跨域访问，那么会加载失败，而且由于WebGL安全策略的限制，即便对方服务器允许http请求成功之后也无法渲染。</p>
+</blockquote>
+<p><strong>（5）资源的依赖和释放</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 直接释放某个贴图</span></span><br><span class="line">cc.loader.release(texture);</span><br><span class="line"><span class="comment">// 释放一个 prefab 以及所有它依赖的资源</span></span><br><span class="line"><span class="keyword">var</span> deps = cc.loader.getDependsRecursively(<span class="string">'prefabs/sample'</span>);</span><br><span class="line">cc.loader.release(deps);</span><br><span class="line"><span class="comment">// 如果在这个 prefab 中有一些和场景其他部分共享的资源，你不希望它们被释放，可以将这个资源从依赖列表中删除</span></span><br><span class="line"><span class="keyword">var</span> deps = cc.loader.getDependsRecursively(<span class="string">'prefabs/sample'</span>);</span><br><span class="line"><span class="keyword">var</span> index = deps.indexOf(texture2d._uuid);</span><br><span class="line"><span class="keyword">if</span> (index !== <span class="number">-1</span>)</span><br><span class="line">    deps.splice(index, <span class="number">1</span>);</span><br><span class="line">cc.loader.release(deps);</span><br></pre></td></tr></table></figure>
+
+<h3 id="8、监听和发射事件"><a href="#8、监听和发射事件" class="headerlink" title="8、监听和发射事件"></a>8、监听和发射事件</h3><p><strong>（1）监听事件</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//target是可选参数，用于绑定响应函数的调用者</span></span><br><span class="line"><span class="comment">//boolean是可选参数，默认为false，表示冒泡流</span></span><br><span class="line"><span class="keyword">this</span>.node.<span class="keyword">on</span>(<span class="keyword">event</span>, fn, target, boolean);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）关闭监听</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.node.off(<span class="keyword">event</span>, fn, target, boolean);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）发射事件</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//为事件函数，提供参数，最多5个</span></span><br><span class="line"><span class="keyword">this</span>.node.emit(<span class="keyword">event</span>, arg1, arg2, arg3);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（4）派送事件</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//grandson.js</span></span><br><span class="line"><span class="comment">//升级版的on，冒泡到的节点，全部注册事件</span></span><br><span class="line"><span class="keyword">this</span>.node.dispatchEvent( <span class="keyword">new</span> cc.Event.EventCustom(<span class="string">'foobar'</span>, <span class="literal">true</span>) );</span><br><span class="line"></span><br><span class="line"><span class="comment">//father.js</span></span><br><span class="line"><span class="comment">//在指定的上级节点中，注册相同的事件，阻止事件冒泡，手动停止派送</span></span><br><span class="line"><span class="keyword">this</span>.node.<span class="keyword">on</span>(<span class="string">'foobar'</span>, function (<span class="keyword">event</span>) &#123;</span><br><span class="line">  <span class="keyword">event</span>.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（5）事件对象（回调参数的event对象）</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">API 名</th>
+<th align="left">类型</th>
+<th align="left">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">type</td>
+<td align="left">String</td>
+<td align="left">事件的类型（事件名）</td>
+</tr>
+<tr>
+<td align="left">target</td>
+<td align="left">cc.Node</td>
+<td align="left">接收到事件的原始对象</td>
+</tr>
+<tr>
+<td align="left">currentTarget</td>
+<td align="left">cc.Node</td>
+<td align="left">接收到事件的当前对象，事件在冒泡阶段当前对象可能与原始对象不同</td>
+</tr>
+<tr>
+<td align="left">getType</td>
+<td align="left">Function</td>
+<td align="left">获取事件的类型</td>
+</tr>
+<tr>
+<td align="left">stopPropagation</td>
+<td align="left">Function</td>
+<td align="left">停止冒泡阶段，事件将不会继续向父节点传递，当前节点的剩余监听器仍然会接收到事件</td>
+</tr>
+<tr>
+<td align="left">stopPropagationImmediate</td>
+<td align="left">Function</td>
+<td align="left">立即停止事件的传递，事件将不会传给父节点以及当前节点的剩余监听器</td>
+</tr>
+<tr>
+<td align="left">getCurrentTarget</td>
+<td align="left">Function</td>
+<td align="left">获取当前接收到事件的目标节点</td>
+</tr>
+<tr>
+<td align="left">detail</td>
+<td align="left">Function</td>
+<td align="left">自定义事件的信息（属于 cc.Event.EventCustom）</td>
+</tr>
+<tr>
+<td align="left">setUserData</td>
+<td align="left">Function</td>
+<td align="left">设置自定义事件的信息（属于 cc.Event.EventCustom）</td>
+</tr>
+<tr>
+<td align="left">getUserData</td>
+<td align="left">Function</td>
+<td align="left">获取自定义事件的信息（属于 cc.Event.EventCustom）</td>
+</tr>
+</tbody></table>
+<h3 id="9、节点系统事件"><a href="#9、节点系统事件" class="headerlink" title="9、节点系统事件"></a>9、节点系统事件</h3><p><strong>（1）鼠标事件类型和事件对象</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">枚举对象定义</th>
+<th align="left">对应的事件名</th>
+<th align="left">事件触发的时机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">cc.Node.EventType.MOUSE_DOWN</td>
+<td align="left">mousedown</td>
+<td align="left">当鼠标在目标节点区域按下时触发一次</td>
+</tr>
+<tr>
+<td align="left">cc.Node.EventType.MOUSE_ENTER</td>
+<td align="left">mouseenter</td>
+<td align="left">当鼠标移入目标节点区域时，不论是否按下</td>
+</tr>
+<tr>
+<td align="left">cc.Node.EventType.MOUSE_MOVE</td>
+<td align="left">mousemove</td>
+<td align="left">当鼠标在目标节点在目标节点区域中移动时，不论是否按下</td>
+</tr>
+<tr>
+<td align="left">cc.Node.EventType.MOUSE_LEAVE</td>
+<td align="left">mouseleave</td>
+<td align="left">当鼠标移出目标节点区域时，不论是否按下</td>
+</tr>
+<tr>
+<td align="left">cc.Node.EventType.MOUSE_UP</td>
+<td align="left">mouseup</td>
+<td align="left">当鼠标从按下状态松开时触发一次</td>
+</tr>
+<tr>
+<td align="left">cc.Node.EventType.MOUSE_WHEEL</td>
+<td align="left">mousewheel</td>
+<td align="left">当鼠标滚轮滚动时</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">函数名</th>
+<th align="left">返回值类型</th>
+<th align="left">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">getScrollY</td>
+<td align="left">Number</td>
+<td align="left">获取滚轮滚动的 Y 轴距离，只有滚动时才有效</td>
+</tr>
+<tr>
+<td align="left">getLocation</td>
+<td align="left">Object</td>
+<td align="left">获取鼠标位置对象，对象包含 x 和 y 属性</td>
+</tr>
+<tr>
+<td align="left">getLocationX</td>
+<td align="left">Number</td>
+<td align="left">获取鼠标的 X 轴位置</td>
+</tr>
+<tr>
+<td align="left">getLocationY</td>
+<td align="left">Number</td>
+<td align="left">获取鼠标的 Y 轴位置</td>
+</tr>
+<tr>
+<td align="left">getPreviousLocation</td>
+<td align="left">Object</td>
+<td align="left">获取鼠标事件上次触发时的位置对象，对象包含 x 和 y 属性</td>
+</tr>
+<tr>
+<td align="left">getDelta</td>
+<td align="left">Object</td>
+<td align="left">获取鼠标距离上一次事件移动的距离对象，对象包含 x 和 y 属性</td>
+</tr>
+<tr>
+<td align="left">getButton</td>
+<td align="left">Number</td>
+<td align="left">cc.Event.EventMouse.BUTTON_LEFT或cc.Event.EventMouse.BUTTON_RIGHT或cc.Event.EventMouse.BUTTON_MIDDLE</td>
+</tr>
+</tbody></table>
+<p><strong>（2）触摸事件类型和事件对象</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">枚举对象定义</th>
+<th align="left">对应的事件名</th>
+<th align="left">事件触发的时机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">cc.Node.EventType.TOUCH_START</td>
+<td align="left">touchstart</td>
+<td align="left">当手指触点落在目标节点区域内时</td>
+</tr>
+<tr>
+<td align="left">cc.Node.EventType.TOUCH_MOVE</td>
+<td align="left">touchmove</td>
+<td align="left">当手指在屏幕上目标节点区域内移动时</td>
+</tr>
+<tr>
+<td align="left">cc.Node.EventType.TOUCH_END</td>
+<td align="left">touchend</td>
+<td align="left">当手指在目标节点区域内离开屏幕时</td>
+</tr>
+<tr>
+<td align="left">cc.Node.EventType.TOUCH_CANCEL</td>
+<td align="left">touchcancel</td>
+<td align="left">当手指在目标节点区域外离开屏幕时</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">API 名</th>
+<th align="left">类型</th>
+<th align="left">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">touch</td>
+<td align="left">cc.Touch</td>
+<td align="left">与当前事件关联的触点对象</td>
+</tr>
+<tr>
+<td align="left">getID</td>
+<td align="left">Number</td>
+<td align="left">获取触点的 ID，用于多点触摸的逻辑判断</td>
+</tr>
+<tr>
+<td align="left">getLocation</td>
+<td align="left">Object</td>
+<td align="left">获取触点位置对象，对象包含 x 和 y 属性</td>
+</tr>
+<tr>
+<td align="left">getLocationX</td>
+<td align="left">Number</td>
+<td align="left">获取触点的 X 轴位置</td>
+</tr>
+<tr>
+<td align="left">getLocationY</td>
+<td align="left">Number</td>
+<td align="left">获取触点的 Y 轴位置</td>
+</tr>
+<tr>
+<td align="left">getPreviousLocation</td>
+<td align="left">Object</td>
+<td align="left">获取触点上一次触发事件时的位置对象，对象包含 x 和 y 属性</td>
+</tr>
+<tr>
+<td align="left">getStartLocation</td>
+<td align="left">Object</td>
+<td align="left">获取触点初始时的位置对象，对象包含 x 和 y 属性</td>
+</tr>
+<tr>
+<td align="left">getDelta</td>
+<td align="left">Object</td>
+<td align="left">获取触点距离上一次事件移动的距离对象，对象包含 x 和 y 属性</td>
+</tr>
+</tbody></table>
+<p><strong>（3）其它事件</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">枚举对象定义</th>
+<th align="left">对应的事件名</th>
+<th align="left">事件触发的时机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">无</td>
+<td align="left">position-changed</td>
+<td align="left">当位置属性修改时</td>
+</tr>
+<tr>
+<td align="left">无</td>
+<td align="left">rotation-changed</td>
+<td align="left">当旋转属性修改时</td>
+</tr>
+<tr>
+<td align="left">无</td>
+<td align="left">scale-changed</td>
+<td align="left">当缩放属性修改时</td>
+</tr>
+<tr>
+<td align="left">无</td>
+<td align="left">size-changed</td>
+<td align="left">当宽高属性修改时</td>
+</tr>
+<tr>
+<td align="left">无</td>
+<td align="left">anchor-changed</td>
+<td align="left">当锚点属性修改时</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>PS：枚举对象定义、事件名等价，在回调参数中，作用相同。</p>
+</blockquote>
+<h3 id="10、全局系统事件"><a href="#10、全局系统事件" class="headerlink" title="10、全局系统事件"></a>10、全局系统事件</h3><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//全局系统事件的类型</span></span><br><span class="line">cc.SystemEvent.EventType.KEY_DOWN    <span class="comment">//键盘按下</span></span><br><span class="line">cc.SystemEvent.EventType.KEY_UP    <span class="comment">//键盘释放</span></span><br><span class="line">cc.SystemEvent.EventType.DEVICEMOTION    <span class="comment">//设备重力传感</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//绑定、解除全局系统事件</span></span><br><span class="line">cc.systemEvent.<span class="keyword">on</span>(<span class="keyword">event</span>, fn, target, boolean);</span><br><span class="line">cc.systemEvent.off(<span class="keyword">event</span>, fn, target, boolean);</span><br></pre></td></tr></table></figure>
+
+<h3 id="11、动作系统（变换系统）"><a href="#11、动作系统（变换系统）" class="headerlink" title="11、动作系统（变换系统）"></a>11、动作系统（变换系统）</h3><p><strong>（1）动作控制</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 执行动作</span></span><br><span class="line">node.runAction(action);</span><br><span class="line"><span class="comment">// 停止一个动作</span></span><br><span class="line">node.stopAction(action);</span><br><span class="line"><span class="comment">// 停止所有动作</span></span><br><span class="line">node.stopAllActions();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给 action 设置 tag</span></span><br><span class="line"><span class="keyword">var</span> ACTION_TAG = <span class="number">1</span>;</span><br><span class="line">action.setTag(ACTION_TAG);</span><br><span class="line"><span class="comment">// 通过 tag 获取 action</span></span><br><span class="line">node.getActionByTag(ACTION_TAG);</span><br><span class="line"><span class="comment">// 通过 tag 停止一个动作</span></span><br><span class="line">node.stopActionByTag(ACTION_TAG);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）容器动作</strong></p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">//顺序执行</span></span><br><span class="line">cc.sequence(action1, action2, ...);</span><br><span class="line"><span class="comment">//并发执行</span></span><br><span class="line">cc.spawn(action1, action2, ...);</span><br><span class="line"><span class="comment">//指定次数，重复执行</span></span><br><span class="line">cc.<span class="keyword">repeat</span>(action, times)</span><br><span class="line"><span class="comment">//无限次数，重复执行</span></span><br><span class="line">cc.repeatForever(action)</span><br><span class="line"><span class="comment">//改变动作速度倍率，再执行</span></span><br><span class="line">cc.speed(action, rate)</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）即时动作</strong></p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line">cc.<span class="keyword">show</span>()    <span class="comment">//立即显示</span></span><br><span class="line">cc.<span class="keyword">hide</span>()    <span class="comment">//立即隐藏</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><strong>（4）时间间隔动作</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">cc.moveTo()    <span class="comment">//移动到目标位置</span></span><br><span class="line">cc.rotateTo()    <span class="comment">//旋转到目标角度</span></span><br><span class="line">cc.scaleTo()    <span class="comment">//将节点大小缩放到指定的倍数</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><strong>（5）动作回调</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> finished = cc.callFunc(fn, target, arg);</span><br></pre></td></tr></table></figure>
+
+<p><strong>（6）缓动动作</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> action = cc.scaleTo(<span class="number">0.5</span>, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">//使用easeIn曲线，丰富动作表现</span></span><br><span class="line">action.easing(cc.easeIn(<span class="number">3.0</span>));</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>PS：可以使用<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fdocs.cocos.com%2Fcreator%2Fmanual%2Fzh%2Fscripting%2Ftween.html" target="_blank" rel="noopener">缓动系统</a>，代替动作系统。（缓动系统的API更简约）</p>
+</blockquote>
+<h3 id="12、计时器"><a href="#12、计时器" class="headerlink" title="12、计时器"></a>12、计时器</h3><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">//interval：以秒为单位的时间间隔</span></span><br><span class="line"><span class="comment">//repeat：重复次数</span></span><br><span class="line"><span class="comment">//delay：开始延时</span></span><br><span class="line"><span class="keyword">this</span>.schedule(fn, interval, repeat, delay)</span><br><span class="line"><span class="keyword">this</span>.unschedule(fn)</span><br></pre></td></tr></table></figure>
+
+<h3 id="13、脚本执行顺序"><a href="#13、脚本执行顺序" class="headerlink" title="13、脚本执行顺序"></a>13、脚本执行顺序</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">editor: &#123;</span><br><span class="line">        <span class="comment">//executionOrder越小，该组件相对其它组件就会越先执行（默认为0）</span></span><br><span class="line">        <span class="comment">//executionOrder只对 onLoad, onEnable, start, update 和 lateUpdate 有效，对 onDisable 和 onDestroy 无效</span></span><br><span class="line">        executionOrder: <span class="number">1</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="14、标准网络接口"><a href="#14、标准网络接口" class="headerlink" title="14、标准网络接口"></a>14、标准网络接口</h3><p><strong>（1）XMLHttpRequest——短连接</strong><br> <strong>（2）WebSocket——长连接</strong></p>
+<h3 id="15、对象池"><a href="#15、对象池" class="headerlink" title="15、对象池"></a>15、对象池</h3><p><strong>对象池的概念</strong><br> 在同一场景中，需要多次进行节点的生成、消失时，假如直接进行创建、销毁的操作，就会很浪费性能。因此，使用对象池，存储需要消失的节点，释放需要生成的节点，达到节点回收利用的目的。</p>
+<p><strong>工作流程</strong><br> （1）初始化对象池</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">properties: &#123;</span><br><span class="line">    enemyPrefab: cc.Prefab    <span class="comment">//准备预制资源</span></span><br><span class="line">&#125;,</span><br><span class="line">onLoad: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.enemyPool = <span class="keyword">new</span> cc.NodePool();</span><br><span class="line">    <span class="keyword">let</span> initCount = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; initCount; ++i) &#123;</span><br><span class="line">        <span class="keyword">let</span> enemy = cc.instantiate(<span class="keyword">this</span>.enemyPrefab); <span class="comment">// 创建节点</span></span><br><span class="line">        <span class="keyword">this</span>.enemyPool.put(enemy); <span class="comment">// 通过 put 接口放入对象池</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）从对象池请求对象</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">createEnemy: function (parentNode) &#123;</span><br><span class="line">    let enemy = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.enemyPool.size() &gt; <span class="number">0</span>) &#123; <span class="comment">// 通过 size 接口判断对象池中是否有空闲的对象</span></span><br><span class="line">        enemy = <span class="keyword">this</span>.enemyPool.<span class="keyword">get</span>();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建</span></span><br><span class="line">        enemy = cc.instantiate(<span class="keyword">this</span>.enemyPrefab);</span><br><span class="line">    &#125;</span><br><span class="line">    enemy.parent = parentNode; <span class="comment">// 将生成的敌人加入节点树</span></span><br><span class="line">    enemy.getComponent(<span class="string">'Enemy'</span>).<span class="keyword">init</span>(); <span class="comment">//接下来就可以调用 enemy 身上的脚本进行初始化</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（3）将对象返回对象池</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">onEnemyKilled: <span class="function"><span class="keyword">function</span> (<span class="params">enemy</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// enemy 应该是一个 cc.Node</span></span><br><span class="line">    <span class="keyword">this</span>.enemyPool.put(enemy); <span class="comment">// 和初始化时的方法一样，将节点放进对象池，这个方法会同时调用节点的 removeFromParent</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>清除对象池</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//手动清空对象池，销毁其中缓存的所有节点</span></span><br><span class="line">myPool.clear();</span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识CocosCreator</title>
+    <url>/2019/Cocos/</url>
+    <content><![CDATA[<p>一直很喜欢打游戏，单机，手游，端游…都有玩，但是有时候会想，自己有没有可能做出一款小游戏来呢？出于好奇心，<del>抱着爱学习的态度，</del>找了一款较火的，学习成本较低的游戏引擎学习——CocosCreator</p>
+<a id="more"></a>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>引用官网的简单介绍： Cocos Creator 是以内容创作为核心，实现了脚本化、组件化和数据驱动的游戏开发工具。 具备了易于上手的内容生产工作流，以及功能强大的开发者工具套件，可用于实现游戏逻辑和高性能游戏效果。 </p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1-点击链接官网"><a href="#1-点击链接官网" class="headerlink" title="1.点击链接官网"></a>1.<a href="https://www.cocos.com/" target="_blank" rel="noopener">点击链接官网</a></h3><h3 id="2-步骤"><a href="#2-步骤" class="headerlink" title="2.步骤"></a>2.步骤</h3><p>​     <strong>（1）下载引擎</strong> </p>
+<p>​        <img src="https://pic.downk.cc/item/5e9ec012c2a9a83be57b3168.png" style="zoom:50%;" /></p>
+<p>​     <strong>（2）一路next，安装成功后，注册账号</strong> </p>
+<pre><code>**（3）打开hello world模板项目**</code></pre><img src="https://pic.downk.cc/item/5e9ec0b7c2a9a83be57bc20f.jpg" style="zoom:50%;" />
+
+<h2 id="编辑器界面"><a href="#编辑器界面" class="headerlink" title="编辑器界面"></a>编辑器界面</h2><p>这是默认布局，还可以按自己需求设置经典布局和竖屏游戏布局</p>
+<img src="https://pic.downk.cc/item/5e9ec833c2a9a83be582d742.jpg" style="zoom:50%;" />
+
+<h3 id="重点模块展示"><a href="#重点模块展示" class="headerlink" title="重点模块展示"></a>重点模块展示</h3><h4 id="1、资源管理器"><a href="#1、资源管理器" class="headerlink" title="1、资源管理器"></a>1、资源管理器</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-76cefb1b0a7e3cee.png?imageMogr2/auto-orient/strip|imageView2/2/w/249/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="2、场景编辑器"><a href="#2、场景编辑器" class="headerlink" title="2、场景编辑器"></a>2、场景编辑器</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-78cf1221db080d2c.png?imageMogr2/auto-orient/strip|imageView2/2/w/616/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="3、层级管理器"><a href="#3、层级管理器" class="headerlink" title="3、层级管理器"></a>3、层级管理器</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-595caee19e579838.png?imageMogr2/auto-orient/strip|imageView2/2/w/246/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="4、属性检查器"><a href="#4、属性检查器" class="headerlink" title="4、属性检查器"></a>4、属性检查器</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-5ff5a490b7583a9a.png?imageMogr2/auto-orient/strip|imageView2/2/w/382/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="5、控件库"><a href="#5、控件库" class="headerlink" title="5、控件库"></a>5、控件库</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-e7361ac4e841ab53.png?imageMogr2/auto-orient/strip|imageView2/2/w/336/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="6、工具栏"><a href="#6、工具栏" class="headerlink" title="6、工具栏"></a>6、工具栏</h4><p><img src="https:////upload-images.jianshu.io/upload_images/11524092-fcbceb50e6b4ddf3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<h4 id="7、设置（文件-gt-设置）"><a href="#7、设置（文件-gt-设置）" class="headerlink" title="7、设置（文件 =&gt; 设置）"></a>7、设置（文件 =&gt; 设置）</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-81924955d27f12c9.png?imageMogr2/auto-orient/strip|imageView2/2/w/734/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="8、项目设置（项目-gt-项目设置）"><a href="#8、项目设置（项目-gt-项目设置）" class="headerlink" title="8、项目设置（项目 =&gt; 项目设置）"></a>8、项目设置（项目 =&gt; 项目设置）</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-2c123c25f2fecb4a.png?imageMogr2/auto-orient/strip|imageView2/2/w/734/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="9、构建发布（项目-gt-构建发布）"><a href="#9、构建发布（项目-gt-构建发布）" class="headerlink" title="9、构建发布（项目 =&gt; 构建发布）"></a>9、构建发布（项目 =&gt; 构建发布）</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-a6b7841ee802ea68.png?imageMogr2/auto-orient/strip|imageView2/2/w/820/format/webp" alt="img" style="zoom:67%;" />
+
+<hr>
+<h3 id="重点模块简述"><a href="#重点模块简述" class="headerlink" title="重点模块简述"></a>重点模块简述</h3><table>
+<thead>
+<tr>
+<th align="left">模块</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">资源管理器</td>
+<td align="left">assets目录文件操作</td>
+</tr>
+<tr>
+<td align="left">场景编辑器</td>
+<td align="left">场景节点变换、对齐方式</td>
+</tr>
+<tr>
+<td align="left">层级管理器</td>
+<td align="left">场景节点管理</td>
+</tr>
+<tr>
+<td align="left">属性检查器</td>
+<td align="left">参数控制</td>
+</tr>
+<tr>
+<td align="left">控件库</td>
+<td align="left">内置控件、自定义控件（预制控件）</td>
+</tr>
+<tr>
+<td align="left">工具栏</td>
+<td align="left">变换模式切换、变换手柄模式切换、预览、打开文件夹</td>
+</tr>
+<tr>
+<td align="left">设置</td>
+<td align="left">编辑器配置</td>
+</tr>
+<tr>
+<td align="left">项目设置</td>
+<td align="left">可视化的项目配置，保存于settings/project.json</td>
+</tr>
+<tr>
+<td align="left">构建发布</td>
+<td align="left">项目打包</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>PS：在层级管理器中，资源越靠后，则在场景编辑器中，层叠等级越高。（与Photoshop等视觉设计软件的图层操作相反）</p>
+</blockquote>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ProjectName（新建项目）</span><br><span class="line">├──assets</span><br><span class="line">├──library</span><br><span class="line">├──local</span><br><span class="line">├──packages</span><br><span class="line">├──settings</span><br><span class="line">├──temp</span><br><span class="line">└──project.json</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">子结构</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">assets</td>
+<td align="left">与资源管理器的内容同步，游戏的核心目录（每个文件都有相应.meta文件）</td>
+</tr>
+<tr>
+<td align="left">library</td>
+<td align="left">这里文件的结构和资源的格式将被处理成最终游戏发布时需要的形式</td>
+</tr>
+<tr>
+<td align="left">local</td>
+<td align="left">编辑器使用习惯记录（如：窗体布局）</td>
+</tr>
+<tr>
+<td align="left">settings</td>
+<td align="left">项目设置</td>
+</tr>
+<tr>
+<td align="left">project.json</td>
+<td align="left">版本控制，必须与assets共同存在</td>
+</tr>
+<tr>
+<td align="left">build</td>
+<td align="left">打包导出目录，构建项目时，自动生成</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>PS：.meta文件——记录某资源在项目中的唯一标识，以及其配置信息，只有在编辑器中对资源做修改，.meta文件才会实时变化。因此，不要在编辑器外，对资源的内容进行操作。</p>
+</blockquote>
+<hr>
+<h2 id="资源分类"><a href="#资源分类" class="headerlink" title="资源分类"></a>资源分类</h2><h3 id="1、场景（scene）"><a href="#1、场景（scene）" class="headerlink" title="1、场景（scene）"></a>1、场景（scene）</h3><p><strong>自动释放资源：</strong>切换场景后，上一个场景中的资源，从内存中释放。<br> <strong>延迟加载资源：</strong>意味着不用等待所有资源加载完毕，才显示场景。（快速切换场景，资源陆续在画面显示）</p>
+<h3 id="2、贴图（texture）"><a href="#2、贴图（texture）" class="headerlink" title="2、贴图（texture）"></a>2、贴图（texture）</h3><p>普通图，子层为一张spriteFrame。</p>
+<h3 id="3、预制（prefab）"><a href="#3、预制（prefab）" class="headerlink" title="3、预制（prefab）"></a>3、预制（prefab）</h3><p>创建方式：拖拽场景节点，到资源管理器。</p>
+<h3 id="4、图集（atlas）"><a href="#4、图集（atlas）" class="headerlink" title="4、图集（atlas）"></a>4、图集（atlas）</h3><p>精灵图，子层为多张spriteFrame。（精灵图合成软件：TexturePacker、Zwoptex）</p>
+<h3 id="5、自动图集（auto-atlas）"><a href="#5、自动图集（auto-atlas）" class="headerlink" title="5、自动图集（auto-atlas）"></a>5、自动图集（auto-atlas）</h3><p>打包时，将所在目录中的所有碎图，合成为图集。</p>
+<h3 id="6、艺术数字（label-atlas）"><a href="#6、艺术数字（label-atlas）" class="headerlink" title="6、艺术数字（label-atlas）"></a>6、艺术数字（label-atlas）</h3><p>数字为内容的图集。</p>
+<h3 id="7、字体（font）"><a href="#7、字体（font）" class="headerlink" title="7、字体（font）"></a>7、字体（font）</h3><p>动态字体：.ttf<br> 位图字体：.fnt + .png（存在于同一目录）</p>
+<h3 id="8、粒子（particle）"><a href="#8、粒子（particle）" class="headerlink" title="8、粒子（particle）"></a>8、粒子（particle）</h3><p>小型动画</p>
+<h3 id="9、声音（audio）"><a href="#9、声音（audio）" class="headerlink" title="9、声音（audio）"></a>9、声音（audio）</h3><p><strong>模式：</strong>web audio、dom audio</p>
+<h3 id="10、骨骼动画（spine-dragonBones）"><a href="#10、骨骼动画（spine-dragonBones）" class="headerlink" title="10、骨骼动画（spine / dragonBones）"></a>10、骨骼动画（spine / dragonBones）</h3><table>
+<thead>
+<tr>
+<th align="center">文件格式</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.json</td>
+<td align="center">骨骼数据</td>
+</tr>
+<tr>
+<td align="center">.png</td>
+<td align="center">图集纹理</td>
+</tr>
+<tr>
+<td align="center">.txt / .atlas</td>
+<td align="center">图集数据</td>
+</tr>
+</tbody></table>
+<h3 id="11、瓦片图（tiledMap）"><a href="#11、瓦片图（tiledMap）" class="headerlink" title="11、瓦片图（tiledMap）"></a>11、瓦片图（tiledMap）</h3><table>
+<thead>
+<tr>
+<th align="center">文件格式</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.tmx</td>
+<td align="center">地图数据</td>
+</tr>
+<tr>
+<td align="center">.png</td>
+<td align="center">图集纹理</td>
+</tr>
+<tr>
+<td align="center">.tsx tileset</td>
+<td align="center">数据配置文件</td>
+</tr>
+</tbody></table>
+<h3 id="12、文本（text）"><a href="#12、文本（text）" class="headerlink" title="12、文本（text）"></a>12、文本（text）</h3><h3 id="13、脚本（script）"><a href="#13、脚本（script）" class="headerlink" title="13、脚本（script）"></a>13、脚本（script）</h3><h3 id="14、json"><a href="#14、json" class="headerlink" title="14、json"></a>14、json</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>提高搜索能力的一些小技巧</title>
+    <url>/2019/Search/</url>
+    <content><![CDATA[<p>  以前搜索从来只会有用百度，如果找不到就一直从第一页翻下去…最后还是没找到，更别说找到有价值的内容了。我们正处在一个高速发展的互联网大数据时代，得数据者得天下，如何善用大数据成为了一门学问，<strong>善用搜索和强化搜索意识可以减少信息不对称，有助于我们解决问题和多维度思考问题。</strong></p>
+<a id="more"></a>
+
+<p> 如何才能提高搜索能力，让我们更快更准确地找到想要的内容呢？事实上，完成一次搜索会经历这样五个步骤：<strong>1，关键词。2，搜索引擎。3，搜索表达式。4，筛选结果。5，选择结果。</strong> </p>
+<h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><p><strong>关键词是我们开始搜索的出发点</strong>，关键词的选择就在于如何准确描述自己想要搜索的内容。首先，<strong>关键词选择应该是单词、短语或者词组，而不是一个句子</strong>。比如“什么警匪类的电影比较好看？”只需要输入“电影 警匪”即可，如果搜索结果不满意，则继续添加新的关键词。</p>
+<p>如果还不满意，则可以尝试把关键词换成同义词，比如“XX 迅雷下载”可以换成“XX 磁力下载”。还是不满意的话，可以尝试换一种语言搜索，因为互联网上的英文数据存储量是中文的 10 倍以上。比如“冰雪奇缘 壁纸”可以换成“Frozen Wallpaper”。</p>
+<h2 id="搜索引擎"><a href="#搜索引擎" class="headerlink" title="搜索引擎"></a>搜索引擎</h2><p>搜索引擎的选择对于搜索结果的影响是最为关键的。</p>
+<p>使用综合性的搜索引擎（比如谷歌百度），可以解决日常搜索 80% 的情况（二八定律）。如果想要搜索特定的结果，我们就要使用细分的搜索引擎，比如搜索图片可以用谷歌百度的图片搜索，又比如用谷歌搜索英文内容时，应该使用”<strong>Google No Country Redirect</strong>“来搜索，这一点在《<a href="https://www.runningcheese.com/google-search" target="_blank" rel="noopener">默认搜索引擎</a>》一文有专门介绍。</p>
+<p>剩下 20% 的搜索情况更具搜索价值，则需要使用专业的垂直搜索引擎，它不仅更快，而且也能搜索到综合性引擎搜索不到的内容。比如搜索最新鲜的资讯你需要用”微博“搜索引擎，论文搜索你要用”文献“搜索引擎，图片搜索你需要用专业的图库网站来搜索。</p>
+<p>因此，我们可以将常用的搜索引擎保存到浏览器，它包括“<strong>名称、关键字、搜索链接</strong>”三个部分。名称和关键字写什么都行，搜索链接的获取方法也很简单，在网站提供的搜索框内，输入任意内容，点击搜索后查看浏览器地址栏链接的变化，复制该条链接，并将链接中的搜索内容部分换成 %s 即可。</p>
+<h2 id="搜索表达式"><a href="#搜索表达式" class="headerlink" title="搜索表达式"></a>搜索表达式</h2><p> <strong>搜索表达式是最容易被忽视的步骤。</strong>大多数用户都还是停留在搜索框中输入一两个关键字，然后点击搜索按钮的阶段。运气好你可以在第一页就得到结果，否则你得不停的翻页来得到结果，学习一些常用的检索表达式是一件低投入、高回报、受益终身的事情，而且搜索表达式在绝大多数搜索引擎上都是适用的。 </p>
+<table>
+<thead>
+<tr>
+<th><strong>检索表达式</strong></th>
+<th><strong>介绍</strong></th>
+<th><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-</td>
+<td>搜索关键词A的同时屏蔽关于关键词B的信息</td>
+<td>吉他 -广告</td>
+</tr>
+<tr>
+<td>|</td>
+<td>同时搜索关键词多个关键词, |可以用OR代替, OR需要大写</td>
+<td>营养|早餐, 营养 OR 早餐</td>
+</tr>
+<tr>
+<td>“”</td>
+<td>要求查询结果要精确匹配，不包括演变形式（即引号内的内容须连贯匹配，不能断续）</td>
+<td>“Failure is the mother of success”</td>
+</tr>
+<tr>
+<td>*</td>
+<td>只适用于英文，添加一个星号以表示任何未知或不确定的字词。</td>
+<td>“* is the mother of success”</td>
+</tr>
+<tr>
+<td>《》</td>
+<td>只适用于中文，要求查询结果是关于这部作品，而不是普通的词语</td>
+<td>《游戏改变世界》</td>
+</tr>
+<tr>
+<td>site:</td>
+<td>仅从特定网站或网域获得搜索结果</td>
+<td>site:qq.com</td>
+</tr>
+<tr>
+<td>inurl:</td>
+<td>查找在URL地址里有搜索关键词的页面</td>
+<td>inurl:qq</td>
+</tr>
+<tr>
+<td>intitle:</td>
+<td>查找在网页标题里有搜索关键词的页面</td>
+<td>intitle:qq</td>
+</tr>
+<tr>
+<td>filetype:</td>
+<td>查找pdf,xml,xls,txt,doc,csv等特定格式的结果</td>
+<td>filetype:pdf qq</td>
+</tr>
+<tr>
+<td>混合搜索</td>
+<td>同时使用多个检索表达式，比如：<a href="https://www.runningcheese.com/go?url=https://www.baidu.com/s?wd=site%3Aqq.com+" target="_blank" rel="noopener"firefox"+-quantum">site:qq.com “firefox” -quantum</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="筛选结果"><a href="#筛选结果" class="headerlink" title="筛选结果"></a>筛选结果</h2><p> <strong>筛选搜索结果为的是获得更精准的搜索结果。</strong>不要只是在逛淘宝时才用到搜索筛选，比如搜索视频可以按播放次数排列，搜索答案时按最多点赞排列，新闻搜索时按最新发布时间排列。很多搜索引擎都有“高级搜索”的设置，比如可以设置搜索范围，比如可以设置筛选某一个时间阶段的内容。 </p>
+<h2 id="选择结果"><a href="#选择结果" class="headerlink" title="选择结果"></a>选择结果</h2><p>在得到比较满意的搜索结果后，按住 Ctrl 键点击搜索结果就会在新的标签页面打开，这样可以方便对比结果。如果搜索的结果因为一些原因打不开了，可以利用“网页快照”的功能来重新查看。如果想要知道这个网页的旧版本，可以使用”互联网档案馆“（<a href="https://www.runningcheese.com/go?url=http://www.archive.org" target="_blank" rel="noopener">Internet Archive</a>）来查看。</p>
+<p>当搜索结果不完整或者不是最初的资料来源时，可以选择其中的一串文字来重新搜索（10个汉字或者英文单词），在这一串文字的两端最好加上双引号（“”），这样能够更精准的匹配。</p>
+<h2 id="一些较有用的各领域资源网站"><a href="#一些较有用的各领域资源网站" class="headerlink" title="一些较有用的各领域资源网站"></a>一些较有用的各领域资源网站</h2><h3 id="1、专业的内容垂直查询网"><a href="#1、专业的内容垂直查询网" class="headerlink" title="1、专业的内容垂直查询网"></a>1、专业的内容垂直查询网</h3><ul>
+<li><a href="http://hao.199it.com/" target="_blank" rel="noopener">大数据导航</a></li>
+<li><a href="http://www.lsjgcx.com/" target="_blank" rel="noopener">历史价格查询</a></li>
+<li><a href="https://www.chongbuluo.com/" target="_blank" rel="noopener">虫部落</a></li>
+</ul>
+<h3 id="2、查论文"><a href="#2、查论文" class="headerlink" title="2、查论文"></a>2、查论文</h3><p>国内主要是中国知网，万方，维普，中国科学引文数据<br>国外主要是SCI，EI</p>
+<h3 id="3、搜索引擎"><a href="#3、搜索引擎" class="headerlink" title="3、搜索引擎"></a>3、搜索引擎</h3><p>谷歌，谷歌学术，百度（真心不咋地），谷歌学术代理”glgoo”</p>
+<h3 id="4、查专利"><a href="#4、查专利" class="headerlink" title="4、查专利"></a>4、查专利</h3><p>国内，广州大数据，佰腾，<br>国外，康帕斯（Kompass），Factiva，Gale<br>注意，查专利时，可以使用单位名称，或者董事长总经理名字搜索。</p>
+<h3 id="5、查标准"><a href="#5、查标准" class="headerlink" title="5、查标准"></a>5、查标准</h3><p>中标网，工标网</p>
+<h3 id="6、获取关键词"><a href="#6、获取关键词" class="headerlink" title="6、获取关键词"></a>6、获取关键词</h3><p>（1）中国知网的 术语规范<br>（2）维普高级搜索中的 同义词<br>（3）万方高级检索</p>
+<h2 id="常用资源平台"><a href="#常用资源平台" class="headerlink" title="常用资源平台"></a>常用资源平台</h2><h3 id="1、贴吧、论坛、知乎"><a href="#1、贴吧、论坛、知乎" class="headerlink" title="1、贴吧、论坛、知乎"></a>1、贴吧、论坛、知乎</h3><h3 id="2、资源集合网"><a href="#2、资源集合网" class="headerlink" title="2、资源集合网"></a>2、资源集合网</h3><p><strong>（1）综合</strong><br> <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.sucaitu.cc%2F" target="_blank" rel="noopener">https://www.sucaitu.cc/</a></p>
+<p><strong>（2）软件</strong><br> <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.nocmd.com%2F" target="_blank" rel="noopener">https://www.nocmd.com/</a><br> <a href="https://links.jianshu.com/go?to=http%3A%2F%2Fm.anxia.com%2Fw%2F" target="_blank" rel="noopener">http://m.anxia.com/w/</a></p>
+<h3 id="3、微博、博客"><a href="#3、微博、博客" class="headerlink" title="3、微博、博客"></a>3、微博、博客</h3><h3 id="4、QQ、微信"><a href="#4、QQ、微信" class="headerlink" title="4、QQ、微信"></a>4、QQ、微信</h3><h3 id="5、B站"><a href="#5、B站" class="headerlink" title="5、B站"></a>5、B站</h3><h3 id="6、淘宝、闲鱼"><a href="#6、淘宝、闲鱼" class="headerlink" title="6、淘宝、闲鱼"></a>6、淘宝、闲鱼</h3>]]></content>
+      <categories>
+        <category>小知识</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>技能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《游戏改变世界》读后感</title>
+    <url>/2019/Game/</url>
+    <content><![CDATA[<p>  游戏化如何让现实变得更美好 ， 现实世界存在太多不足和缺陷 ， 游戏化可以让现实变得更美好。 —— 这是此书作者主要观点</p>
+<a id="more"></a>
+
+<ul>
+<li>作者在书中用大量事例告诉我们，游戏击中了人类幸福的核心，提供了令人愉悦的奖励、刺激性的挑战和宏大的胜利，而这些都是现实世界十分匮乏的。她的研究表明，我们可以借助游戏的力量，让生活变得像游戏一样精彩。 </li>
+<li>作者指出了游戏化将要实现的四大目标：更满意的工作、更有把握的成功、更强的社会联系及更宏大的意义，并用大量实践告诉我们该如何驾驭游戏的力量，解决现实问题，并提升幸福感。她告诫我们：如果人们继续忽视游戏，在不远的未来，就会处在极端不利的地位。 </li>
+</ul>
+<p>这本书给我的感觉就是作者在写作中有点不够负责任，否则至少应该告诉读者，游戏世界之所以显得更迷人、让人流连忘放、沉迷其中，是因为游戏世界比现实世界简单太多，再复杂的游戏，其核心机制都是简单的，否则何来快速反馈，再简单的世界，其影响因素都非常多，且很多因素有很高的不确定性。不是游戏世界有多高深，而是现实世界太精妙。你只能说游戏的机制引入某些场景会更能激发用户参与，比如在教育过程中适当引入反馈机制，可能会提高学生的学习乐趣，这里还要强调适当，因为如果大家习惯了游戏中那么明显的反馈机制，是难以适应现实的，现实从不会如此慷慨，你会更加失望。</p>
+<h2 id="游戏的四大特点"><a href="#游戏的四大特点" class="headerlink" title="游戏的四大特点"></a>游戏的四大特点</h2><p>了解游戏，首先要了解游戏的特点：所有的游戏都有4个决定性特征：目标、规则、反馈系统和自愿参与。这四个特征已经明显地告诉我们，为何那么多人沉迷于游戏，其中快速反馈是吸引人的核心所在，而目标和规则的合理设计都是为了能够产生快速反馈，自愿参与特征则更能让玩家在遇到障碍时坚持下去，以获得更好的反馈体验。现实不那么吸引人，因为现实生活没有这样的快速反馈机制，现实中一个甘愿接受延迟满足的人往往会更有自制力、更容易获得成就，现实和游戏就是如此背离，一个鼓励快速反馈，一个褒奖延迟满足。所以这本书的三观歪塌就在这里，不区分现实要求和游戏环境，而是屁股决定脑袋宣称游戏的完美。</p>
+<h2 id="玩乐对立于抑郁，而不是工作。"><a href="#玩乐对立于抑郁，而不是工作。" class="headerlink" title="玩乐对立于抑郁，而不是工作。"></a>玩乐对立于抑郁，而不是工作。</h2><p>现实中，能够自己选定事业和生活目标，并为之不断努力的人，能获得心流体验，体会快乐的，这样的快乐远比游戏中持续的多。退出游戏界面，如果没有强劲的现实支撑，剩下的只是空虚而已。所以每个人的生活重点都是找到自己的兴趣所在和使命归属，这样的现实生活才更有意义。</p>
+<p>当然，游戏作为主动型娱乐，其强烈的参与感，确实会带来更多乐趣。高风险工作、重复工作、脑力工作、体力工作、探索性工作、团队工作和创造性工作，这些艰苦工作出现在游戏里，剧作家诺埃尔·科沃德曾说过“工作比娱乐更有趣。”这句话可能未必有错。我承认游戏作为娱乐的积极作用，相对于被动式和低投入度的娱乐活动，游戏能够帮忙让我们享受到艰苦工作的乐趣，体会正面和良性的压力。</p>
+<h2 id="做任何事情，不一定要想着尽力而为，应该是想着如何享受其中"><a href="#做任何事情，不一定要想着尽力而为，应该是想着如何享受其中" class="headerlink" title="做任何事情，不一定要想着尽力而为，应该是想着如何享受其中"></a>做任何事情，不一定要想着尽力而为，应该是想着如何享受其中</h2><p>人类幸福的最高形式是紧张、乐观地投入到周围的世界，能持续可靠地产生心流，自我选择的目标、障碍以及持续不断的反馈。当然设计精良的游戏，同样基于这三大元素为玩家提供心流。</p>
+<p>视频游戏所有的情绪力量只来自于以下事实：它们提供有趣的障碍、更好的反馈和适应性更强的挑战，它们极为擅长一件事：唤起更多的心流和自豪体验，让人欲罢不能。事实上，这就是早期视频游戏的关键：让玩家尽量长时间地玩下去。雅达利最广为人知的一个口号就是：“发现你究竟能走多远。”这就是游戏的深度，好的游戏能够不断为玩家提供挑战、障碍和反馈，在尽量长的时间内吸引玩家。</p>
+<p>一次强烈的心流体验，可以在此后几个小时、甚至几天让我们心情愉悦。但它是一种极端的投入状态，最终会耗尽我们的体力和精力。我们不能随心所欲无限制地一直处在心流中。按照凯斯的说法，这就是为什么人类繁荣需要一种更“持续”的幸福方法，不能只有心流。太多的心流会导致幸福倦怠，与此同时，太多的自豪会让人上瘾。研究人员认为，一些玩家对心爱的游戏“上瘾”，最大的潜在原因就是自豪感。打完一个游戏后的兴高采烈，总是伴随着可怕的空虚感带来的一丝丝刺痛。</p>
+<p>虽然我说了很多批评这本书的地方，但关于积极心理学的探讨还是值得看看的，人到中年，总会觉得生活平淡了，快乐的和悲伤的感觉都不再强烈，我们如何让自己真正幸福呢？虽然这本书在讲述游戏时非常偏激，很多观点都难以认同，我就权当它是本有关幸福的书来读了。积极心理学领域出现了多种相互矛盾的幸福理论，但如果说有一件事是所有积极心理学家都认同的，那就是：实现幸福有多种途径，但我们就是发现不了幸福。没有哪一种物体、事件、结果或生活环境一定能给我们带来真正的幸福。我们必须自己创造幸福：从事艰苦工作，从事那些能带来奖励的活动。一方面，如果我们尝试在自身之外寻找幸福，就把焦点放在了积极心理学家称为“外在”奖励的东西上，即金钱、物质、地位或赞许。“享乐适应”，它是长期保持生活满意的最大障碍之一。追求外在奖励，注定会妨碍我们达成自身的幸福。另一方面，如果我们着手自己创造幸福，就把焦点放在了产生内在奖励的活动上，即通过强烈投入周围世界所产生的积极情绪、个人优势和社会联系来收获幸福。我们所做的事情，能因充分投入而带来享受，就足够了，这是“自成目的”的，强烈的投入感又是我们能体验到的最愉悦、最满足、最有意义的情绪状态。源自内在奖励的幸福有着令人难以置信的适应性。每当我们从事自成目的活动，就出现了一种与享乐适应完全相反的情况：我们不再通过消费和获得而实现愉悦，开始培养自己的享乐韧性。我们自己才是幸福的唯一来源。科学家已经证明，对外在奖励的享乐适应会导致我们沉溺于快捷的幸福行为，一步步走向失控，直到它们失去效果，或是让我们承受不起，甚至最终害死我们。</p>
+<h2 id="自我奖励（内在、外在配合）是提升幸福感的方法。"><a href="#自我奖励（内在、外在配合）是提升幸福感的方法。" class="headerlink" title="自我奖励（内在、外在配合）是提升幸福感的方法。"></a>自我奖励（内在、外在配合）是提升幸福感的方法。</h2><p>内在奖励会让我们更幸福，让生活更美好，内在奖励分为4大类型：</p>
+<p>1.我们每一天都在渴望满意的工作，何为满意的工作？有目标、有进展是满意工作的初始点。</p>
+<p>2.我们渴望体验成功，至少也是希望成功。希望感觉到自己在生活中的强大，向他人展示强项，希望对成功的机会保持乐观态度，觉得自己越来越好。不要惧怕失败。</p>
+<p>3.我们渴望与社会建立联系。哪怕是最内敛的人，也有很大一部分幸福来自与心爱的人共度美好时光。</p>
+<p>4.我们渴望过得有意义，渴望成为超越自身的宏伟事业的一部分，投入某种超越个人生活、能产生持久影响的事情中去，并为之做出贡献。</p>
+<p>所有这些奖励的共同点在于，它们都是深度投入周围世界，如环境、他人、超越自身的宏伟事业和项目的途径。</p>
+<h2 id="游戏，正在编织着一条关系链"><a href="#游戏，正在编织着一条关系链" class="headerlink" title="游戏，正在编织着一条关系链"></a>游戏，正在编织着一条关系链</h2><p>​        说了那么多关于积极心理学的东西，现在回到游戏本身，我非常认同游戏在建立社会连接这方面的积极作用，它能帮我们建立社交联系，最能建设乐观心态的视频游戏，恰好也是社交性最强的，两者并非巧合。我们对成功的一大渴望就是分享，用游戏来代替真正的互动交流并不完美，但它的确能让我们在太过繁忙、无法保持联系时跟扩展的家庭及朋友圈子来往。亲社会情感包括爱情、同情、钦佩和献身精神，都以他人为目标，但又能让自己感觉良好。一起玩游戏除了能带来这种通用型的社交好处，还能带来两种十分独特的亲社会情感：快乐尴尬和间接骄傲—纳奇斯，纳奇斯是依地语，指的是我们教导或指点的某人成功时，我们产生的骄傲爆棚感，它的排名仅次于“惊喜”和“自豪”。在玩游戏时指导朋友和家人会让我们开心，让我们感觉更亲密。如果并未帮助或鼓励别人，当他们成功时我们就不会感到骄傲爆棚，相反，大多会感到嫉妒和怨恨。游戏会产生一种特殊的“社会临场感”：因追求同样的目标、投入相同的活动而放大的“临场感”。玩家们互相认可，因为他们对自己在做什么、为什么做有着相同的理解。他们的行动对彼此来说是可以理解的、有意义的。越来越多的网络游戏玩家说，他们喜欢跟自己在现实生活里认识的人一起玩。年纪越轻，就越是这样。最近18岁以下的玩家有61%的游戏时间都在跟生活里认识的朋友和家人玩，而不是一个人玩或和陌生人玩。游戏，越来越多地成为编织在日常生活里的一条关键社交线索。</p>
+<p>​        除了连接熟人，游戏也可以让陌生人联盟，为了把一群陌生人变成社群，必须遵循两个基本步骤：第一，培养陌生人之间的共同利益；第二，给他们机会和途径围绕这一利益开展交流和互动。每个社群成员都要理解社群的目标、接受实现这些目标的策略和实践。这种与陌生人共同交流和贡献的活动，会增加社会和谐度和个人幸福感的，这个世界就不会那么孤独。研究人员已经证明，哪怕每天只是跟亲切友好的陌生人共享短短几分钟的公共空间，也会让我们更为乐观，提高我们的自尊，让我们感到更安全，感觉和周围的环境联系紧密，帮助我们更享受自己的生活。达契尔·克特纳提出一种用于衡量共享环境社会福祉的数学方法，叫做“仁率”，它比较的是在特定时间段和特定地点，陌生人之间的总积极互动和总消极互动。比率越高，该空间的社会福祉越好，在那儿待过之后就越可能感到快乐；比率越低，该空间的社会福祉越低，如果在那儿待得太久，幸福感就会减少。以此为衡量，中国社会的仁率肯定是很低的。可能也正是在这样的社会环境下，广场舞才会如此普及，舞者快感是内啡肽与后叶催产素相结合，再加上迷走神经受到强烈刺激时带给我们的感受，即我们成为一起活动的群体中的一员，在音乐的节奏中“失去自我”的感觉。这是一种充满兴奋、心流涌动和喜爱之情的复杂感觉，很难通过其他途径体验到，广场舞自有其积极的社会意义。但团体舞蹈也让很多人觉得尴尬。从自我意识到社交焦虑，再到对一切群体活动的不屑，所有这一切都可能妨碍我们参加或享受跳舞，所以我们也多了一个看待广场舞的积极角度。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然游戏不能代替现实生活，但游戏的一些设计规则若应用到现实中，确实会有不少积极因素。游戏的4大特征是目标、规则、反馈系统和自愿参加，书中提到的《家务战争》游戏，其神来之笔在于，它说服我们：是我们自己想做这些家务的。好像没谁愿意做家务，但是游戏机制的启动，这种主动性至少会持续一段时间。比如使用《耐克+》系统跑步，可以激发大家更好的参与并坚持运动。</p>
+<p>最后，游戏也给组建有益的社群带来很多启发。在社交网络和社群中，参与人数是至关重要的，改变参与的人数，可以彻底改变它的性质。协作项目要做到活跃，需要必要的临界参与量。很多协作项目和众包项目很难吸引到足够多的人来参与，往往无疾而终。网络游戏和像facebook这种有趣的社交网络，能提供稳定的内在奖励流。它们是自发性质的空间，也就是为了单纯享受而访问的空间。它们的首要目的就是具有奖励性，而不是解决问题、完成工作。和严肃性项目不同，它们的首要设计目的就是为了鼓励、满足我们的情感渴望。因此，这一类项目吸引了我们的绝大部分在线参与度，也就是我们为一个或多个参与类网络贡献的个体及集体能力。但是严肃类群体项目，没有这种稳定的内在奖励流和自发性质，应该借鉴多人游戏的机制来吸引人。维基百科就是一个正面案例。首先，维基百科是一个良好的游戏世界。它的超大规模激起了我们的敬畏和惊奇感，它藤蔓错节的导航又鼓励了我们的好奇、探索和合作。其次，维基百科有着良好的游戏机制，玩家的行动有直接和明确的结果：编辑后的文章即刻显示在网站上，带给用户强有力的环境控制感。最后，维基百科拥有良好的游戏社群。良好的游戏社群要具备两个条件：丰富的积极社交互动以及集体努力的有意义背景，而维基百科两者都具备。我们需要一种可持续性更强的参与式经济，利用内在奖励来动员、鼓励参与者，而不是增加诱人的物质报酬，一来这些项目本就提供不了多少资金，二来对我们本来就享受其中的活动，报酬反而会削弱我们投入的动力。相信未来众包游戏将在我们实现民主、科学和人道主义目标的过程中扮演重要的角色，在中国可能愈加任重道远。</p>
+<p>从游戏回到现实，我们人生中最紧迫的使命、也是地球上每个人都要承担的使命，是在清醒的每一刻里，全力以赴地深深地投入现实。</p>
+]]></content>
+      <categories>
+        <category>article</category>
+      </categories>
+      <tags>
+        <tag>article</tag>
+        <tag>读后感</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blog</title>
+    <url>/2019/Blog/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">您好, 这里需要密码.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="9958afedbf6d60f702ebbc55e939868b8cd6799eea0c0f62e0938881b55f349c">0e5e12f915b07848efe6cca26da7a10a7ab96b7f67e38e50d0ab3d9c6920a7e66a441138056b7a7a701cb95ce10aea49b2853dfc871e239091bc6e1f1c3968bef1ae99b7b77f3ea080ab4fb6d9ea1d1e911cd6f1ac109eadb6d09dc529b05188e5be9ea28300377b5655350ebff3a8699a01d712ac335ace2c3673b4b2409b94e1812d32f204175d2474e481957dba5f7a6a70b971ce233ce76419aa6c828659012cc07d8a6d703548d5af2f1809a04d197524f9d3c4a09f706ea8b16c286e15cfbf6b02395cacf00e830af38adfb12106e62a28c3de8f9b76859601fd45b8e417a1fd191fa5dd7b11a3620d9ceb3faa9e5a8a7ac3d18bdd6ac833bff89051189e749fe2ba411520edaecea550912003a85e94e8b723419d3e8dfd22cae6ebd6d2b46e32d2b719d7b2dc2e637e12509d2a7c4481f2fbcbba3fe9776d7529cc8c9be0d342adcfc6f4676f478d7c66958d8cba02fd48edfdaed766ece600a92f5a6cf25287901035e0c0793afa860169fb16e3f820d485b6c15b3e23d3fbb787e031c43b9251368a7f52bdeb48a9220653f122026c5932f206f33a78dbd15ecaf930be6f23f3c94aa744fa9ef1191459a757bff352c5ae2dba7910fb7b1ca57fa1bbea14d14ba403c3294804bc10f1abb175beadb230c03948ab99625515dcb7ca10a117ac266b4a60537ad13c1ff6a282fe0dd7536da11d2d063cd86b9ad3b77d7bc6e190b7bdf5bb62118188bc71a86062daf5065587ac431cedbbe99f937aae9975fafab499b569b9146b42c482da6bf8f70f2232943269d902f2b0b21bb6dcd6c575e5f412b6e3ab50af1801c668cc39c9caf6d7b2a47af9942962e314237d88b22006387cd378db6da75004c59b0297c87a5e95021f9102963bab308dac66abaed8db3628d30402635f5155d5d8de81d856717d1da94b72b591ab43e5998aa61574c8a1e4a472304356a43a781ad4123c6ef0ccf416b411d0538e20fd18b109bf5455397ac32d229fe199e500b3addd2d32eeb24b95de5def2501ee7dfa51ae1f779f4c0519433ed4ebb3f1138e1e94f43460dd1169cb7be086b8fd609ebcd2778b6fdb2e2670fb4d113bf283857bf30f4f45b28b202e45a3deb568c325b10551a2751f7daf8c5d09a08c95c18739b21274730544fe370c08e9b6d8fc0336f023c6cda4d80f6dd9a6a8f43a9b0a432167791f5e2a1fb81b68b6799ff10616156f28c58f22f7204b55ae6040384d12db42b3a2a74979b0dbaad6a223c07718edbd0bd95d296adf9f25936f5fadddba2372edf9f3c92be5e8073f799563cf9b34214c43da70f3f67fb1b93e49761f20d2e586408e044790bd05e23bff1c0a4565a6118c06a3363589690ea458bd92dfbf76520417fbbfcb12ffeab05f4d412cda28c3921563e52c2e06e8ac7e219a9e6e94d92e1c8a63f05e7b99bb8ba273aa5da0ddce8bf1ea4a652188079ff37f8c469cd71067f476a9983b5692de04e40139b8123dc95658d6d5ec94dc4bf1ad2761073d1f8258381d4c5603ff1ae72cbfe3ac9e85fb98401e06a7c21c46bb1307855d7a70e0aed5e3a41f5f00b050a02ab37f9e9600e1bd8d1055296cd0df723b9766f0f460b87e2a122b3b5a5790d2bb008483e56ffb1c9377316fa10f8819dc3cbae049309df866b4f9011c90a33c62ef9032f07ad9e39fbb050cbfe93bae51912468fa2cce94a87afb96255ae6f5f971827ac3b4dfbe532548c294e29f10b86216ebf18094a5a3929133beba779ac827a5847123b1b967d83900258435ddc997417dc6094a2861e18dbfd2c33d940af227e2969d9db67c24b081fd33de089b63b2f827efc0e7fa9fc5bb3e3964a615ab7d0c61fd5112f70e021e3d24472b3dd5a0b81fda2588f0da993450f9f33c804ee48d511bf8b295f7d1981ef84a97171152f7f2b3e96f7ca93927ccaa1c1582b788370b4e1925f99d769b1193f71dcd10510962158fa4a92f8ba602cbc5235cd07cb703894a46a9b0657443b9cce3f0f738bb539d3bc230d4d779664dfbd396f922c04d8f7a80ce7ca0d115ad63625b8035d004d618c9ecbd330f8201889d4e1f8040fd1b1a2a1ecf406e78e4cd183e4177b35df2817553d97c362bdd9b36cf85e2244c3d4055e488e2e160a9a816e6c72ff80bdf9cd7ef7f9217c756944edc374159f0c29faf82484027480994618b019bd25e715dabc098166224cd316f8f97b1177d043b4464d3b60ca8e0be62eff093e67248b269f6dca2b0cb5b7aeb2a8a0c091252bddddbfe9e91a0dc3829bd36344d896b2c3d9aca88642d1a2272b66ceed0931fd114e4529e004cacbbd8973c163384e7f31d7d7556adf78d5e6a0dfc394ccd59a85bf1773d2f47e1dd4c4897ad2a32d290b4766ee07c8b97fc440096b8cc86097c6778be9bb52d88e6a23752c39213b1cb2edb2a687d56a9223ac084334eed83cda33366cf5b94fa9a3cb52a078832bbf40fe3a1bc8c2a562a1c6e1da5a428b54d9f9584a4321575a91fa38ad28936883b11fa77b934785c362e46b22c42cf251cf39055d83a4bd3b96e3f9bf48a90e8593a6e1245cfb9a4ab0d06d882ad0b4b89a2ed0fad89a815cab41f7ecca8466d903d4f614b0a484e28bf9d80608cba44c11adedcde3a467ce26b13d1555fd15eb9e4a81dc1160f305676aa01920753667355fd5f9865fbd91332c8474b5dd75a781cf4fcb9f6cfde3635f07d39b22e7d3b6372cd50894c59babedbb9e0bd06c1446860270347035a8f30044fcb04511b6c356d18c85329eaba88f0b44eec83f7f7ea7021514d999bca781b4f756b2e519be2af2239ee96cab227eb52555175ba98224caf0dd0438eb74d8fa3c41d88eea18217ed18958958c5c315bb1a3ed218650b97e160ca43adbdbecca4dde314b45b81b5acb7d1430251371999efd78996309f9f8dd678dcf27587ebd8c164c29a198894066519b64d1d96a4548c31767f32ac44109e68d62deaef9eb5c25204ca526e3a9d3f28d3147e56300ba87d91295f5be5ec637c3e3d0fb3a4c35893e84a2312c75208a2f7292e658fbda2cfb0e224ce20ec86cf9cf98193be1294ceea6795efb5441ec6cac0ae83dbd92d2e72ecc1afc83aff6dca525b8dad1bb558fb64facc5b1628409e957c3984335294553a07104084f59ab32827f5f7b50040eee6873ab957b6ca5c9beeed781ecbe8e8592765cb05d8c4dff6fd16af03eb468e187308ef5635cb00793416ceebb2f1cb202849b606baed4d879bb906168bac3211b6d4c62d0209a19556aeb485e2afcb5e9a5d8cb385a3dbce3927c9471b2eee5d6b4e1d7779c896e1aa34b7427d2d7f87eb03d472c73edf7f440c9da2092cf562d8a5ae395e9250374d462ace51cd1de3d171956886e2a83cc9a9c0693a5de6302eb2047cc01a48b2bc9403a19d7204626b728ff84de209b606c90a551b5d8c7d53bce8cda7ebb543ecd1511374f2b9fbe97d38a77be1fbce2f93edcb04c86e85f7931ead4c50599e56fc2fce644d9da00cefc9149cd4b0b3f4553f9c20140128e85bdfab5b5b82a3c37f910deffb371b01a482f09ab755450a7af22fae91f00ece0ef972cbe06ecedf686c47ca345113bd446e2394f790511bb2da9cfb8d899bc164a4b9ef7d441e669e8c31b3ac58b6f95a4dab1ea69683a74cd037055d18f11e4e146c27febd643a2899dff83b704f606c60a8cce20cec6b6cb09a2a55451aab54af0aa66b1a563a0d5f948403bd6f71ee54cc5561fe52a6159430c03552979aad15f0102c17df0405f41848c4e57eb7061376cd600a0a79ec9b8b39bac09b446b90f9cbd9038146f1b346e82cc2e52f0907e1d8146cedd9102da961ab5f4eea13b980dbb29c83ebc3aa3239d9b8138044c8a5a670222aee92466ef6048fab77d9987af2bd1f54251702c0fed853dc7373dd32d206506ac92bc059fd24b803e44017f793fb92c35f53dbf328196e651cd87fed59c99f67ab280ab0f92ce40842d3cbcf055bcd2eac06989699de3621f60092a10dcfb394993e98e3c3125c13358782510dc4064b354771bca3314bff03998a491d67f46702abff2d9a89a3281a5fe6fa8fa2a5c3851125338d7475d10bba76e166239e8bc2f4b2869cb63631f332d7271db2e4fa18f3fb02fd4a5d15a7eda6dabfa55e51422ddebcc30856d15c91db8f98b0ca2016d37d52c9afa1fe6b3aca6cd19ab271e70fbad57c1fe44f97cb061fe280f384325cc1c80765a72c5d5d0cfdb68d1bfa23fcffbcd39ca2b25cfeb65c9aef4b6c6d2641e1a6a381829d87b4b059c42cf4d300a44f8c8c5cd39cfa17082bc31cbd84d192de1c07e2fb1267bd2213f886fbaf48d71fd8bafe29e82f30ce4930d84a37b045589ace0743d198b29faf60cded69bb365f38da5467cda2ae83cf8351ca1f0a6d5b6d0f2ef96f1903d666e43f5a73f7acd868e4b148cc6957180969b85495016fa8d0531a037d89cd4470ae82c23e28db1fd06d1a441e1f9c28d93671b106457b04d6dfa7ccb01bf9bdf839645b48c19b5445165ba22d826f0897eaa4bf0392182824e2bce50106b4bd3f997a9476d0ef46d785a875960c722461141579fadc419c2eff9d77994007db2ef176ff50c815ba8cd88042d3edfa823bd562cba5e2325471e582b971fac13806eeaf7b3c5c8fe5c479b29602d4f4090835262ccc6e41f5cda4cb6585399dc23387b76702c3f8883a8bb75fe20c0f478d1fe5a17109d770f0c4be3f6cbb6fd09753e01b104461c79b80807ba4c515a93088d961ec254e997e012b3401607e76340ec2e54a4d4b1d08969a3ce8933fc5720e07adf0b59d0e0dce0e8ece342f4da82c7fa526bf1fcdf7b1dc42591f0f45f6311c7c0c34797f8c327e8188049fb3c71a90f60e424085781fbe0c1d78e47e6f3c821b521a2d3062d8b1052a8f64949f9c16a8c3520c9855889f9fcc05b1ee9076c9dddccf987ddb9b5d45406a4e2510fe2e6e292deaa1c8628e6bfd40f1b37f9fd9ac38e2d96650bb087fe78b8cbe707a3dbda0eb63653473ced33296f7295af737a0497aa307bcccb6a31cdec5477933a13f4c7cb44cf1829cd02d7614f4ba53d820e3dc42c2c618ce4f0952d6d69baa46a3facd10284de8d2cb1fcb672a054b79e0d62bb152b5da01046debbfee0578731de21e2328ac707101814ad66d2fd2ac81c66e0845b167d0a175dfee71d53d16ff8eae04e8ba3ecd3ef50284260f1e22c6e0c2e6a66c1dc5d26b2a3968932cfb35dfd357be4829c1c900c8d248bd85eacd77651ad5b47117a76d94856d6763990425677f824f4ff51e8d676db6b7be9477b90553e5854da181880d790428ee9426a65a83d44996ac215e8173069331ee0e9ca18f29eb4c790714d681240eed855fc4dd2a5e6668edc26f30c50bbb79862514a58d9b586fd27d5f3e03df81c688ff695643fb74d3ca3c0fd1d99240480132861e6f86194f4c5bb486ac5eaa73c78e54037315472742c86d69f701d8b092127f60fbf639d93fa5f49c0b42da2d9d1eeede06c38f62a901162c4a8122c681d72b7de02d5df849abae9d8b5ee855e7d7f9e1e3e921603cb487037e693362927bcd55d34713ec53107e6bda02282974354431513ca11172da6f91d280fc31dc7628bcbe7867b6ac1c2af1247b7d279c82162f63b81e9524dbb43d32251c1351018e5f726a2e77633650a43472fee74c351d624fbadb279e27e964b00d227334bf9b61b317bf2d4025a526300bd7306c63dba678f53a36e3ab9db8cf4baf78e512069d71a8d63c703004b47ea24df7368831ddbd8c618851749d49689baf3d45d18a396ddaa80c12c326a46091cecf0f453ae3808dd35b3f1b74481fd3df406e817acb30b5ab703b7884e75601b123954c141259f4eb3b1125aedd363db310ffb4f41acd6759ad20edee7f4b17e285be5eca83d2de9a2cf950ef9f18030948105a12eb26483545a34b6a8665c14d325a446e84d7</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>article</tag>
       </tags>
   </entry>
   <entry>
     <title>关于</title>
-    <url>/2020/Docs/</url>
+    <url>/2019/Docs/</url>
     <content><![CDATA[<h1 align="center">说明</h1>
 
 

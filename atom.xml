@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hardy-j.github.io/"/>
-  <updated>2020-03-22T05:58:34.154Z</updated>
+  <updated>2020-04-20T11:36:52.255Z</updated>
   <id>https://hardy-j.github.io/</id>
   
   <author>
@@ -17,57 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>mpvue</title>
-    <link href="https://hardy-j.github.io/2020/mpvue/"/>
-    <id>https://hardy-j.github.io/2020/mpvue/</id>
-    <published>2020-03-22T03:56:01.000Z</published>
-    <updated>2020-03-22T05:58:34.154Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;了解一下mpvue&quot;&gt;&lt;a href=&quot;#了解一下mpvue&quot; class=&quot;headerlink&quot; title=&quot;了解一下mpvue&quot;&gt;&lt;/a&gt;了解一下&lt;a href=&quot;http://mpvue.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;mpvue&lt;/a&gt;&lt;/h1&gt;&lt;p&gt; 一个使用 &lt;a href=&quot;https://vuejs.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vue.js&lt;/a&gt; 开发小程序的前端框架。框架基于 &lt;code&gt;Vue.js&lt;/code&gt; 核心，&lt;code&gt;mpvue&lt;/code&gt; 修改了 &lt;code&gt;Vue.js&lt;/code&gt; 的 runtime 和 compiler 实现，使其可以运行在小程序环境中，从而为小程序开发引入了整套 &lt;code&gt;Vue.js&lt;/code&gt; 开发体验。 &lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="学习" scheme="https://Hardy-J.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="mpvue" scheme="https://Hardy-J.github.io/tags/mpvue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Blog</title>
-    <link href="https://hardy-j.github.io/2020/Blog/"/>
-    <id>https://hardy-j.github.io/2020/Blog/</id>
-    <published>2020-03-14T06:24:23.000Z</published>
-    <updated>2020-03-22T06:01:10.815Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;人生最难得的三个字&quot;&gt;&lt;a href=&quot;#人生最难得的三个字&quot; class=&quot;headerlink&quot; title=&quot;人生最难得的三个字&quot;&gt;&lt;/a&gt;人生最难得的三个字&lt;/h1&gt;&lt;p&gt;人生不可能永远是坦途，复杂让我们烦恼忧愁，浮躁让我们不堪一击，邋遢让我们表里不一。 &lt;/p&gt;
-&lt;p&gt;简是幸福，静是根本，净是福气。世事变幻，人生最难得的就是这三个字。&lt;/p&gt;
-&lt;hr&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="article" scheme="https://Hardy-J.github.io/tags/article/"/>
-    
-  </entry>
-  
-  <entry>
     <title>云开发部署静态网站</title>
     <link href="https://hardy-j.github.io/2020/Cloud/"/>
     <id>https://hardy-j.github.io/2020/Cloud/</id>
-    <published>2020-03-07T06:24:23.000Z</published>
-    <updated>2020-03-31T11:50:28.413Z</updated>
+    <published>2020-02-29T06:24:23.000Z</published>
+    <updated>2020-04-20T11:36:52.255Z</updated>
     
     <summary type="html">
     
@@ -88,11 +42,172 @@
   </entry>
   
   <entry>
+    <title>mpvue</title>
+    <link href="https://hardy-j.github.io/2019/mpvue/"/>
+    <id>https://hardy-j.github.io/2019/mpvue/</id>
+    <published>2019-12-07T03:56:01.000Z</published>
+    <updated>2020-04-23T07:18:22.330Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;mpvue&quot;&gt;&lt;a href=&quot;#mpvue&quot; class=&quot;headerlink&quot; title=&quot;mpvue&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://mpvue.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;mpvue&lt;/a&gt;&lt;/h1&gt;&lt;p&gt; 一个使用 &lt;a href=&quot;https://vuejs.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vue.js&lt;/a&gt; 开发小程序的前端框架。框架基于 &lt;code&gt;Vue.js&lt;/code&gt; 核心，&lt;code&gt;mpvue&lt;/code&gt; 修改了 &lt;code&gt;Vue.js&lt;/code&gt; 的 runtime 和 compiler 实现，使其可以运行在小程序环境中，从而为小程序开发引入了整套 &lt;code&gt;Vue.js&lt;/code&gt; 开发体验。 &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="学习" scheme="https://Hardy-J.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="mpvue" scheme="https://Hardy-J.github.io/tags/mpvue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序</title>
+    <link href="https://hardy-j.github.io/2019/miniapp/"/>
+    <id>https://hardy-j.github.io/2019/miniapp/</id>
+    <published>2019-10-19T14:14:33.000Z</published>
+    <updated>2020-04-29T15:12:29.660Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;小程序知识的一些总结&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="学习" scheme="https://Hardy-J.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="小程序" scheme="https://Hardy-J.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深入CocosCreator</title>
+    <link href="https://hardy-j.github.io/2019/Cocos2/"/>
+    <id>https://hardy-j.github.io/2019/Cocos2/</id>
+    <published>2019-10-07T12:24:23.000Z</published>
+    <updated>2020-04-21T12:37:59.026Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 前文再续，书接上一回。 这几天一直在通过视频，文档，深入的了解CocosCreator，并对一些知识点做了一下总结笔记&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="游戏" scheme="https://Hardy-J.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初识CocosCreator</title>
+    <link href="https://hardy-j.github.io/2019/Cocos/"/>
+    <id>https://hardy-j.github.io/2019/Cocos/</id>
+    <published>2019-10-02T12:24:23.000Z</published>
+    <updated>2020-04-21T12:40:15.576Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直很喜欢打游戏，单机，手游，端游…都有玩，但是有时候会想，自己有没有可能做出一款小游戏来呢？出于好奇心，&lt;del&gt;抱着爱学习的态度，&lt;/del&gt;找了一款较火的，学习成本较低的游戏引擎学习——CocosCreator&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="游戏" scheme="https://Hardy-J.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>提高搜索能力的一些小技巧</title>
+    <link href="https://hardy-j.github.io/2019/Search/"/>
+    <id>https://hardy-j.github.io/2019/Search/</id>
+    <published>2019-09-22T12:34:18.000Z</published>
+    <updated>2020-04-22T14:17:15.053Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  以前搜索从来只会有用百度，如果找不到就一直从第一页翻下去…最后还是没找到，更别说找到有价值的内容了。我们正处在一个高速发展的互联网大数据时代，得数据者得天下，如何善用大数据成为了一门学问，&lt;strong&gt;善用搜索和强化搜索意识可以减少信息不对称，有助于我们解决问题和多维度思考问题。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="小知识" scheme="https://Hardy-J.github.io/categories/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="学习" scheme="https://Hardy-J.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="技能" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《游戏改变世界》读后感</title>
+    <link href="https://hardy-j.github.io/2019/Game/"/>
+    <id>https://hardy-j.github.io/2019/Game/</id>
+    <published>2019-09-14T12:24:23.000Z</published>
+    <updated>2020-04-22T05:08:52.555Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  游戏化如何让现实变得更美好 ， 现实世界存在太多不足和缺陷 ， 游戏化可以让现实变得更美好。 —— 这是此书作者主要观点&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/categories/article/"/>
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/tags/article/"/>
+    
+      <category term="读后感" scheme="https://Hardy-J.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blog</title>
+    <link href="https://hardy-j.github.io/2019/Blog/"/>
+    <id>https://hardy-j.github.io/2019/Blog/</id>
+    <published>2019-09-07T06:24:23.000Z</published>
+    <updated>2020-04-22T04:02:29.536Z</updated>
+    
+    <summary type="html">
+    
+      此文章需输入密码查看.
+    
+    </summary>
+    
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/tags/article/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于</title>
-    <link href="https://hardy-j.github.io/2020/Docs/"/>
-    <id>https://hardy-j.github.io/2020/Docs/</id>
-    <published>2020-02-29T06:24:23.000Z</published>
-    <updated>2020-03-31T11:43:26.227Z</updated>
+    <link href="https://hardy-j.github.io/2019/Docs/"/>
+    <id>https://hardy-j.github.io/2019/Docs/</id>
+    <published>2019-08-31T06:24:23.000Z</published>
+    <updated>2020-04-24T09:32:51.276Z</updated>
     
     <summary type="html">
     

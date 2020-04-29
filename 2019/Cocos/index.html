@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    云开发部署静态网站 |  Hui&#39;Blog
+    初识CocosCreator |  Hui&#39;Blog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -37,7 +37,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-Cloud" class="article article-type-post" itemscope
+  <article id="post-Cocos" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -45,7 +45,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  云开发部署静态网站
+  初识CocosCreator
 </h1>
  
 
@@ -54,8 +54,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/Cloud/" class="article-date">
-  <time datetime="2020-02-29T06:24:23.000Z" itemprop="datePublished">2020-02-29</time>
+      <a href="/2019/Cocos/" class="article-date">
+  <time datetime="2019-10-02T12:24:23.000Z" itemprop="datePublished">2019-10-02</time>
 </a>
       
   <div class="article-category">
@@ -69,7 +69,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1k字</span>
+            <span class="post-count">955字</span>
         </span>
     </span>
 
@@ -103,70 +103,171 @@
       
 
       
-      <p> 之前有运用 Hexo 建立静态博客系统 ，  除了在 Github Pages 部署以外，现在尝试了一个新的选择，那就是使用云开发静态网站功能来部署！ </p>
+      <p>一直很喜欢打游戏，单机，手游，端游…都有玩，但是有时候会想，自己有没有可能做出一款小游戏来呢？出于好奇心，<del>抱着爱学习的态度，</del>找了一款较火的，学习成本较低的游戏引擎学习——CocosCreator</p>
 <a id="more"></a>
 
-<h2 id="云开发简介"><a href="#云开发简介" class="headerlink" title="云开发简介"></a>云开发简介</h2><p> <strong>云开发（CloudBase）</strong>  是腾讯云提供的一款云端一体化的产品方案 ，采用 serverless 架构，免环境搭建等运维事务 ， 同时云开发提供的静态托管、命令行工具（CLI）、Flutter SDK 等能力极大的降低了应用开发的门槛。使用云开发可以快速构建完整的小程序/小游戏、H5、Web、移动 App 等应用。  </p>
-<p>其主要特点：</p>
-<ol>
-<li>高效安全： Serverless 前后端一体化开发模式、免运维；通过安全认证，稳定可靠有保障 </li>
-<li>节约成本： 资源伸缩，弹性扩缩容，灵活计费，极大节约资源成本 </li>
-<li>丰富能力： 连接微信 150+ 的云调用开放能力，腾讯云技术能力，以及数家 SaaS 厂商能力，开箱即用 </li>
-<li>多端支持： 不仅支持小程序，也提供了丰富的 SDK，包括小程序、Web、移动端支持；各类应用可快速接入 </li>
-</ol>
-<p>云开发静态网站托管支持通过云开发SDK调用服务端资源如：云函数、云存储、云数据库等，从而将静态网站扩展为全栈网站 。</p>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h4 id="系统依赖"><a href="#系统依赖" class="headerlink" title="系统依赖"></a><strong>系统依赖</strong></h4><p>在进行后续的内容前，请先确保你的电脑中安装了 Node.js 运行环境。如果没有安装，可以访问 nodejs.org  下载安装。</p>
-<h4 id="安装云开发-cli-工具"><a href="#安装云开发-cli-工具" class="headerlink" title="安装云开发 cli 工具"></a>安装云开发 cli 工具</h4><p>命令行输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g @cloudbase&#x2F;cli</span><br></pre></td></tr></table></figure>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>引用官网的简单介绍： Cocos Creator 是以内容创作为核心，实现了脚本化、组件化和数据驱动的游戏开发工具。 具备了易于上手的内容生产工作流，以及功能强大的开发者工具套件，可用于实现游戏逻辑和高性能游戏效果。 </p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1-点击链接官网"><a href="#1-点击链接官网" class="headerlink" title="1.点击链接官网"></a>1.<a href="https://www.cocos.com/" target="_blank" rel="noopener">点击链接官网</a></h3><h3 id="2-步骤"><a href="#2-步骤" class="headerlink" title="2.步骤"></a>2.步骤</h3><p>​     <strong>（1）下载引擎</strong> </p>
+<p>​        <img src="https://pic.downk.cc/item/5e9ec012c2a9a83be57b3168.png" style="zoom:50%;" /></p>
+<p>​     <strong>（2）一路next，安装成功后，注册账号</strong> </p>
+<pre><code>**（3）打开hello world模板项目**</code></pre><img src="https://pic.downk.cc/item/5e9ec0b7c2a9a83be57bc20f.jpg" style="zoom:50%;" />
 
-<h4 id="创建一个云开发环境"><a href="#创建一个云开发环境" class="headerlink" title="创建一个云开发环境"></a>创建一个云开发环境</h4><p>打开<a href="https://cloud.tencent.com/" target="_blank" rel="noopener">云开发官网</a>在产品中找到云开发</p>
-<p><img src="https://pic.downk.cc/item/5e8321d6504f4bcb0428dc38.png" alt=""></p>
-<p> 进入到云开发的管理控制台，点击新建环境，新建一个环境来进行部署 </p>
-<p><img src="https://pic.downk.cc/item/5e832299504f4bcb04296b07.png" alt=""></p>
-<p> 新建一个环境，环境名称可自主定义，并选择按量计费，开通环境 （可不用选取开启免费资源）</p>
-<p><img src="https://pic.downk.cc/item/5e832329504f4bcb0429e9fa.png" alt=""></p>
-<p> 创建后，等初始化完成（大概三分钟）后，刷新页面，点击环境，进入到环境的管理页面。点击左侧菜单栏中的<strong>「网站托管」</strong> </p>
-<p><img src="https://pic.downk.cc/item/5e8324ce504f4bcb042b4748.png" alt=""></p>
-<p> 并在静态网站页面开通功能 </p>
-<p><img src="https://pic.downk.cc/item/5e83250d504f4bcb042b74e0.png" alt=""></p>
-<p>等待初始化（大约需要3分钟），当你看到这样的界面时，就说明已经开通好了。 </p>
-<p><img src="https://pic.downk.cc/item/5e8325a1504f4bcb042be84b.png" alt=""></p>
-<h4 id="初始化云开发-Cli"><a href="#初始化云开发-Cli" class="headerlink" title="初始化云开发 Cli"></a><strong>初始化云开发 Cli</strong></h4><p> 完成了云开发环境的配置后， 我们需要初始化一下云开发 cli ，从而实现借助 cli 来上传页面（当然， 也可以通过网页端直接上传，但如果你博客的文章比较多，还是使用 Cli 上传更加方便） </p>
-<p> 命令行输入 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcb login</span><br></pre></td></tr></table></figure>
+<h2 id="编辑器界面"><a href="#编辑器界面" class="headerlink" title="编辑器界面"></a>编辑器界面</h2><p>这是默认布局，还可以按自己需求设置经典布局和竖屏游戏布局</p>
+<img src="https://pic.downk.cc/item/5e9ec833c2a9a83be582d742.jpg" style="zoom:50%;" />
 
-<p>命令行会提醒你需要在网页中授权</p>
-<p> 然后再弹出的页面确认授权 </p>
-<p><img src="https://pic.downk.cc/item/5e832652504f4bcb042c76d1.png" alt=""></p>
-<p> 确认授权后，你会看到控制台输出相应的命令 </p>
-<p> 这样，你的云开发 cli 就初始化好了。接下来，就可以进入到最后一个环节，上传部署 Hexo 了。 </p>
-<h4 id="将Hexo构建好的文件上传"><a href="#将Hexo构建好的文件上传" class="headerlink" title="将Hexo构建好的文件上传"></a>将Hexo构建好的文件上传</h4><p> 回到你的 Hexo 目录中，进入（使用 Hexo g） 生成的 Public 文件夹， 执行如下命令来进行部署（需要将 EnvID 替换为前面你记下的环境ID） </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcb hosting:deploy .&#x2F; -e EnvID</span><br></pre></td></tr></table></figure>
+<h3 id="重点模块展示"><a href="#重点模块展示" class="headerlink" title="重点模块展示"></a>重点模块展示</h3><h4 id="1、资源管理器"><a href="#1、资源管理器" class="headerlink" title="1、资源管理器"></a>1、资源管理器</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-76cefb1b0a7e3cee.png?imageMogr2/auto-orient/strip|imageView2/2/w/249/format/webp" alt="img" style="zoom:67%;" />
 
-<p> 稍等片刻，部署完成，接下来就可以预览了。 </p>
-<h4 id="浏览"><a href="#浏览" class="headerlink" title="浏览"></a>浏览</h4><p> 回到网站托管页面，点击设置，进入设置页面，可以找到默认的的域名，点击域名，就可以看到你刚刚部署的环境啦。 </p>
-<p><img src="https://pic.downk.cc/item/5e83286b504f4bcb042e425d.png" alt=""></p>
-<p> 比如，我的部署以后是这样的 </p>
-<p><img src="https://pic.downk.cc/item/5e8328e5504f4bcb042e9810.png" alt=""></p>
-<h4 id="注"><a href="#注" class="headerlink" title="注"></a>注</h4><p>在创建云环境时，所使用的按量计费，是有一个免费额度的，目前官方的免费额度如下：</p>
-<ul>
-<li><p>存储下载操作次数：150万/月； </p>
-</li>
-<li><p>CDN流量：5GB/月； </p>
-</li>
-<li><p>静态托管流量 5GB/月； </p>
-</li>
-<li><p>云数据库和云函数也有一定额度免费 </p>
-</li>
-</ul>
-<h4 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h4><p>还有很多想法可以探索：</p>
-<ol>
-<li>自定义域名</li>
-<li>实现自动化部署</li>
-<li>尝试部署其他博客框架</li>
-<li>more…</li>
-</ol>
+<h4 id="2、场景编辑器"><a href="#2、场景编辑器" class="headerlink" title="2、场景编辑器"></a>2、场景编辑器</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-78cf1221db080d2c.png?imageMogr2/auto-orient/strip|imageView2/2/w/616/format/webp" alt="img" style="zoom:67%;" />
 
+<h4 id="3、层级管理器"><a href="#3、层级管理器" class="headerlink" title="3、层级管理器"></a>3、层级管理器</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-595caee19e579838.png?imageMogr2/auto-orient/strip|imageView2/2/w/246/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="4、属性检查器"><a href="#4、属性检查器" class="headerlink" title="4、属性检查器"></a>4、属性检查器</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-5ff5a490b7583a9a.png?imageMogr2/auto-orient/strip|imageView2/2/w/382/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="5、控件库"><a href="#5、控件库" class="headerlink" title="5、控件库"></a>5、控件库</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-e7361ac4e841ab53.png?imageMogr2/auto-orient/strip|imageView2/2/w/336/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="6、工具栏"><a href="#6、工具栏" class="headerlink" title="6、工具栏"></a>6、工具栏</h4><p><img src="https:////upload-images.jianshu.io/upload_images/11524092-fcbceb50e6b4ddf3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<h4 id="7、设置（文件-gt-设置）"><a href="#7、设置（文件-gt-设置）" class="headerlink" title="7、设置（文件 =&gt; 设置）"></a>7、设置（文件 =&gt; 设置）</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-81924955d27f12c9.png?imageMogr2/auto-orient/strip|imageView2/2/w/734/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="8、项目设置（项目-gt-项目设置）"><a href="#8、项目设置（项目-gt-项目设置）" class="headerlink" title="8、项目设置（项目 =&gt; 项目设置）"></a>8、项目设置（项目 =&gt; 项目设置）</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-2c123c25f2fecb4a.png?imageMogr2/auto-orient/strip|imageView2/2/w/734/format/webp" alt="img" style="zoom:67%;" />
+
+<h4 id="9、构建发布（项目-gt-构建发布）"><a href="#9、构建发布（项目-gt-构建发布）" class="headerlink" title="9、构建发布（项目 =&gt; 构建发布）"></a>9、构建发布（项目 =&gt; 构建发布）</h4><img src="https:////upload-images.jianshu.io/upload_images/11524092-a6b7841ee802ea68.png?imageMogr2/auto-orient/strip|imageView2/2/w/820/format/webp" alt="img" style="zoom:67%;" />
+
+<hr>
+<h3 id="重点模块简述"><a href="#重点模块简述" class="headerlink" title="重点模块简述"></a>重点模块简述</h3><table>
+<thead>
+<tr>
+<th align="left">模块</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">资源管理器</td>
+<td align="left">assets目录文件操作</td>
+</tr>
+<tr>
+<td align="left">场景编辑器</td>
+<td align="left">场景节点变换、对齐方式</td>
+</tr>
+<tr>
+<td align="left">层级管理器</td>
+<td align="left">场景节点管理</td>
+</tr>
+<tr>
+<td align="left">属性检查器</td>
+<td align="left">参数控制</td>
+</tr>
+<tr>
+<td align="left">控件库</td>
+<td align="left">内置控件、自定义控件（预制控件）</td>
+</tr>
+<tr>
+<td align="left">工具栏</td>
+<td align="left">变换模式切换、变换手柄模式切换、预览、打开文件夹</td>
+</tr>
+<tr>
+<td align="left">设置</td>
+<td align="left">编辑器配置</td>
+</tr>
+<tr>
+<td align="left">项目设置</td>
+<td align="left">可视化的项目配置，保存于settings/project.json</td>
+</tr>
+<tr>
+<td align="left">构建发布</td>
+<td align="left">项目打包</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>PS：在层级管理器中，资源越靠后，则在场景编辑器中，层叠等级越高。（与Photoshop等视觉设计软件的图层操作相反）</p>
+</blockquote>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ProjectName（新建项目）</span><br><span class="line">├──assets</span><br><span class="line">├──library</span><br><span class="line">├──local</span><br><span class="line">├──packages</span><br><span class="line">├──settings</span><br><span class="line">├──temp</span><br><span class="line">└──project.json</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">子结构</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">assets</td>
+<td align="left">与资源管理器的内容同步，游戏的核心目录（每个文件都有相应.meta文件）</td>
+</tr>
+<tr>
+<td align="left">library</td>
+<td align="left">这里文件的结构和资源的格式将被处理成最终游戏发布时需要的形式</td>
+</tr>
+<tr>
+<td align="left">local</td>
+<td align="left">编辑器使用习惯记录（如：窗体布局）</td>
+</tr>
+<tr>
+<td align="left">settings</td>
+<td align="left">项目设置</td>
+</tr>
+<tr>
+<td align="left">project.json</td>
+<td align="left">版本控制，必须与assets共同存在</td>
+</tr>
+<tr>
+<td align="left">build</td>
+<td align="left">打包导出目录，构建项目时，自动生成</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>PS：.meta文件——记录某资源在项目中的唯一标识，以及其配置信息，只有在编辑器中对资源做修改，.meta文件才会实时变化。因此，不要在编辑器外，对资源的内容进行操作。</p>
+</blockquote>
+<hr>
+<h2 id="资源分类"><a href="#资源分类" class="headerlink" title="资源分类"></a>资源分类</h2><h3 id="1、场景（scene）"><a href="#1、场景（scene）" class="headerlink" title="1、场景（scene）"></a>1、场景（scene）</h3><p><strong>自动释放资源：</strong>切换场景后，上一个场景中的资源，从内存中释放。<br> <strong>延迟加载资源：</strong>意味着不用等待所有资源加载完毕，才显示场景。（快速切换场景，资源陆续在画面显示）</p>
+<h3 id="2、贴图（texture）"><a href="#2、贴图（texture）" class="headerlink" title="2、贴图（texture）"></a>2、贴图（texture）</h3><p>普通图，子层为一张spriteFrame。</p>
+<h3 id="3、预制（prefab）"><a href="#3、预制（prefab）" class="headerlink" title="3、预制（prefab）"></a>3、预制（prefab）</h3><p>创建方式：拖拽场景节点，到资源管理器。</p>
+<h3 id="4、图集（atlas）"><a href="#4、图集（atlas）" class="headerlink" title="4、图集（atlas）"></a>4、图集（atlas）</h3><p>精灵图，子层为多张spriteFrame。（精灵图合成软件：TexturePacker、Zwoptex）</p>
+<h3 id="5、自动图集（auto-atlas）"><a href="#5、自动图集（auto-atlas）" class="headerlink" title="5、自动图集（auto-atlas）"></a>5、自动图集（auto-atlas）</h3><p>打包时，将所在目录中的所有碎图，合成为图集。</p>
+<h3 id="6、艺术数字（label-atlas）"><a href="#6、艺术数字（label-atlas）" class="headerlink" title="6、艺术数字（label-atlas）"></a>6、艺术数字（label-atlas）</h3><p>数字为内容的图集。</p>
+<h3 id="7、字体（font）"><a href="#7、字体（font）" class="headerlink" title="7、字体（font）"></a>7、字体（font）</h3><p>动态字体：.ttf<br> 位图字体：.fnt + .png（存在于同一目录）</p>
+<h3 id="8、粒子（particle）"><a href="#8、粒子（particle）" class="headerlink" title="8、粒子（particle）"></a>8、粒子（particle）</h3><p>小型动画</p>
+<h3 id="9、声音（audio）"><a href="#9、声音（audio）" class="headerlink" title="9、声音（audio）"></a>9、声音（audio）</h3><p><strong>模式：</strong>web audio、dom audio</p>
+<h3 id="10、骨骼动画（spine-dragonBones）"><a href="#10、骨骼动画（spine-dragonBones）" class="headerlink" title="10、骨骼动画（spine / dragonBones）"></a>10、骨骼动画（spine / dragonBones）</h3><table>
+<thead>
+<tr>
+<th align="center">文件格式</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.json</td>
+<td align="center">骨骼数据</td>
+</tr>
+<tr>
+<td align="center">.png</td>
+<td align="center">图集纹理</td>
+</tr>
+<tr>
+<td align="center">.txt / .atlas</td>
+<td align="center">图集数据</td>
+</tr>
+</tbody></table>
+<h3 id="11、瓦片图（tiledMap）"><a href="#11、瓦片图（tiledMap）" class="headerlink" title="11、瓦片图（tiledMap）"></a>11、瓦片图（tiledMap）</h3><table>
+<thead>
+<tr>
+<th align="center">文件格式</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.tmx</td>
+<td align="center">地图数据</td>
+</tr>
+<tr>
+<td align="center">.png</td>
+<td align="center">图集纹理</td>
+</tr>
+<tr>
+<td align="center">.tsx tileset</td>
+<td align="center">数据配置文件</td>
+</tr>
+</tbody></table>
+<h3 id="12、文本（text）"><a href="#12、文本（text）" class="headerlink" title="12、文本（text）"></a>12、文本（text）</h3><h3 id="13、脚本（script）"><a href="#13、脚本（script）" class="headerlink" title="13、脚本（script）"></a>13、脚本（script）</h3><h3 id="14、json"><a href="#14、json" class="headerlink" title="14、json"></a>14、json</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3>
       
       <!-- reward -->
       
@@ -235,14 +336,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hardy-j.github.io/2020/Cloud/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hardy-j.github.io/2019/Cocos/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E5%BC%80%E5%8F%91/" rel="tag">云开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag">游戏</a></li></ul>
 
 
     </footer>
@@ -253,10 +354,19 @@
   
   <nav class="article-nav">
     
+      <a href="/2019/Cocos2/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            深入CocosCreator
+          
+        </div>
+      </a>
     
-      <a href="/2019/mpvue/" class="article-nav-link">
+    
+      <a href="/2019/Search/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">mpvue</div>
+        <div class="article-nav-title">提高搜索能力的一些小技巧</div>
       </a>
     
   </nav>
