@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hardy-j.github.io/"/>
-  <updated>2020-05-26T16:07:34.743Z</updated>
+  <updated>2020-06-13T13:54:38.586Z</updated>
   <id>https://hardy-j.github.io/</id>
   
   <author>
@@ -21,12 +21,11 @@
     <link href="https://hardy-j.github.io/2020/Essay/"/>
     <id>https://hardy-j.github.io/2020/Essay/</id>
     <published>2020-05-27T11:45:32.000Z</published>
-    <updated>2020-05-26T16:07:34.743Z</updated>
+    <updated>2020-06-13T13:54:38.586Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;很久没有更新博客啦&lt;/p&gt;
-&lt;p&gt;抽空随便记录了一下朋友之间闲聊的一些工作生活&lt;/p&gt;
+      此文章需输入密码查看.
     
     </summary>
     
@@ -45,13 +44,11 @@
     <link href="https://hardy-j.github.io/2020/life/"/>
     <id>https://hardy-j.github.io/2020/life/</id>
     <published>2020-03-08T05:19:32.000Z</published>
-    <updated>2020-05-25T16:57:27.330Z</updated>
+    <updated>2020-06-13T13:54:58.657Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;看完了这部纪律片，就像过完了这一生，很难受，也很感慨， 久久沉思，何其有幸 &lt;/p&gt;
-&lt;p&gt;——《&lt;a href=&quot;https://v.cctv.com/jishi/rsdyc/index.shtml&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;人生的第一次&lt;/a&gt;》&lt;/p&gt;
-&lt;p&gt;这是一部可以令人反复咀嚼的佳作。&lt;/p&gt;
+      此文章需输入密码查看.
     
     </summary>
     
@@ -201,6 +198,29 @@
       <category term="学习" scheme="https://Hardy-J.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="数据可视化" scheme="https://Hardy-J.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx</title>
+    <link href="https://hardy-j.github.io/2020/Nginx/"/>
+    <id>https://hardy-j.github.io/2020/Nginx/</id>
+    <published>2020-01-05T06:24:23.000Z</published>
+    <updated>2020-06-13T13:53:27.834Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Nginx&quot;&gt;&lt;a href=&quot;#Nginx&quot; class=&quot;headerlink&quot; title=&quot;Nginx&quot;&gt;&lt;/a&gt;Nginx&lt;/h1&gt;&lt;p&gt;Nginx是一款轻量级高性能的Web服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Nginx" scheme="https://Hardy-J.github.io/tags/Nginx/"/>
     
   </entry>
   
@@ -372,7 +392,7 @@
     <link href="https://hardy-j.github.io/2019/Docs/"/>
     <id>https://hardy-j.github.io/2019/Docs/</id>
     <published>2019-08-31T06:24:23.000Z</published>
-    <updated>2020-05-26T16:21:10.782Z</updated>
+    <updated>2020-05-26T16:26:23.956Z</updated>
     
     <summary type="html">
     
@@ -390,8 +410,6 @@
     
     
       <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="关于" scheme="https://Hardy-J.github.io/tags/%E5%85%B3%E4%BA%8E/"/>
     
   </entry>
   
