@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    CocosCreator(3) |  A·Hui
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="A·Hui" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-Note" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  CocosCreator(3)
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/Note/" class="article-date">
+  <time datetime="2020-03-13T10:24:23.000Z" itemprop="datePublished">2020-03-13</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">11 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>CocosCreator常用方法</p>
+<a id="more"></a>
+
+<h3 id="1、JS之Math的常用方法总结"><a href="#1、JS之Math的常用方法总结" class="headerlink" title="1、JS之Math的常用方法总结"></a><strong>1、JS之Math的常用方法总结</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Math.abs(num) : 返回num的绝对值</span><br><span class="line">Math.acos(num) : 返回num的反余弦值</span><br><span class="line">Math.asin(num) : 返回num的反正弦值</span><br><span class="line">Math.atan(num) : 返回num的反正切值</span><br><span class="line">Math.atan2(y,x) : 返回y除以x的商的反正切值</span><br><span class="line">Math.ceil(num) : 返回大于num的最小整数</span><br><span class="line">Math.cos(num) : 返回num的余弦值</span><br><span class="line">Math.exp(x) : 返回以自然数为底,x次幂的数</span><br><span class="line">Math.floor(num) : 返回小于num的最大整数</span><br><span class="line">Math.log(num) : 返回num的自然对数</span><br><span class="line">Math.max(num1,num2) : 返回num1和num2中较大的一个</span><br><span class="line">Math.min(num1,num2) : 返回num1和num2中较小的一个</span><br><span class="line">Math.pow(x,y) : 返回x的y次方的值</span><br><span class="line">Math.random() : 返回0到1之间的一个随机数</span><br><span class="line">Math.round(num) : 返回num四舍五入后的值</span><br><span class="line">Math.sin(num) : 返回num的正弦值</span><br><span class="line">Math.sqrt(num) : 返回num的平方根</span><br><span class="line">Math.tan(num) : 返回num的正切值</span><br><span class="line">Math.E : 自然数(2.718281828459045)</span><br><span class="line">Math.LN2 : 2的自然对数(0.6931471805599453)</span><br><span class="line">Math.LN10 : 10的自然对数(2.302585092994046)</span><br><span class="line">Math.LOG2E : log 2 为底的自然数(1.4426950408889634)</span><br><span class="line">Math.LOG10E : log 10 为底的自然数(0.4342944819032518)</span><br><span class="line">Math.PI : π(3.141592653589793)</span><br><span class="line">Math.SQRT1_2 : 1&#x2F;2的平方根(0.7071067811865476)</span><br><span class="line">Math.SQRT2 : 2的平方根(1.4142135623730951)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、世界坐标和节点坐标转换"><a href="#2、世界坐标和节点坐标转换" class="headerlink" title="2、世界坐标和节点坐标转换"></a><strong>2、世界坐标和节点坐标转换</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;把cocos1的坐标转成世界坐标pos1 （只能父节点转）</span><br><span class="line">var pos1 &#x3D; this.cocos1.parent.convertToWorldSpaceAR(this.cocos1.getPosition());</span><br><span class="line">cc.log(pos1)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;把（世界坐标pos1）转成相对于节点cocos1的坐标</span><br><span class="line">var pos2 &#x3D; this.cocos1.convertToNodeSpaceAR(pos1);</span><br><span class="line">cc.log(pos2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、js中获取时间new-date-的用法"><a href="#3、js中获取时间new-date-的用法" class="headerlink" title="3、js中获取时间new date()的用法"></a><strong>3、js中获取时间new date()的用法</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var myDate &#x3D; new Date();&#x2F;&#x2F;获取系统当前时间</span><br><span class="line">myDate.getYear(); &#x2F;&#x2F;获取当前年份(2位)</span><br><span class="line">myDate.getFullYear(); &#x2F;&#x2F;获取完整的年份(4位,1970-????)</span><br><span class="line">myDate.getMonth(); &#x2F;&#x2F;获取当前月份(0-11,0代表1月)</span><br><span class="line">myDate.getDate(); &#x2F;&#x2F;获取当前日(1-31)</span><br><span class="line">myDate.getDay(); &#x2F;&#x2F;获取当前星期X(0-6,0代表星期天)</span><br><span class="line">myDate.getTime(); &#x2F;&#x2F;获取当前时间(从1970.1.1开始的毫秒数)</span><br><span class="line">myDate.getHours(); &#x2F;&#x2F;获取当前小时数(0-23)</span><br><span class="line">myDate.getMinutes(); &#x2F;&#x2F;获取当前分钟数(0-59)</span><br><span class="line">myDate.getSeconds(); &#x2F;&#x2F;获取当前秒数(0-59)</span><br><span class="line">myDate.getMilliseconds(); &#x2F;&#x2F;获取当前毫秒数(0-999)</span><br><span class="line">myDate.toLocaleDateString(); &#x2F;&#x2F;获取当前日期</span><br><span class="line">myDate.toLocaleTimeString(); &#x2F;&#x2F;获取当前时间</span><br><span class="line">myDate.toLocaleString( ); &#x2F;&#x2F;获取日期与时间</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、通过两点算出角度的方法"><a href="#4、通过两点算出角度的方法" class="headerlink" title="4、通过两点算出角度的方法"></a><strong>4、通过两点算出角度的方法</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">getAngle:function(start,end)&#123;</span><br><span class="line">    var x &#x3D; end.x - start.x</span><br><span class="line">    var y &#x3D; end.y - start.y</span><br><span class="line">    var hypotenuse &#x3D; Math.sqrt(x*x + y*y)</span><br><span class="line"></span><br><span class="line">    var cos &#x3D; x &#x2F; hypotenuse</span><br><span class="line">    var radian &#x3D; Math.acos(cos)</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;求出弧度</span><br><span class="line">    var angle &#x3D; 180 &#x2F; (Math.PI &#x2F; radian)</span><br><span class="line">    &#x2F;&#x2F;用弧度算出角度</span><br><span class="line">    if(y &lt; 0)&#123;</span><br><span class="line">        angle &#x3D; 0-angle</span><br><span class="line">    &#125;else if(y &#x3D;&#x3D; 0 &amp;&amp; x &lt; 0)&#123;</span><br><span class="line">        angle &#x3D; 180</span><br><span class="line">    &#125;</span><br><span class="line">    return 90-angle</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、求圆周上等分点的坐标"><a href="#5、求圆周上等分点的坐标" class="headerlink" title="5、求圆周上等分点的坐标"></a><strong>5、求圆周上等分点的坐标</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">* 求圆周上等分点的坐标</span><br><span class="line">* ox,oy为圆心坐标</span><br><span class="line">* r为半径</span><br><span class="line">* count为等分个数</span><br><span class="line">*&#x2F;</span><br><span class="line">getPoint:function(r, ox, oy, count)&#123;</span><br><span class="line">    var point &#x3D; []; &#x2F;&#x2F;结果</span><br><span class="line">    var radians &#x3D; (Math.PI &#x2F; 180) * Math.round(360 &#x2F; count), &#x2F;&#x2F;弧度</span><br><span class="line">        i &#x3D; 0;</span><br><span class="line">    for(; i &lt; count; i++)&#123;</span><br><span class="line">        var x &#x3D; ox + r * Math.sin(radians * i),</span><br><span class="line">            y &#x3D; oy + r * Math.cos(radians * i);</span><br><span class="line"></span><br><span class="line">        point.unshift(&#123;x:x,y:y&#125;); &#x2F;&#x2F;为保持数据顺时针</span><br><span class="line">    &#125;</span><br><span class="line">    return point</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、数组常用方法"><a href="#6、数组常用方法" class="headerlink" title="6、数组常用方法"></a><strong>6、数组常用方法</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;声明一维数组</span><br><span class="line">var arr_1 &#x3D; []</span><br><span class="line">&#x2F;&#x2F;声明二维数组</span><br><span class="line">var arr_2 &#x3D; []</span><br><span class="line">for(let i &#x3D; 0; i &lt; 6; i++)&#123;</span><br><span class="line">    arr_2[i] &#x3D; []</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;*************************************************************************************************&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;判断某一元素是否在数组中</span><br><span class="line">&#x2F;&#x2F;方法一：indexOf()方法返回给定元素能找在数组中找到的第一个索引值，否则返回-1</span><br><span class="line">var a&#x3D;[&quot;1&quot;, &quot;3&quot;, &quot;2&quot;, &quot;3&quot;, &quot;0&quot;];</span><br><span class="line">  cc.log(a.indexOf (&#39;3&#39;));&#x2F;&#x2F;1</span><br><span class="line">  cc.log(a.indexOf (&#39;5&#39;));&#x2F;&#x2F;-1</span><br><span class="line">&#x2F;&#x2F;方法二：</span><br><span class="line">var arr &#x3D; [1,2,3];</span><br><span class="line">arr.includes(1) &#x2F;&#x2F;true</span><br><span class="line">arr.includes(5) &#x2F;&#x2F;false  </span><br><span class="line">&#x2F;&#x2F;*************************************************************************************************&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;删除数组中的指定元素</span><br><span class="line">&#x2F;*</span><br><span class="line">*arr:数组</span><br><span class="line">*val:指定元素</span><br><span class="line">*&#x2F;</span><br><span class="line">removeByValue(arr, val) &#123;</span><br><span class="line">    for (var i &#x3D; 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">        if (arr[i] &#x3D;&#x3D; val) &#123;</span><br><span class="line">            arr.splice(i, 1);</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#x2F;&#x2F;*************************************************************************************************&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;数组转换字符串</span><br><span class="line">&#x2F;&#x2F;方法一： toString() 方法能够把每个元素转换为字符串，然后以逗号连接输出显示。</span><br><span class="line">var a &#x3D; [1,2,3,4,5,6,7,8,9,0];  &#x2F;&#x2F;定义数组</span><br><span class="line">var s &#x3D; a.toString();  &#x2F;&#x2F;把数组转换为字符串</span><br><span class="line">cc.log(s);  &#x2F;&#x2F;返回字符串“1,2,3,4,5,6,7,8,9,0”</span><br><span class="line">var a &#x3D; [1,[2,3],[4,5]],[6,[7,[8,9],0]]];  &#x2F;&#x2F;定义多维数组</span><br><span class="line">var s &#x3D; a.toString();  &#x2F;&#x2F;把数组转换为字符串</span><br><span class="line">cc.log(S);  &#x2F;&#x2F;返回字符串“1,2,3,4,5,6,7,8,9,0”</span><br><span class="line">&#x2F;&#x2F;方法二：join()方法，可以传递一个参数作为分隔符来连接每个元素。如果省略参数，默认使用逗号作为分隔符。</span><br><span class="line">var a &#x3D; [1,2,3,4,5];  &#x2F;&#x2F;定义数组</span><br><span class="line">var s &#x3D; a.join(&quot;&#x3D;&#x3D;&quot;);  &#x2F;&#x2F;指定分隔符</span><br><span class="line">cc.log(s);  &#x2F;&#x2F;返回字符串“1&#x3D;&#x3D;2&#x3D;&#x3D;3&#x3D;&#x3D;4&#x3D;&#x3D;5”</span><br></pre></td></tr></table></figure>
+
+<h3 id="7、动态加载网络图片的方法"><a href="#7、动态加载网络图片的方法" class="headerlink" title="7、动态加载网络图片的方法"></a><strong>7、动态加载网络图片的方法</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 动态加载图片的方法</span><br><span class="line"> * @param &#123;*&#125; container 为cc.Sprite类型的节点</span><br><span class="line"> * @param &#123;*&#125; url_  图片的链接</span><br><span class="line"> *&#x2F;</span><br><span class="line">loadImg:function(container,url_)</span><br><span class="line">&#123;</span><br><span class="line">    if (!url_ || !container || !container.spriteFrame) &#123; return; &#125;</span><br><span class="line">    var tempUrl &#x3D; url_</span><br><span class="line">    &#x2F;&#x2F;cc.loader.load(&#123;url:tempUrl,type:&#39;jpg&#39;&#125;, function (err, texture) &#123;</span><br><span class="line">        cc.loader.load(tempUrl, function (err, texture) &#123;</span><br><span class="line">        if (texture)</span><br><span class="line">        &#123;</span><br><span class="line">            var sprite  &#x3D; new cc.SpriteFrame(texture);</span><br><span class="line">            if (container &amp;&amp; container.spriteFrame &amp;&amp; sprite)</span><br><span class="line">            &#123;</span><br><span class="line">                container.spriteFrame &#x3D; sprite;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;如何使用</span><br><span class="line">this.loadImg(this.head,&#39;https:&#x2F;&#x2F;cdn.pinduoduo.com&#x2F;home&#x2F;static&#x2F;img&#x2F;common&#x2F;pdd_logo_v2.png&#39;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="8、动态加载音效"><a href="#8、动态加载音效" class="headerlink" title="8、动态加载音效"></a><strong>8、动态加载音效</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 动态播放音效</span><br><span class="line"> * sounds&#x2F;chat&#x2F;1.mp3的路径必须要在resources文件夹下</span><br><span class="line"> *&#x2F;</span><br><span class="line">playSound:function()&#123;</span><br><span class="line">    cc.audioEngine.stopAllEffects()</span><br><span class="line">    cc.loader.loadRes(&quot;sounds&#x2F;chat&#x2F;1.mp3&quot;, function (err, audioClip) &#123;</span><br><span class="line">        cc.audioEngine.play(audioClip, false, 1)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="9、JS调Android的方法"><a href="#9、JS调Android的方法" class="headerlink" title="9、JS调Android的方法"></a><strong>9、JS调Android的方法</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;JS代码部分</span><br><span class="line">&#x2F;**</span><br><span class="line"> * AppActivity:Android的类文件</span><br><span class="line"> * exitGame：类里面的方法名</span><br><span class="line"> * ()V：传参为空</span><br><span class="line"> *(Ljava&#x2F;lang&#x2F;String;)V：传String类型的参数</span><br><span class="line"> *(Ljava&#x2F;lang&#x2F;String;II)V：传三个参数，分别为String类型、int类型、int类型</span><br><span class="line"> *&#x2F;</span><br><span class="line">if (cc.sys.os &#x3D;&#x3D; cc.sys.OS_ANDROID) &#123;</span><br><span class="line">    jsb.reflection.callStaticMethod(&quot;org&#x2F;cocos2dx&#x2F;javascript&#x2F;AppActivity&quot;, &quot;exitGame&quot;, &quot;()V&quot;);</span><br><span class="line">    jsb.reflection.callStaticMethod(&quot;org&#x2F;cocos2dx&#x2F;javascript&#x2F;AppActivity&quot;, &quot;copy&quot;, &quot;(Ljava&#x2F;lang&#x2F;String;)V&quot; ,&#39;什么鬼？&#39;);</span><br><span class="line">    jsb.reflection.callStaticMethod(&quot;org&#x2F;cocos2dx&#x2F;javascript&#x2F;AppActivity&quot;, &quot;DLShareIMG&quot;, &quot;(Ljava&#x2F;lang&#x2F;String;II)V&quot;, &#39;filePath&#39;, 5, 6);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Android代码部分</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line">*Android退出游戏</span><br><span class="line">*&#x2F;</span><br><span class="line">public static void exitGame()</span><br><span class="line">&#123;</span><br><span class="line">    android.os.Process.killProcess(android.os.Process.myPid());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line">*复制一段话到Android手机的剪切板上</span><br><span class="line">*&#x2F;</span><br><span class="line"> public static void copy(final String text)</span><br><span class="line">&#123;</span><br><span class="line">    app.runOnUiThread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            ClipboardManager cm &#x3D; (ClipboardManager) app.getSystemService(Context.CLIPBOARD_SERVICE);</span><br><span class="line">            &#x2F;&#x2F;ClipData mClipData &#x3D; ClipData.newPlainText(&quot;Label&quot;, text);</span><br><span class="line">            &#x2F;&#x2F;cm.setPrimaryClip(mClipData);</span><br><span class="line">            cm.setText(text);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line">*传三个参数，分别为String类型、int类型、int类型</span><br><span class="line">*&#x2F;</span><br><span class="line"> public static void DLShareIMG(String path,int width,int height) &#123;</span><br><span class="line">     </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="10、Android调JS的方法"><a href="#10、Android调JS的方法" class="headerlink" title="10、Android调JS的方法"></a><strong>10、Android调JS的方法</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Android代码部分</span><br><span class="line">&#x2F;**</span><br><span class="line">*cc.xiaobai.anySDKMgr：JS里全局的类</span><br><span class="line">*testFucCall(\&quot;%s\&quot;)：这个类里面一个方法，方法里需要传String类型的参数</span><br><span class="line">*&#x2F;</span><br><span class="line">public static void callJsFunction(final String value) &#123;</span><br><span class="line">    final String jsCallStr &#x3D; String.format(&quot;cc.xiaobai.anySDKMgr.testFucCall(\&quot;%s\&quot;);&quot;, value);</span><br><span class="line">    app.runOnGLThread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            Cocos2dxJavascriptJavaBridge.evalString(jsCallStr);&#x2F;&#x2F;直接调用到js里面</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="11、判断是否是手机号"><a href="#11、判断是否是手机号" class="headerlink" title="11、判断是否是手机号"></a><strong>11、判断是否是手机号</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 1--以1为开头</span><br><span class="line"> * 2--第二位可为3,4,5,7,8,中的任意一位</span><br><span class="line"> * 3--最后以0-9的9个整数结尾</span><br><span class="line"> * @param &#123;String类型的手机号&#125; phone </span><br><span class="line"> *&#x2F;</span><br><span class="line">isPoneAvailable: function (phone) &#123;</span><br><span class="line">    var myreg &#x3D; &#x2F;^[1][3,4,5,7,8][0-9]&#123;9&#125;$&#x2F;;</span><br><span class="line">    if (!myreg.test(phone)) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="12、打开网址"><a href="#12、打开网址" class="headerlink" title="12、打开网址"></a><strong>12、打开网址</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cc.sys.openURL(&quot;http:&#x2F;&#x2F;www.baidu.com&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="13、进度条"><a href="#13、进度条" class="headerlink" title="13、进度条"></a><strong>13、进度条</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;类型：cc.ProgressBar</span><br><span class="line">&#x2F;&#x2F;进度条属性：progress 当前进度值，该数值的区间是 0-1 之间</span><br></pre></td></tr></table></figure>
+
+<h3 id="14、预制体"><a href="#14、预制体" class="headerlink" title="14、预制体"></a><strong>14、预制体</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;类型：cc.Prefab</span><br><span class="line">var node &#x3D; cc.instantiate(this.prefabNode);</span><br><span class="line">node.parent &#x3D; this.node</span><br></pre></td></tr></table></figure>
+
+<h3 id="15、音效音乐"><a href="#15、音效音乐" class="headerlink" title="15、音效音乐"></a><strong>15、音效音乐</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;类型：cc.AudioClip</span><br><span class="line">&#x2F;&#x2F;api链接：https:&#x2F;&#x2F;docs.cocos.com&#x2F;creator&#x2F;api&#x2F;zh&#x2F;classes&#x2F;audioEngine.html?h&#x3D;audioengine</span><br><span class="line">this.current &#x3D; cc.audioEngine.play(this.audio, false, 1);</span><br><span class="line">cc.audioEngine.stop(this.current);</span><br></pre></td></tr></table></figure>
+
+<h3 id="16、切换场景"><a href="#16、切换场景" class="headerlink" title="16、切换场景"></a><strong>16、切换场景</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cc.director.loadScene(&quot;MyScene&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="17、骨骼动画"><a href="#17、骨骼动画" class="headerlink" title="17、骨骼动画"></a><strong>17、骨骼动画</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;api链接：https:&#x2F;&#x2F;docs.cocos.com&#x2F;creator&#x2F;api&#x2F;zh&#x2F;classes&#x2F;Skeleton.html#loop</span><br><span class="line">&#x2F;&#x2F;类型：sp.Skeleton</span><br><span class="line">this.ske_anim.clearTracks()&#x2F;&#x2F;清空所有播放管道动画</span><br><span class="line">this.ske_anim.clearTrack(0)&#x2F;&#x2F;清空指定索引管道动画</span><br><span class="line">this.ske_anim.setAnimation(0,&#39;animation_1&#39;,false)&#x2F;&#x2F;清空管道动画，播放animation_1动画</span><br><span class="line">this.ske_anim.addAnimation(0,&#39;animation_1&#39;,false)&#x2F;&#x2F;将animation_1动画添加到管道里，依次播放</span><br></pre></td></tr></table></figure>
+
+<h3 id="18、粒子系统"><a href="#18、粒子系统" class="headerlink" title="18、粒子系统"></a><strong>18、粒子系统</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;类型：cc.ParticleSystem</span><br><span class="line">this.particle.stopSystem();&#x2F;&#x2F;停止播放</span><br><span class="line">this.particle.resetSystem();&#x2F;&#x2F;重新启用</span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hardy-j.github.io/2020/Note/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CocosCreator/" rel="tag">CocosCreator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag">游戏</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/Lazyloading/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            JS实现图片懒加载
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/life/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">《人生第一次》观后感</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '4lMN6RHpvnUqd3kEHEgbqAFC-gzGzoHsz',
+        app_key: 'xVy7gCm3aO6aXtxMJwhoWTsw',
+        path: window.location.pathname,
+        notify: 'true',
+        verify: 'true',
+        avatar: 'robohash',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2019-2020
+        <i class="ri-heart-fill heart_icon"></i> A_Hui
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="A·Hui"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E5%88%86%E4%BA%AB/">分享</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://hui-starshine.lofter.com/" target="_blank" rel="noopener">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['Welcome', '面朝大海，春暖花开', '愿你一生努力，一生被爱'],
+      startDelay: 100,
+      typeSpeed: 300,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=1338575117&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+  </div>
+</body>
+
+</html>

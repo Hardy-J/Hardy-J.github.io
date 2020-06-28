@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>A·Hui</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://hardy-j.github.io/"/>
+  <updated>2020-06-13T13:54:38.586Z</updated>
+  <id>https://hardy-j.github.io/</id>
+  
+  <author>
+    <name>A_Hui</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>随笔</title>
+    <link href="https://hardy-j.github.io/2020/Essay/"/>
+    <id>https://hardy-j.github.io/2020/Essay/</id>
+    <published>2020-05-27T11:45:32.000Z</published>
+    <updated>2020-06-13T13:54:38.586Z</updated>
+    
+    <summary type="html">
+    
+      此文章需输入密码查看.
+    
+    </summary>
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/categories/article/"/>
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/tags/article/"/>
+    
+      <category term="随笔" scheme="https://Hardy-J.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS实现图片懒加载</title>
+    <link href="https://hardy-j.github.io/2020/Lazyloading/"/>
+    <id>https://hardy-j.github.io/2020/Lazyloading/</id>
+    <published>2020-04-05T08:32:10.000Z</published>
+    <updated>2020-06-28T07:33:00.105Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;懒加载的意义&quot;&gt;&lt;a href=&quot;#懒加载的意义&quot; class=&quot;headerlink&quot; title=&quot;懒加载的意义&quot;&gt;&lt;/a&gt;懒加载的意义&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;懒加载的主要目的是作为服务器前端的优化，减少请求数或延迟请求数，对服务器缓压。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CocosCreator(3)</title>
+    <link href="https://hardy-j.github.io/2020/Note/"/>
+    <id>https://hardy-j.github.io/2020/Note/</id>
+    <published>2020-03-13T10:24:23.000Z</published>
+    <updated>2020-06-28T07:16:04.701Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;CocosCreator常用方法&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="游戏" scheme="https://Hardy-J.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="CocosCreator" scheme="https://Hardy-J.github.io/tags/CocosCreator/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《人生第一次》观后感</title>
+    <link href="https://hardy-j.github.io/2020/life/"/>
+    <id>https://hardy-j.github.io/2020/life/</id>
+    <published>2020-03-08T05:19:32.000Z</published>
+    <updated>2020-06-13T13:54:58.657Z</updated>
+    
+    <summary type="html">
+    
+      此文章需输入密码查看.
+    
+    </summary>
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/categories/article/"/>
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/tags/article/"/>
+    
+      <category term="观后感" scheme="https://Hardy-J.github.io/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>云开发部署静态网站</title>
+    <link href="https://hardy-j.github.io/2020/Cloud/"/>
+    <id>https://hardy-j.github.io/2020/Cloud/</id>
+    <published>2020-02-29T06:24:23.000Z</published>
+    <updated>2020-04-20T11:36:52.255Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 之前有运用 Hexo 建立静态博客系统 ，  除了在 Github Pages 部署以外，现在尝试了一个新的选择，那就是使用云开发静态网站功能来部署！ &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="云开发" scheme="https://Hardy-J.github.io/tags/%E4%BA%91%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="部署" scheme="https://Hardy-J.github.io/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>疫情数据可视化</title>
+    <link href="https://hardy-j.github.io/2020/Feiyan/"/>
+    <id>https://hardy-j.github.io/2020/Feiyan/</id>
+    <published>2020-02-21T08:29:30.000Z</published>
+    <updated>2020-05-26T15:44:09.407Z</updated>
+    
+    <summary type="html">
+    
+      &lt;div id=&quot;echarts1924&quot; style=&quot;width: 95%;height: 400px;margin: 0 auto&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById(&#39;echarts1924&#39;));
+        // 指定图表的配置项和数据
+        var option = {
+    title: {
+        text: &quot;全国疫情变化趋势&quot;,
+        subtext: &quot;&quot;,
+        subtextStyle: {
+            align: &quot;center&quot;,
+            baseline: &quot;middle&quot;,
+            fontSize: 11
+        }
+    },
+    tooltip: {
+        trigger: &quot;axis&quot;
+    },
+    legend: {
+        data: [&quot;累计确诊&quot;, &quot;治愈&quot;, &quot;死亡&quot;]
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            mark: {
+                show: true
+            },
+            dataView: {
+                show: true,
+                readOnly: true
+            },
+            magicType: {
+                show: false,
+                type: [&quot;line&quot;, &quot;bar&quot;]
+            },
+            restore: {
+                show: true
+            },
+            saveAsImage: {
+                show: true
+            }
+        }
+    },
+    calculable: true,
+    xAxis: [
+        {
+            type: &quot;category&quot;,
+            boundaryGap: false,
+            data: [&quot;01-24&quot;, &quot;01-25&quot;, &quot;01-26&quot;, &quot;01-27&quot;, &quot;01-28&quot;, &quot;01-29&quot;, &quot;01-30&quot;, &quot;01-31&quot;, &quot;02-01&quot;, &quot;02-02&quot;, &quot;02-03&quot;, &quot;02-04&quot;, &quot;02-05&quot;, &quot;02-06&quot;, &quot;02-07&quot;, &quot;02-08&quot;, &quot;02-09&quot;, &quot;02-10&quot;, &quot;02-11&quot;, &quot;02-12&quot;, &quot;02-13&quot;, &quot;02-14&quot;, &quot;02-15&quot;, &quot;02-16&quot;, &quot;02-17&quot;, &quot;02-18&quot;, &quot;02-19&quot;, &quot;02-20&quot;, &quot;02-21&quot;, &quot;02-22&quot;],
+            name: &quot;日期&quot;
+        }
+    ],
+    yAxis: [
+        {
+            type: &quot;value&quot;,
+            name: &quot;人数&quot;,
+            nameLocation: &quot;end&quot;,
+            nameTextStyle: {
+                align: &quot;right&quot;,
+                baseline: &quot;middle&quot;
+            },
+            position: &quot;left&quot;
+        }
+    ],
+    series: [
+        {
+            name: &quot;累计确诊&quot;,
+            type: &quot;line&quot;,
+            data: [1287, 1975, 2744, 4515, 5974, 7736, 9720, 11821, 14411, 17238, 20471, 24363, 28060, 31211, 34598, 37251, 40235, 42708, 44730, 59882, 63932, 66576, 68584, 70635, 72528, 74279, 74675, 75993, 76392, 76846]
+        },
+        {
+            name: &quot;治愈&quot;,
+            type: &quot;line&quot;,
+            data: [38, 49, 51, 60, 103, 124, 171, 243, 328, 475, 632, 892, 1153, 1542, 2052, 2651, 3283, 3998, 4742, 5915, 6728, 8101, 9425, 10853, 12561, 14387, 16168, 18266, 20673, 22907]
+        },
+        {
+            type: &quot;line&quot;,
+            name: &quot;死亡&quot;,
+            data: [41, 56, 80, 106, 132, 170, 213, 259, 304, 361, 425, 491, 564, 637, 723, 812, 909, 1017, 1114, 1368, 1381, 1524, 1666, 1772, 1870, 2006, 2121, 2239, 2348, 2445]
+        }
+    ],
+    backgroundColor: &quot;rgba(0, 0, 0, 0)&quot;,
+    color: [&quot;#ff7f50&quot;, &quot;rgb(83, 153, 193)&quot;, &quot;#da70d6&quot;, &quot;#32cd32&quot;, &quot;#6495ed&quot;, &quot;#ff69b4&quot;, &quot;#ba55d3&quot;, &quot;#cd5c5c&quot;, &quot;#ffa500&quot;, &quot;#40e0d0&quot;, &quot;#1e90ff&quot;, &quot;#ff6347&quot;, &quot;#7b68ee&quot;, &quot;#00fa9a&quot;, &quot;#ffd700&quot;, &quot;#6699FF&quot;, &quot;#ff6666&quot;, &quot;#3cb371&quot;, &quot;#b8860b&quot;, &quot;#30e0e0&quot;],
+    animationEasing: &quot;SinusoidalIn&quot;,
+    grid: {
+        borderWidth: 0
+    }
+}
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+&lt;/script&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="数据可视化" scheme="https://Hardy-J.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+      <category term="学习" scheme="https://Hardy-J.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx</title>
+    <link href="https://hardy-j.github.io/2020/Nginx/"/>
+    <id>https://hardy-j.github.io/2020/Nginx/</id>
+    <published>2020-01-05T06:24:23.000Z</published>
+    <updated>2020-06-13T13:53:27.834Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Nginx&quot;&gt;&lt;a href=&quot;#Nginx&quot; class=&quot;headerlink&quot; title=&quot;Nginx&quot;&gt;&lt;/a&gt;Nginx&lt;/h1&gt;&lt;p&gt;Nginx是一款轻量级高性能的Web服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Nginx" scheme="https://Hardy-J.github.io/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mpvue</title>
+    <link href="https://hardy-j.github.io/2019/mpvue/"/>
+    <id>https://hardy-j.github.io/2019/mpvue/</id>
+    <published>2019-12-07T03:56:01.000Z</published>
+    <updated>2020-04-23T07:18:22.330Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;mpvue&quot;&gt;&lt;a href=&quot;#mpvue&quot; class=&quot;headerlink&quot; title=&quot;mpvue&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://mpvue.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;mpvue&lt;/a&gt;&lt;/h1&gt;&lt;p&gt; 一个使用 &lt;a href=&quot;https://vuejs.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vue.js&lt;/a&gt; 开发小程序的前端框架。框架基于 &lt;code&gt;Vue.js&lt;/code&gt; 核心，&lt;code&gt;mpvue&lt;/code&gt; 修改了 &lt;code&gt;Vue.js&lt;/code&gt; 的 runtime 和 compiler 实现，使其可以运行在小程序环境中，从而为小程序开发引入了整套 &lt;code&gt;Vue.js&lt;/code&gt; 开发体验。 &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="学习" scheme="https://Hardy-J.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="mpvue" scheme="https://Hardy-J.github.io/tags/mpvue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序</title>
+    <link href="https://hardy-j.github.io/2019/miniapp/"/>
+    <id>https://hardy-j.github.io/2019/miniapp/</id>
+    <published>2019-10-19T14:14:33.000Z</published>
+    <updated>2020-04-29T15:12:29.660Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;小程序知识的一些总结&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="学习" scheme="https://Hardy-J.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="小程序" scheme="https://Hardy-J.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CocosCreator(2)</title>
+    <link href="https://hardy-j.github.io/2019/Cocos2/"/>
+    <id>https://hardy-j.github.io/2019/Cocos2/</id>
+    <published>2019-10-07T12:24:23.000Z</published>
+    <updated>2020-06-28T07:17:14.574Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;CocosCreator(2)&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="游戏" scheme="https://Hardy-J.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="CocosCreator" scheme="https://Hardy-J.github.io/tags/CocosCreator/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CocosCreator(1)</title>
+    <link href="https://hardy-j.github.io/2019/Cocos/"/>
+    <id>https://hardy-j.github.io/2019/Cocos/</id>
+    <published>2019-10-02T12:24:23.000Z</published>
+    <updated>2020-06-28T07:17:23.157Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Cocos Creator 是以内容创作为核心，实现了脚本化、组件化和数据驱动的游戏开发工具。 具备了易于上手的内容生产工作流，以及功能强大的开发者工具套件，可用于实现游戏逻辑和高性能游戏效果。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="游戏" scheme="https://Hardy-J.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="CocosCreator" scheme="https://Hardy-J.github.io/tags/CocosCreator/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搜索的小窍门</title>
+    <link href="https://hardy-j.github.io/2019/Search/"/>
+    <id>https://hardy-j.github.io/2019/Search/</id>
+    <published>2019-09-22T12:34:18.000Z</published>
+    <updated>2020-05-21T05:24:45.218Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  以前搜索从来只会有用百度，如果找不到就一直从第一页翻下去…最后还是没找到，更别说找到有价值的内容了。我们正处在一个高速发展的互联网大数据时代，得数据者得天下，如何善用大数据成为了一门学问，&lt;strong&gt;善用搜索和强化搜索意识可以减少信息不对称，有助于我们解决问题和多维度思考问题。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="小知识" scheme="https://Hardy-J.github.io/categories/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="学习" scheme="https://Hardy-J.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="技能" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="分享" scheme="https://Hardy-J.github.io/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue中Axios的封装与使用</title>
+    <link href="https://hardy-j.github.io/2019/Axios/"/>
+    <id>https://hardy-j.github.io/2019/Axios/</id>
+    <published>2019-09-16T14:42:10.000Z</published>
+    <updated>2020-06-28T07:53:42.200Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Axios是什么，为什么要统一封装？&quot;&gt;&lt;a href=&quot;#Axios是什么，为什么要统一封装？&quot; class=&quot;headerlink&quot; title=&quot;Axios是什么，为什么要统一封装？&quot;&gt;&lt;/a&gt;Axios是什么，为什么要统一封装？&lt;/h2&gt;&lt;p&gt;axios 是一个基于 promise 的 http 库，可运行在浏览器端和 node.js 中。他有很多优秀的特性，例如统一进行拦截请求和响应、取消请求、转换 json 、客户端防御 XSRF 等。所以在日常开发中可以直接推荐我们使用 axios 库。如果还对 axios 不了解的，可以移步 &lt;a href=&quot;http://www.axios-js.com/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;axios文档&lt;/a&gt;。回归正题，我们所要的说的 axios 的封装和 api 接口的统一管理，其实主要目的就是在帮助我们简化代码和利于后期的更新维护。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Vue" scheme="https://Hardy-J.github.io/tags/Vue/"/>
+    
+      <category term="axios" scheme="https://Hardy-J.github.io/tags/axios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《游戏改变世界》读后感</title>
+    <link href="https://hardy-j.github.io/2019/Game/"/>
+    <id>https://hardy-j.github.io/2019/Game/</id>
+    <published>2019-09-14T12:24:23.000Z</published>
+    <updated>2020-04-22T05:08:52.555Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  游戏化如何让现实变得更美好 ， 现实世界存在太多不足和缺陷 ， 游戏化可以让现实变得更美好。 —— 这是此书作者主要观点&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/categories/article/"/>
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/tags/article/"/>
+    
+      <category term="读后感" scheme="https://Hardy-J.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue获取url上的参数</title>
+    <link href="https://hardy-j.github.io/2019/Vue-url/"/>
+    <id>https://hardy-j.github.io/2019/Vue-url/</id>
+    <published>2019-09-12T09:32:10.000Z</published>
+    <updated>2020-06-28T08:30:31.844Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经常在项目中需要获取 url 上参数进行使用，所以今天记录一下这个工具类 💜&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Vue" scheme="https://Hardy-J.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue 日期格式化</title>
+    <link href="https://hardy-j.github.io/2019/time/"/>
+    <id>https://hardy-j.github.io/2019/time/</id>
+    <published>2019-09-10T12:42:10.000Z</published>
+    <updated>2020-06-28T07:48:40.122Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在Vue中使用日期格式化&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Vue" scheme="https://Hardy-J.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blog</title>
+    <link href="https://hardy-j.github.io/2019/Blog/"/>
+    <id>https://hardy-j.github.io/2019/Blog/</id>
+    <published>2019-09-07T06:24:23.000Z</published>
+    <updated>2020-04-22T04:02:29.536Z</updated>
+    
+    <summary type="html">
+    
+      此文章需输入密码查看.
+    
+    </summary>
+    
+    
+    
+      <category term="article" scheme="https://Hardy-J.github.io/tags/article/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本地存储sessionStorage与localStorage</title>
+    <link href="https://hardy-j.github.io/2019/storage/"/>
+    <id>https://hardy-j.github.io/2019/storage/</id>
+    <published>2019-09-01T13:32:10.000Z</published>
+    <updated>2020-06-28T08:23:05.406Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;sessionStorage与localStorage&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于</title>
+    <link href="https://hardy-j.github.io/2019/Docs/"/>
+    <id>https://hardy-j.github.io/2019/Docs/</id>
+    <published>2019-08-31T06:24:23.000Z</published>
+    <updated>2020-05-26T16:26:23.956Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 align=&quot;center&quot;&gt;说明&lt;/h1&gt;
+
+
+
+&lt;hr&gt;
+&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt; 利用了快速，简单且功能强大的博客框架  &lt;a href=&quot;https://hexo.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;  搭建&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://Hardy-J.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+</feed>
